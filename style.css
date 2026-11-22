@@ -2104,9 +2104,9 @@ h1, h2, h3, h4 {
   width: 240px;
   height: 290px;
   border-radius: 20px;
-  background-color: var(--color-hero-bg);
-  box-shadow: var(--shadow-lg);
-  border: 2px dashed rgba(56, 216, 216, 0.5);
+  background-color: var(--color-night-blue);
+  box-shadow: 0 16px 36px rgba(17, 24, 39, 0.16), 0 0 24px rgba(56, 216, 216, 0.25);
+  border: 2px solid var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2114,32 +2114,12 @@ h1, h2, h3, h4 {
   overflow: hidden;
 }
 
-.founder-photo-placeholder {
+.founder-img {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  position: relative;
-}
-
-.founder-svg {
-  width: 155px;
-  height: 180px;
-}
-
-.photo-replace-hint {
-  position: absolute;
-  top: 14px;
-  background-color: var(--color-night-blue);
-  color: var(--color-white);
-  font-size: 0.6875rem;
-  font-weight: var(--font-weight-bold);
-  padding: 4px 12px;
-  border-radius: var(--radius-pill);
-  text-transform: uppercase;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .founder-content {
