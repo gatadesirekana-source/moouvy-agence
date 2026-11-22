@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moouvy agence | L'accélérateur digital de votre croissance</title>
+  
+  <!-- SEO & Métadonnées -->
+  <meta name="description" content="Moouvy agence accompagne les entrepreneurs et PME au Tchad et en Afrique francophone à acquérir plus de clients grâce au digital : création web, marketing en ligne, formation et analyse de données Power BI.">
+  <meta name="keywords" content="agence marketing digital Tchad, Moouvy agence, Gata Kana Désiré, création site web N'Djamena, publicité en ligne Tchad, formation marketing digital Afrique, Power BI Tchad">
+  <meta name="author" content="Gata Kana Désiré - Moouvy agence">
+  <meta name="theme-color" content="#7000FF">
+
+  <!-- Open Graph / Réseaux Sociaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Moouvy agence | Transformez votre visibilité en clients">
+  <meta property="og:description" content="Agence de marketing digital pour entrepreneurs et PME en Afrique francophone. Plus de 100 entrepreneurs accompagnés avec succès.">
+  <meta property="og:image" content="images/og-moouvy-agence.jpg">
+  <meta property="og:url" content="https://moouvyagence.com">
+
+  <!-- Favicon (SVG inline propre) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%237000FF'/><path d='M25 70V30L50 52L75 30V70' stroke='white' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+
+  <!-- Polices Google : Poppins (300, 400, 500, 600, 700, 800) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Données structurées Schema.org pour le SEO local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Moouvy agence",
+    "founder": {
+      "@type": "Person",
+      "name": "Gata Kana Désiré",
+      "jobTitle": "Économiste et Entrepreneur Digital"
+    },
+    "email": "moouvyagence@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "N'Djaména",
+      "addressCountry": "TD"
+    },
+    "description": "Agence de marketing digital et d'accélération commerciale pour PME et entrepreneurs en Afrique francophone.",
+    "slogan": "L'impact digital qui accélère votre croissance."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ================================================================= -->
+  <!-- 1. BANDEAU D'ANNONCE (Dégradé doux, tout en haut)                 -->
+  <!-- ================================================================= -->
+  <aside class="announcement-bar" id="announcement-bar" aria-label="Annonce spéciale">
+    <div class="container announcement-content">
+      <span class="badge-new">NOUVEAU</span>
+      <p class="announcement-text">
+        Audit digital complet 100% offert pour les 10 premiers clients du mois.
+      </p>
+      <a href="questionnaire.html?type=audit" class="announcement-link" aria-label="Profiter de l'audit digital offert">
+        <span>En profiter</span>
+        <svg class="icon-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ================================================================= -->
+  <!-- 2. NAVIGATION (Fixe en haut avec charte officielle)              -->
+  <!-- ================================================================= -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <!-- Logo officiel selon charte Moouvy Agence -->
+      <a href="#" class="brand-logo" aria-label="Accueil Moouvy agence">
+        <span class="logo-pill">MOOUVY</span>
+        <span class="logo-text-after">AGENCE</span>
+      </a>
+
+      <!-- Menu centré desktop -->
+      <nav class="main-navigation" id="main-navigation" aria-label="Menu principal">
+        <ul class="nav-links">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#realisations" class="nav-link">Réalisations</a></li>
+          <li><a href="#formation" class="nav-link">Formation</a></li>
+          <li><a href="#equipe" class="nav-link">Équipe</a></li>
+          <li><a href="#a-propos" class="nav-link">À propos</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action droite desktop : mène au questionnaire interactif -->
+      <div class="header-action">
+        <a href="questionnaire.html?type=growth" class="btn btn-pill btn-header">
+          JE VEUX DES CLIENTS
+        </a>
+      </div>
+
+      <!-- Bouton burger mobile -->
+      <button class="burger-menu-btn" id="burger-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-navigation">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
+    </div>
+
+    <!-- Tiroir navigation mobile -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <div class="mobile-drawer-inner">
+        <ul class="mobile-nav-links">
+          <li><a href="#services" class="mobile-link">Services</a></li>
+          <li><a href="#realisations" class="mobile-link">Réalisations</a></li>
+          <li><a href="#formation" class="mobile-link">Formation</a></li>
+          <li><a href="#equipe" class="mobile-link">Équipe</a></li>
+          <li><a href="#a-propos" class="mobile-link">À propos</a></li>
+          <li><a href="#faq" class="mobile-link">FAQ</a></li>
+          <li><a href="#contact" class="mobile-link">Contact</a></li>
+        </ul>
+        <div class="mobile-drawer-cta">
+          <a href="questionnaire.html?type=growth" class="btn btn-pill btn-block mobile-drawer-btn">
+            JE VEUX DES CLIENTS
+          </a>
+          <a href="#whatsapp-link" class="btn-whatsapp-outline js-whatsapp-link" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
+            </svg>
+            <span>Discuter sur WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =============================================================== -->
+    <!-- 3. HERO (Fond gris clair #EFEFEF)                               -->
+    <!-- =============================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        
+        <!-- Centre du Hero : Questions animées tournantes, Sous-titre, CTA -->
+        <div class="hero-content">
+          <h1 class="hero-title" aria-live="polite">
+            <span class="hero-rotator-wrapper">
+              <span class="hero-rotator-text" id="hero-rotator-text">VOULEZ-VOUS FAIRE GRANDIR VOTRE ENTREPRISE ?</span>
+            </span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Une équipe digitale qui a déjà aidé plus de <strong>100 entrepreneurs</strong> à lancer, structurer et développer leur activité avec des résultats mesurables.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="questionnaire.html?type=growth" class="btn btn-pill btn-large btn-hero">
+              JE SUIS PRÊT À GRANDIR
+            </a>
+            <a href="questionnaire.html?type=audit" class="btn-subtle">
+              <span>Demander un audit offert</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 4. CHIFFRES CLÉS & ACCOMPAGNEMENTS (Slider interactif)          -->
+    <!-- =============================================================== -->
+    <section class="section-stats" id="chiffres-cles">
+      <div class="container">
+        
+        <!-- Conteneur avec bascule de gauche à droite -->
+        <div class="stats-slider-wrapper">
+          <!-- Bouton de bascule gauche -->
+          <button class="stats-nav-btn stats-nav-prev" id="stats-prev-btn" aria-label="Accompagnement précédent" title="Faire défiler vers la gauche">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- Piste de défilement des accompagnements -->
+          <div class="stats-slider-container" id="stats-slider-container">
+            <div class="stats-grid stats-slider-track" id="stats-slider-track">
+              
+              <!-- Stat 1 -->
+              <div class="stat-card" data-count="100" data-suffix="+">
+                <div class="stat-accent-bar"></div>
+                <div class="stat-body">
+                  <div class="stat-number">
+                    <span class="counter-value">0</span><span class="stat-suffix">+</span>
+                  </div>
+                  <p class="stat-label">Entrepreneurs formés et accompagnés</p>
+                </div>
+              </div>
+
+              <!-- Stat 2 -->
+              <div class="stat-card" data-count="30000" data-suffix="+">
+                <div class="stat-accent-bar"></div>
+                <div class="stat-body">
+                  <div class="stat-number">
+                    <span class="counter-value">0</span><span class="stat-suffix">+</span>
+                  </div>
+                  <p class="stat-label">Abonnés engagés sur YouTube</p>
+                </div>
+              </div>
+
+              <!-- Stat 3 -->
+              <div class="stat-card" data-count="700000" data-suffix="+">
+                <div class="stat-accent-bar"></div>
+                <div class="stat-body">
+                  <div class="stat-number">
+                    <span class="counter-value">0</span><span class="stat-suffix">+</span>
+                  </div>
+                  <p class="stat-label">Vues cumulées sur nos contenus</p>
+                </div>
+              </div>
+
+              <!-- Stat 4 -->
+              <div class="stat-card" data-count="5" data-suffix="">
+                <div class="stat-accent-bar"></div>
+                <div class="stat-body">
+                  <div class="stat-number">
+                    <span class="counter-value">0</span><span class="stat-suffix"></span>
+                  </div>
+                  <p class="stat-label">Experts passionnés dans l'équipe</p>
+                </div>
+              </div>
+
+              <!-- Stat 5 : Expérience & Croissance -->
+              <div class="stat-card" data-count="240" data-suffix="%">
+                <div class="stat-accent-bar"></div>
+                <div class="stat-body">
+                  <div class="stat-number">
+                    <span class="counter-value">0</span><span class="stat-suffix">%</span>
+                  </div>
+                  <p class="stat-label">Croissance moyenne du chiffre d'affaires</p>
+                </div>
+              </div>
+
+              <!-- Stat 6 : Accompagnements rentables -->
+              <div class="stat-card" data-count="100" data-suffix="%">
+                <div class="stat-accent-bar"></div>
+                <div class="stat-body">
+                  <div class="stat-number">
+                    <span class="counter-value">0</span><span class="stat-suffix">%</span>
+                  </div>
+                  <p class="stat-label">Solutions concrètes orientées rentabilité</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bouton de bascule droite -->
+          <button class="stats-nav-btn stats-nav-next" id="stats-next-btn" aria-label="Accompagnement suivant" title="Faire défiler vers la droite">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Indicateurs interactifs de bascule -->
+        <div class="stats-slider-dots" id="stats-slider-dots" aria-label="Indicateurs des accompagnements"></div>
+
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 5. SERVICES (3 cartes stratégiques)                             -->
+    <!-- =============================================================== -->
+    <section class="section-services" id="services">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2 class="section-title">DES SOLUTIONS CONÇUES POUR GÉNÉRER DU REVENU</h2>
+          <p class="section-description">
+            Nous ne faisons pas du digital pour la forme : nous bâtissons des moteurs d'acquisition de clients et de monétisation pérenne.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Service 1 -->
+          <article class="service-card">
+            <div class="service-card-top">
+              <span class="service-badge">Web & Technologie</span>
+              <div class="service-icon-wrapper">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+            </div>
+            <h3 class="service-title">Création de site web et plateformes SaaS</h3>
+            <p class="service-text">
+              Sites vitrines ultra-rapides, boutiques e-commerce optimisées pour l'Afrique et applications web sur mesure qui convertissent vos visiteurs en acheteurs.
+            </p>
+            <ul class="service-features">
+              <li>Design responsive & mobile-first</li>
+              <li>Intégration WhatsApp & paiements locaux</li>
+              <li>Optimisation SEO pour être trouvé en premier</li>
+            </ul>
+            <div class="service-card-bottom">
+              <a href="#contact" class="btn btn-pill btn-service">Discuter de ce service</a>
+            </div>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card">
+            <div class="service-card-top">
+              <span class="service-badge">Acquisition & Ventes</span>
+              <div class="service-icon-wrapper">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
+                  <path d="M17 6h6v6"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="service-title">Marketing digital et publicité en ligne</h3>
+            <p class="service-text">
+              Campagnes publicitaires rentables sur Facebook, Instagram, Google et TikTok pour inonder votre messagerie WhatsApp de clients prêts à payer.
+            </p>
+            <ul class="service-features">
+              <li>Ciblage ultra-précis par pays/ville</li>
+              <li>Création de visuels & copies publicitaires percutantes</li>
+              <li>Optimisation continue du coût par prospect</li>
+            </ul>
+            <div class="service-card-bottom">
+              <a href="#contact" class="btn btn-pill btn-service">Discuter de ce service</a>
+            </div>
+          </article>
+
+          <!-- Service 3 : Formation (Étiquette spéciale) -->
+          <article class="service-card service-card-featured" id="formation">
+            <div class="service-card-top">
+              <span class="service-badge badge-formation">Formation</span>
+              <div class="service-icon-wrapper">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="service-title">Formation et accompagnement d'entrepreneurs</h3>
+            <p class="service-text">
+              Programmes pratiques individuels et collectifs pour maîtriser la vente en ligne, le community management orienté conversion et le lancement de business.
+            </p>
+            <ul class="service-features">
+              <li>Plus de 100 entrepreneurs déjà certifiés</li>
+              <li>Méthode concrète basée sur le marché africain</li>
+              <li>Coaching direct avec Gata Kana Désiré</li>
+            </ul>
+            <div class="service-card-bottom">
+              <a href="#contact" class="btn btn-pill btn-service">Rejoindre la formation</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 6. RÉALISATIONS (Grille de 6 projets avec résultats)             -->
+    <!-- =============================================================== -->
+    <section class="section-portfolio" id="realisations">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2 class="section-title">NOS RÉALISATIONS QUI PARLENT D'ELLES-MÊMES</h2>
+          <p class="section-description">
+            Découvrez comment nous aidons concrètement nos clients à franchir des paliers majeurs de croissance commerciale.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          
+          <!-- Projet 1 -->
+          <article class="portfolio-card">
+            <div class="portfolio-thumb">
+              <div class="portfolio-mockup mockup-ecommerce">
+                <div class="mockup-header-bar">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-badge">+240% VENTES</div>
+                  <div class="mockup-wireframe-lines">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+              <span class="portfolio-tag">E-Commerce & Retail</span>
+            </div>
+            <div class="portfolio-body">
+              <span class="portfolio-client">Sahel Luxe Distribution</span>
+              <h3 class="portfolio-title">Boutique en ligne & tunnels de vente WhatsApp</h3>
+              <p class="portfolio-desc">
+                Mise en place d'un catalogue digital connecté directement à WhatsApp avec tunnels publicitaires ciblés sur N'Djaména.
+              </p>
+              <div class="portfolio-result">
+                <span class="result-number">+240%</span>
+                <span class="result-label">de chiffre d'affaires en 90 jours</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projet 2 -->
+          <article class="portfolio-card">
+            <div class="portfolio-thumb">
+              <div class="portfolio-mockup mockup-medical">
+                <div class="mockup-header-bar">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-badge">180 PATIENTS/MOIS</div>
+                  <div class="mockup-wireframe-lines">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+              <span class="portfolio-tag">Santé & Médical</span>
+            </div>
+            <div class="portfolio-body">
+              <span class="portfolio-client">Polyclinique Al-Afia</span>
+              <h3 class="portfolio-title">Plateforme web & acquisition de patientèle</h3>
+              <p class="portfolio-desc">
+                Site institutionnel rassurant avec système de prise de rendez-vous en ligne et visibilité locale Google Maps.
+              </p>
+              <div class="portfolio-result">
+                <span class="result-number">+180</span>
+                <span class="result-label">nouveaux patients qualifiés chaque mois</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projet 3 -->
+          <article class="portfolio-card">
+            <div class="portfolio-thumb">
+              <div class="portfolio-mockup mockup-agro">
+                <div class="mockup-header-bar">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-badge">EXPORT B2B</div>
+                  <div class="mockup-wireframe-lines">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+              <span class="portfolio-tag">Agro-industrie & Export</span>
+            </div>
+            <div class="portfolio-body">
+              <span class="portfolio-client">AgroBio Tchad Export</span>
+              <h3 class="portfolio-title">Refonte de marque & prospection B2B internationale</h3>
+              <p class="portfolio-desc">
+                Déploiement d'une identité visuelle premium et génération de leads B2B auprès d'acheteurs d'Europe et du Golfe.
+              </p>
+              <div class="portfolio-result">
+                <span class="result-number">12 Contrats</span>
+                <span class="result-label">d'exportation signés en 6 mois</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projet 4 -->
+          <article class="portfolio-card">
+            <div class="portfolio-thumb">
+              <div class="portfolio-mockup mockup-edu">
+                <div class="mockup-header-bar">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-badge">+350 ÉTUDIANTS</div>
+                  <div class="mockup-wireframe-lines">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+              <span class="portfolio-tag">Éducation & Formation</span>
+            </div>
+            <div class="portfolio-body">
+              <span class="portfolio-client">Institut Supérieur des Métiers d'Avenir</span>
+              <h3 class="portfolio-title">Campagne digitale d'inscriptions annuelles</h3>
+              <p class="portfolio-desc">
+                Campagnes Facebook Ads et vidéos éducatives ciblées sur les bacheliers et professionnels en reconversion.
+              </p>
+              <div class="portfolio-result">
+                <span class="result-number">+350</span>
+                <span class="result-label">inscriptions enregistrées en 4 semaines</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projet 5 -->
+          <article class="portfolio-card">
+            <div class="portfolio-thumb">
+              <div class="portfolio-mockup mockup-bi">
+                <div class="mockup-header-bar">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-badge">POWER BI DASHBOARD</div>
+                  <div class="mockup-wireframe-lines">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+              <span class="portfolio-tag">Business Intelligence</span>
+            </div>
+            <div class="portfolio-body">
+              <span class="portfolio-client">Transit & Fret Express Tchad</span>
+              <h3 class="portfolio-title">Tableau de bord de rentabilité & logistique</h3>
+              <p class="portfolio-desc">
+                Centralisation des données financières et opérationnelles sous Power BI avec alertes de marges en temps réel.
+              </p>
+              <div class="portfolio-result">
+                <span class="result-number">15h/semaine</span>
+                <span class="result-label">économisées sur le reporting financier</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projet 6 -->
+          <article class="portfolio-card">
+            <div class="portfolio-thumb">
+              <div class="portfolio-mockup mockup-cosmetic">
+                <div class="mockup-header-bar">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-badge">SOLD OUT EN 21J</div>
+                  <div class="mockup-wireframe-lines">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+              <span class="portfolio-tag">Cosmétique & Beauté</span>
+            </div>
+            <div class="portfolio-body">
+              <span class="portfolio-client">Karité Pur Afrique</span>
+              <h3 class="portfolio-title">Lancement de produit & stratégie d'influence</h3>
+              <p class="portfolio-desc">
+                Stratégie de pré-lancement sur TikTok et WhatsApp avec un storytelling valorisant les matières premières locales.
+              </p>
+              <div class="portfolio-result">
+                <span class="result-number">Rupture</span>
+                <span class="result-label">du stock initial de 1 200 unités en 21 jours</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 8. TÉMOIGNAGES (Slider automatique & interactif de 8 clients)    -->
+    <!-- =============================================================== -->
+    <section class="section-testimonials" id="temoignages">
+      <div class="container">
+        <!-- En-tête sans le surtitre et espacement resserré -->
+        <div class="section-heading text-center section-heading-tight">
+          <h2 class="section-title">ILS ONT FAIT CONFIANCE À MOOUVY AGENCE</h2>
+          <p class="section-description">
+            Retours d'expérience concrets d'entrepreneurs et de dirigeants propulsés vers le succès commercial.
+          </p>
+        </div>
+
+        <!-- Slider carrousel automatique & contrôles manuels -->
+        <div class="testimonials-slider-wrapper">
+          
+          <!-- Flèche Gauche -->
+          <button class="testimonials-nav-btn testimonials-nav-prev" id="testimonials-prev-btn" aria-label="Témoignage précédent" title="Précédent">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- Conteneur défilant avec voiles latéraux -->
+          <div class="testimonials-slider-container" id="testimonials-slider-container">
+            <div class="testimonials-fade-overlay testimonials-fade-left" id="testimonials-fade-left" aria-hidden="true"></div>
+            <div class="testimonials-fade-overlay testimonials-fade-right" id="testimonials-fade-right" aria-hidden="true"></div>
+
+            <div class="testimonials-slider-track" id="testimonials-slider-track" role="region" aria-label="Avis et témoignages clients">
+              
+              <!-- Témoignage 1 -->
+              <blockquote class="testimonial-card" data-index="0">
+                <div class="testimonial-stars" aria-label="Note de 5 étoiles sur 5">★★★★★</div>
+                <p class="testimonial-text">
+                  « Avant notre rencontre avec Moouvy agence, notre page Facebook ne nous rapportait quasiment aucune vente. En 2 mois de restructuration publicitaire, nous avons triplé nos commandes WhatsApp régulières. Désiré a une vraie compréhension économique de notre marché. »
+                </p>
+                <footer class="testimonial-author">
+                  <div class="author-avatar-wrapper">
+                    <div class="author-avatar placeholder-avatar-1"><span>MS</span></div>
+                  </div>
+                  <div class="author-details">
+                    <cite class="author-name">Mahamat Saleh</cite>
+                    <span class="author-role">Directeur Général, Sahel Luxe</span>
+                    <span class="author-location">N'Djaména, Tchad</span>
+                  </div>
+                </footer>
+              </blockquote>
+
+              <!-- Témoignage 2 -->
+              <blockquote class="testimonial-card testimonial-card-highlight" data-index="1">
+                <div class="testimonial-stars" aria-label="Note de 5 étoiles sur 5">★★★★★</div>
+                <p class="testimonial-text">
+                  « J'ai suivi le programme d'accompagnement de Gata Kana Désiré pour structurer mon cabinet de conseil. C'est du concret pur, sans jargon inutile. Chaque franc investi a été rentabilisé dès le premier mois après le déploiement de notre stratégie d'acquisition B2B. »
+                </p>
+                <footer class="testimonial-author">
+                  <div class="author-avatar-wrapper">
+                    <div class="author-avatar placeholder-avatar-2"><span>AK</span></div>
+                  </div>
+                  <div class="author-details">
+                    <cite class="author-name">Dr. Amina Koulamallah</cite>
+                    <span class="author-role">Fondatrice de Cabinet & Consultante</span>
+                    <span class="author-location">N'Djaména, Tchad</span>
+                  </div>
+                </footer>
+              </blockquote>
+
+              <!-- Témoignage 3 -->
+              <blockquote class="testimonial-card" data-index="2">
+                <div class="testimonial-stars" aria-label="Note de 5 étoiles sur 5">★★★★★</div>
+                <p class="testimonial-text">
+                  « Le tableau de bord Power BI conçu par l'équipe a révolutionné notre gestion de stocks et nos prévisions de trésorerie. Nous savons désormais exactement quel produit nous rapporte le plus et où investir notre budget marketing. Une équipe rigoureuse et disponible. »
+                </p>
+                <footer class="testimonial-author">
+                  <div class="author-avatar-wrapper">
+                    <div class="author-avatar placeholder-avatar-3"><span>IN</span></div>
+                  </div>
+                  <div class="author-details">
+                    <cite class="author-name">Idriss Ndouba</cite>
+                    <span class="author-role">Responsable Logistique & Opérations</span>
+                    <span class="author-location">Moundou, Tchad</span>
+                  </div>
+                </footer>
+              </blockquote>
+
+              <!-- Témoignage 4 -->
+              <blockquote class="testimonial-card" data-index="3">
+                <div class="testimonial-stars" aria-label="Note de 5 étoiles sur 5">★★★★★</div>
+                <p class="testimonial-text">
+                  « Moouvy agence a complètement repensé nos tunnels d'acquisition Meta Ads. En moins de 45 jours, notre coût par prospect a chuté de 60% tout en doublant le taux de signature. Leur approche orientée rentabilité pure fait toute la différence. »
+                </p>
+                <footer class="testimonial-author">
+                  <div class="author-avatar-wrapper">
+                    <div class="author-avatar placeholder-avatar-4"><span>SD</span></div>
+                  </div>
+                  <div class="author-details">
+                    <cite class="author-name">Salimata Diallo</cite>
+                    <span class="author-role">CEO & Fondatrice, BioCosmétiques Afrique</span>
+                    <span class="author-location">Abidjan, Côte d'Ivoire</span>
+                  </div>
+                </footer>
+              </blockquote>
+
+              <!-- Témoignage 5 -->
+              <blockquote class="testimonial-card testimonial-card-highlight" data-index="4">
+                <div class="testimonial-stars" aria-label="Note de 5 étoiles sur 5">★★★★★</div>
+                <p class="testimonial-text">
+                  « L'audit digital offert nous a ouvert les yeux sur les fuites de notre tunnel de vente. L'équipe a ensuite mis en place un système d'acquisition automatisé qui nous génère des rendez-vous qualifiés chaque semaine sur WhatsApp. Un investissement indispensable. »
+                </p>
+                <footer class="testimonial-author">
+                  <div class="author-avatar-wrapper">
+                    <div class="author-avatar placeholder-avatar-5"><span>CK</span></div>
+                  </div>
+                  <div class="author-details">
+                    <cite class="author-name">Christian K.</cite>
+                    <span class="author-role">Directeur Associé, Agrotech Solutions</span>
+                    <span class="author-location">Yaoundé, Cameroun</span>
+                  </div>
+                </footer>
+              </blockquote>
+
+              <!-- Témoignage 6 -->
+              <blockquote class="testimonial-card" data-index="5">
+                <div class="testimonial-stars" aria-label="Note de 5 étoiles sur 5">★★★★★</div>
+                <p class="testimonial-text">
+                  « Pour lancer nos formations certifiantes, nous avions besoin d'une vraie machine de vente. La page de capture et la stratégie de contenu conçues par Moouvy agence nous ont permis de remplir notre première promotion de 80 apprenants en seulement 3 semaines. »
+                </p>
+                <footer class="testimonial-author">
+                  <div class="author-avatar-wrapper">
+                    <div class="author-avatar placeholder-avatar-6"><span>FT</span></div>
+                  </div>
+                  <div class="author-details">
+                    <cite class="author-name">Fatou Traoré</cite>
+                    <span class="author-role">Directrice Pédagogique, FormaPro Afrique</span>
+                    <span class="author-location">Dakar, Sénégal</span>
+                  </div>
+                </footer>
+              </blockquote>
+
+              <!-- Témoignage 7 -->
+              <blockquote class="testimonial-card" data-index="6">
+                <div class="testimonial-stars" aria-label="Note de 5 étoiles sur 5">★★★★★</div>
+                <p class="testimonial-text">
+                  « Le nouveau site web développé par Moouvy agence reflète enfin le standing de nos programmes immobiliers. Les clients de la diaspora nous contactent désormais en direct en toute confiance. Réactivité et professionnalisme irréprochables. »
+                </p>
+                <footer class="testimonial-author">
+                  <div class="author-avatar-wrapper">
+                    <div class="author-avatar placeholder-avatar-7"><span>EN</span></div>
+                  </div>
+                  <div class="author-details">
+                    <cite class="author-name">Éric N'Guessan</cite>
+                    <span class="author-role">Directeur Commercial, Horizon Immobilier</span>
+                    <span class="author-location">Lomé, Togo</span>
+                  </div>
+                </footer>
+              </blockquote>
+
+              <!-- Témoignage 8 -->
+              <blockquote class="testimonial-card" data-index="7">
+                <div class="testimonial-stars" aria-label="Note de 5 étoiles sur 5">★★★★★</div>
+                <p class="testimonial-text">
+                  « Grâce à l'optimisation de notre catalogue et au ciblage publicitaire chirurgical mis en place par Désiré et son équipe, notre boutique en ligne tourne à plein régime. Nous avons multiplié par 4 nos expéditions mensuelles. Merci infiniment ! »
+                </p>
+                <footer class="testimonial-author">
+                  <div class="author-avatar-wrapper">
+                    <div class="author-avatar placeholder-avatar-8"><span>RO</span></div>
+                  </div>
+                  <div class="author-details">
+                    <cite class="author-name">Rachida Oumar</cite>
+                    <span class="author-role">Créatrice & Gérante, Sahel Couture</span>
+                    <span class="author-location">N'Djaména, Tchad</span>
+                  </div>
+                </footer>
+              </blockquote>
+
+            </div>
+          </div>
+
+          <!-- Flèche Droite -->
+          <button class="testimonials-nav-btn testimonials-nav-next" id="testimonials-next-btn" aria-label="Témoignage suivant" title="Suivant">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+        </div>
+
+        <!-- Indicateurs de pagination du slider témoignages -->
+        <div class="testimonials-slider-dots" id="testimonials-slider-dots" aria-label="Pagination des témoignages">
+          <!-- Générés dynamiquement par JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 9. NOTRE ÉQUIPE (Slider / Carrousel interactif des membres)     -->
+    <!-- =============================================================== -->
+    <section class="section-team" id="equipe">
+      <div class="container">
+        
+        <!-- En-tête de section centré (espacement resserré) -->
+        <div class="section-heading text-center section-heading-tight">
+          <h2 class="section-title">NOTRE ÉQUIPE D'EXPERTS</h2>
+          <p class="section-description">
+            Une synergie de compétences pointues réunies pour propulser votre entreprise vers des résultats concrets et mesurables.
+          </p>
+        </div>
+
+        <!-- Carrousel avec flèches latérales gauche et droite -->
+        <div class="team-carousel-outer">
+          
+          <!-- Flèche Gauche latérale -->
+          <button class="team-nav-btn team-nav-prev" id="team-prev-btn" aria-label="Profil précédent" title="Profil précédent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- Conteneur défilant du slider de l'équipe (avec effets de dégradé gauche et droite) -->
+          <div class="team-slider-container" id="team-slider-container">
+            <!-- Voiles de dégradé indiquant les cartes cachées à gauche et à droite -->
+            <div class="team-fade-overlay team-fade-left" id="team-fade-left" aria-hidden="true"></div>
+            <div class="team-fade-overlay team-fade-right" id="team-fade-right" aria-hidden="true"></div>
+
+            <div class="team-slider-track" id="team-slider-track" role="region" aria-label="Membres de l'équipe de Moouvy agence">
+
+              <!-- ============================================================= -->
+              <!-- PROFIL 1 : GATA KANA DÉSIRÉ (CEO & Fondateur)                  -->
+              <!-- Nom et informations AU-DESSUS du cadre, photo pleine au fond   -->
+              <!-- ============================================================= -->
+              <article class="team-card" data-index="0" aria-label="Profil de Gata Kana Désiré">
+                <div class="team-card-header">
+                  <div class="team-tag-row">
+                    <span class="team-tag tag-leader">Direction</span>
+                  </div>
+                  <h3 class="team-name">Gata Kana Désiré</h3>
+                  <p class="team-role">CEO & Fondateur</p>
+                  <span class="team-specialty">Stratégie & Croissance Digitale</span>
+                </div>
+                <!-- Cadre pleine largeur pour afficher toute l'image du profil -->
+                <div class="team-photo-frame avatar-team-1">
+                  <!-- Pour insérer une photo réelle : <img src="images/gata-kana-desire.jpg" alt="Gata Kana Désiré" class="team-full-photo"> -->
+                  <div class="team-full-silhouette">
+                    <svg viewBox="0 0 160 210" fill="none" class="team-silhouette-svg" aria-hidden="true">
+                      <circle cx="80" cy="55" r="34" fill="#38D8D8" fill-opacity="0.9"/>
+                      <path d="M18 195 C18 128, 46 112, 80 112 C114 112, 142 128, 142 195 Z" fill="#38D8D8" fill-opacity="0.9"/>
+                    </svg>
+                    <span class="team-silhouette-badge">GD</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- ============================================================= -->
+              <!-- PROFIL 2 : MOUSSA MAHAMAT (Directeur Technique)                -->
+              <!-- ============================================================= -->
+              <article class="team-card" data-index="1" aria-label="Profil de Moussa Mahamat">
+                <div class="team-card-header">
+                  <div class="team-tag-row">
+                    <span class="team-tag">Tech & Web</span>
+                  </div>
+                  <h3 class="team-name">Moussa Mahamat</h3>
+                  <p class="team-role">Directeur Technique</p>
+                  <span class="team-specialty">Développement Web & Plateformes SaaS</span>
+                </div>
+                <div class="team-photo-frame avatar-team-2">
+                  <!-- Pour insérer une photo réelle : <img src="images/moussa-mahamat.jpg" alt="Moussa Mahamat" class="team-full-photo"> -->
+                  <div class="team-full-silhouette">
+                    <svg viewBox="0 0 160 210" fill="none" class="team-silhouette-svg" aria-hidden="true">
+                      <circle cx="80" cy="55" r="34" fill="#141827" fill-opacity="0.9"/>
+                      <path d="M18 195 C18 128, 46 112, 80 112 C114 112, 142 128, 142 195 Z" fill="#141827" fill-opacity="0.9"/>
+                    </svg>
+                    <span class="team-silhouette-badge">MM</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- ============================================================= -->
+              <!-- PROFIL 3 : SARAH NGARBATNA (Responsable Acquisition)           -->
+              <!-- ============================================================= -->
+              <article class="team-card" data-index="2" aria-label="Profil de Sarah Ngarbatna">
+                <div class="team-card-header">
+                  <div class="team-tag-row">
+                    <span class="team-tag">Marketing</span>
+                  </div>
+                  <h3 class="team-name">Sarah Ngarbatna</h3>
+                  <p class="team-role">Responsable Acquisition</p>
+                  <span class="team-specialty">Campagnes Ads Meta, Google & TikTok</span>
+                </div>
+                <div class="team-photo-frame avatar-team-3">
+                  <!-- Pour insérer une photo réelle : <img src="images/sarah-ngarbatna.jpg" alt="Sarah Ngarbatna" class="team-full-photo"> -->
+                  <div class="team-full-silhouette">
+                    <svg viewBox="0 0 160 210" fill="none" class="team-silhouette-svg" aria-hidden="true">
+                      <circle cx="80" cy="55" r="34" fill="#38D8D8" fill-opacity="0.8"/>
+                      <path d="M18 195 C18 128, 46 112, 80 112 C114 112, 142 128, 142 195 Z" fill="#38D8D8" fill-opacity="0.8"/>
+                    </svg>
+                    <span class="team-silhouette-badge">SN</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- ============================================================= -->
+              <!-- PROFIL 4 : YOUSSOUF ABAKAR (Monteur Vidéo Senior)              -->
+              <!-- ============================================================= -->
+              <article class="team-card" data-index="3" aria-label="Profil de Youssouf Abakar">
+                <div class="team-card-header">
+                  <div class="team-tag-row">
+                    <span class="team-tag">Média & Vidéo</span>
+                  </div>
+                  <h3 class="team-name">Youssouf Abakar</h3>
+                  <p class="team-role">Monteur Vidéo Senior</p>
+                  <span class="team-specialty">Motion Design & Formats YouTube / Shorts</span>
+                </div>
+                <div class="team-photo-frame avatar-team-4">
+                  <!-- Pour insérer une photo réelle : <img src="images/youssouf-abakar.jpg" alt="Youssouf Abakar" class="team-full-photo"> -->
+                  <div class="team-full-silhouette">
+                    <svg viewBox="0 0 160 210" fill="none" class="team-silhouette-svg" aria-hidden="true">
+                      <circle cx="80" cy="55" r="34" fill="#2C3E50" fill-opacity="0.9"/>
+                      <path d="M18 195 C18 128, 46 112, 80 112 C114 112, 142 128, 142 195 Z" fill="#2C3E50" fill-opacity="0.9"/>
+                    </svg>
+                    <span class="team-silhouette-badge">YA</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- ============================================================= -->
+              <!-- PROFIL 5 : AMINA HASSAN (Community Manager)                    -->
+              <!-- ============================================================= -->
+              <article class="team-card" data-index="4" aria-label="Profil d'Amina Hassan">
+                <div class="team-card-header">
+                  <div class="team-tag-row">
+                    <span class="team-tag">Acquisition</span>
+                  </div>
+                  <h3 class="team-name">Amina Hassan</h3>
+                  <p class="team-role">Community Manager</p>
+                  <span class="team-specialty">Engagement Social & Tunnels WhatsApp</span>
+                </div>
+                <div class="team-photo-frame avatar-team-5">
+                  <!-- Pour insérer une photo réelle : <img src="images/amina-hassan.jpg" alt="Amina Hassan" class="team-full-photo"> -->
+                  <div class="team-full-silhouette">
+                    <svg viewBox="0 0 160 210" fill="none" class="team-silhouette-svg" aria-hidden="true">
+                      <circle cx="80" cy="55" r="34" fill="#1E2A4A" fill-opacity="0.9"/>
+                      <path d="M18 195 C18 128, 46 112, 80 112 C114 112, 142 128, 142 195 Z" fill="#1E2A4A" fill-opacity="0.9"/>
+                    </svg>
+                    <span class="team-silhouette-badge">AH</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- ============================================================= -->
+              <!-- PROFIL 6 : BRAHIM OUMAR (Directeur Artistique)                 -->
+              <!-- ============================================================= -->
+              <article class="team-card" data-index="5" aria-label="Profil de Brahim Oumar">
+                <div class="team-card-header">
+                  <div class="team-tag-row">
+                    <span class="team-tag">Design & Image</span>
+                  </div>
+                  <h3 class="team-name">Brahim Oumar</h3>
+                  <p class="team-role">Directeur Artistique</p>
+                  <span class="team-specialty">Identités Visuelles & UI/UX Conversion</span>
+                </div>
+                <div class="team-photo-frame avatar-team-6">
+                  <!-- Pour insérer une photo réelle : <img src="images/brahim-oumar.jpg" alt="Brahim Oumar" class="team-full-photo"> -->
+                  <div class="team-full-silhouette">
+                    <svg viewBox="0 0 160 210" fill="none" class="team-silhouette-svg" aria-hidden="true">
+                      <circle cx="80" cy="55" r="34" fill="#0A7E8C" fill-opacity="0.9"/>
+                      <path d="M18 195 C18 128, 46 112, 80 112 C114 112, 142 128, 142 195 Z" fill="#0A7E8C" fill-opacity="0.9"/>
+                    </svg>
+                    <span class="team-silhouette-badge">BO</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- ============================================================= -->
+              <!-- PROFIL 7 : FATIMA ZARA (Assistante de Direction)               -->
+              <!-- ============================================================= -->
+              <article class="team-card" data-index="6" aria-label="Profil de Fatima Zara">
+                <div class="team-card-header">
+                  <div class="team-tag-row">
+                    <span class="team-tag">Coordination</span>
+                  </div>
+                  <h3 class="team-name">Fatima Zara</h3>
+                  <p class="team-role">Assistante de Direction</p>
+                  <span class="team-specialty">Coordination Projets & Relation Client</span>
+                </div>
+                <div class="team-photo-frame avatar-team-7">
+                  <!-- Pour insérer une photo réelle : <img src="images/fatima-zara.jpg" alt="Fatima Zara" class="team-full-photo"> -->
+                  <div class="team-full-silhouette">
+                    <svg viewBox="0 0 160 210" fill="none" class="team-silhouette-svg" aria-hidden="true">
+                      <circle cx="80" cy="55" r="34" fill="#1C2E3D" fill-opacity="0.9"/>
+                      <path d="M18 195 C18 128, 46 112, 80 112 C114 112, 142 128, 142 195 Z" fill="#1C2E3D" fill-opacity="0.9"/>
+                    </svg>
+                    <span class="team-silhouette-badge">FZ</span>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+            <!-- ============================================================= -->
+            <!-- POUR AJOUTER UN NOUVEAU MEMBRE :                              -->
+            <!-- Dupliquez simplement un bloc <article class="team-card">...</article> -->
+            <!-- Le slider s'adaptera automatiquement à tout nombre de cartes.  -->
+            <!-- ============================================================= -->
+
+        </div>
+
+        <!-- Indicateurs de pagination (points / dots) -->
+        <div class="team-slider-dots" id="team-slider-dots" aria-label="Pagination du slider équipe">
+          <!-- Générés dynamiquement par JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 10. FAQ (Accordéon interactif)                                  -->
+    <!-- =============================================================== -->
+    <section class="section-faq" id="faq">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2 class="section-title">QUESTIONS FRÉQUEMMENT POSÉES</h2>
+          <p class="section-description">
+            Toutes les réponses pour démarrer votre collaboration en toute confiance et clarté.
+          </p>
+        </div>
+
+        <div class="faq-accordion-container" id="faq-accordion">
+          
+          <!-- Question 1 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-1" id="faq-btn-1">
+              <span class="faq-title-text">Pour qui est faite Moouvy agence ?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1">
+              <div class="faq-answer-inner">
+                <p>
+                  Notre agence s'adresse aux <strong>entrepreneurs, créateurs d'entreprise, commerçants, professions libérales, startups et PME en Afrique et à l'international</strong> qui veulent dépasser le bouche-à-oreille et acquérir un flux constant de clients payants grâce au numérique. Que vous débutiez ou ayez déjà une activité établie, nous adaptons la stratégie à vos objectifs de rentabilité.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-2" id="faq-btn-2">
+              <span class="faq-title-text">Quels sont les délais d'exécution de vos projets ?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2">
+              <div class="faq-answer-inner">
+                <p>
+                  Les délais dépendent de la typologie du projet :
+                </p>
+                <ul>
+                  <li><strong>Audit digital express :</strong> livré sous 24 à 48 heures.</li>
+                  <li><strong>Campagnes publicitaires (Meta, Google, TikTok) :</strong> lancement sous 3 à 5 jours ouvrés.</li>
+                  <li><strong>Création de site web ou plateforme :</strong> entre 7 et 21 jours selon la complexité et les fonctionnalités requises.</li>
+                  <li><strong>Tableaux de bord Power BI :</strong> entre 5 et 10 jours ouvrés.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-3" id="faq-btn-3">
+              <span class="faq-title-text">Comment se passe la collaboration avec votre équipe ?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3">
+              <div class="faq-answer-inner">
+                <p>
+                  Notre processus se déroule en 4 étapes simples et transparentes :
+                </p>
+                <ol>
+                  <li><strong>Diagnostic initial :</strong> échange direct (WhatsApp ou appel) pour analyser votre modèle économique et vos besoins.</li>
+                  <li><strong>Plan d'action & Devis clair :</strong> nous vous remettons une proposition détaillée sans coûts cachés.</li>
+                  <li><strong>Exécution & validation :</strong> nous créons vos actifs digitaux en vous tenant informé étape par étape.</li>
+                  <li><strong>Suivi & Optimisation :</strong> rapports réguliers, points de situation et ajustements pour maximiser votre retour sur investissement.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 : Partenariats et collaboration -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-ans-4" id="faq-btn-4">
+              <span class="faq-title-text">Proposez-vous des partenariats et comment collaborer avec votre agence ?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4">
+              <div class="faq-answer-inner">
+                <p>
+                  Absolument ! Moouvy agence collabore activement avec des marques, créateurs de contenu, incubateurs, entreprises et partenaires technologiques partout en Afrique et à l'international :
+                </p>
+                <ul>
+                  <li><strong>Partenariats stratégiques & Co-branding :</strong> créer des synergies à forte valeur ajoutée pour nos communautés respectives.</li>
+                  <li><strong>Apporteurs d'affaires & Sous-traitance :</strong> déléguez-nous la réalisation technique ou l'acquisition de vos clients en marque blanche ou co-traitance.</li>
+                  <li><strong>Interventions, Conférences & Médias :</strong> collaboration sur des formats vidéo YouTube, webinaires ou masterclasses d'affaires.</li>
+                </ul>
+                <p>
+                  Pour initier un échange partenarial, écrivez-nous directement sur WhatsApp au <strong>+225 07 77 95 73 37</strong> ou par email à <strong>moouvyagence@gmail.com</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 10. À PROPOS DU FONDATEUR                                       -->
+    <!-- =============================================================== -->
+    <section class="section-founder" id="a-propos">
+      <div class="container">
+        <div class="founder-card">
+          
+          <!-- Colonne Visuelle Fondateur (alignée proprement en haut) -->
+          <div class="founder-visual founder-visual-top">
+            <div class="founder-photo-frame">
+              <!-- Espace réservé propre facilement remplaçable par vraie photo -->
+              <!-- Pour insérer la vraie photo : <img src="images/gata-kana-desire.jpg" alt="Gata Kana Désiré" class="founder-img"> -->
+              <div class="founder-photo-placeholder">
+                <svg viewBox="0 0 160 190" fill="none" class="founder-svg" aria-hidden="true">
+                  <circle cx="80" cy="55" r="36" fill="#141827" fill-opacity="0.12"/>
+                  <path d="M25 180 C25 125, 50 112, 80 112 C110 112, 135 125, 135 180 Z" fill="#141827" fill-opacity="0.12"/>
+                  <circle cx="80" cy="55" r="30" fill="#38D8D8" fill-opacity="0.8"/>
+                  <path d="M33 180 C33 130, 54 120, 80 120 C106 120, 127 130, 127 180 Z" fill="#38D8D8" fill-opacity="0.8"/>
+                </svg>
+                <div class="photo-replace-hint">
+                  <span>Photo Fondateur</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Colonne Contenu Fondateur -->
+          <div class="founder-content">
+            <h2 class="founder-name">GATA KANA DÉSIRÉ</h2>
+            <p class="founder-title">
+              Économiste monétariste & Entrepreneur digital
+            </p>
+
+            <div class="founder-bio">
+              <p>
+                Titulaire d'une <strong>maîtrise en économie et gestion, option économie monétaire et bancaire</strong>, Gata Kana Désiré allie la rigueur de l'analyse économique à la puissance des leviers du marketing digital moderne.
+              </p>
+              <p>
+                Entrepreneur sur le terrain et créateur d'une chaîne YouTube fédérant plus de <strong>30 000 abonnés</strong> avec plus de <strong>700 000 vues cumulées</strong>, il décrypte les dynamiques de l'entrepreneuriat, de la création de richesse et de la monétisation en ligne en Afrique et dans le monde.
+              </p>
+              <p>
+                À travers Moouvy agence, il a déjà formé et coaché plus de <strong>100 entrepreneurs</strong> qui ont lancé leur boutique, développé leur clientèle ou structuré leur PME avec succès. Sa mission : démocratiser l'acquisition client par le digital pour faire émerger la nouvelle génération de leaders économiques.
+              </p>
+            </div>
+
+            <!-- Liens directs vers les réseaux sociaux du fondateur -->
+            <div class="founder-social-box">
+              <span class="founder-social-title">Suivre le fondateur sur les réseaux :</span>
+              <div class="founder-social-links">
+                <a href="https://www.youtube.com/@gatakanadesire" class="founder-social-btn btn-social-yt" target="_blank" rel="noopener noreferrer" aria-label="Chaîne YouTube de Gata Kana Désiré">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  <span>YouTube (+30K)</span>
+                </a>
+                <a href="https://www.linkedin.com/in/gata-kana-desire" class="founder-social-btn btn-social-li" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Gata Kana Désiré">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.778-.773 1.778-1.729V1.73C24 .774 23.205 0 22.225 0z"/>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://www.facebook.com/moouvyagence" class="founder-social-btn btn-social-fb" target="_blank" rel="noopener noreferrer" aria-label="Page Facebook Moouvy agence">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                  <span>Facebook</span>
+                </a>
+                <a href="https://www.tiktok.com/@gatakanadesire" class="founder-social-btn btn-social-tt" target="_blank" rel="noopener noreferrer" aria-label="Compte TikTok">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                  </svg>
+                  <span>TikTok</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 11. APPEL À L'ACTION FINAL (Fond dégradé élégant)               -->
+    <!-- =============================================================== -->
+    <section class="section-final-cta" id="contact">
+      <div class="container">
+        <div class="final-cta-content text-center">
+          <h2 class="final-cta-title">PRÊT À PASSER AU NIVEAU SUPÉRIEUR ?</h2>
+          <p class="final-cta-subtitle">
+            Ne laissez pas vos concurrents prendre toute la place en ligne. Discutons en direct de votre projet et construisons ensemble la stratégie qui attirera vos prochains clients.
+          </p>
+
+          <div class="final-cta-actions">
+            <!-- Bouton vers WhatsApp dynamique alimenté par JS -->
+            <a href="#whatsapp-action" class="btn btn-pill btn-large btn-final-whatsapp js-whatsapp-link" target="_blank" rel="noopener noreferrer">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
+              </svg>
+              <span>DISCUTER SUR WHATSAPP</span>
+            </a>
+
+            <!-- Bouton Email direct -->
+            <a href="mailto:moouvyagence@gmail.com" class="btn btn-pill btn-large btn-final-email js-email-link">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>ENVOYER UN EMAIL</span>
+            </a>
+          </div>
+
+          <div class="cta-direct-info">
+            <span>Direct WhatsApp & Appel : <strong class="js-whatsapp-display">+225 07 77 95 73 37</strong></span>
+            <span class="divider-dot">•</span>
+            <span>Email : <strong class="js-email-display">moouvyagence@gmail.com</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- 12. PIED DE PAGE                                                  -->
+  <!-- ================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <!-- Colonne 1 : À propos / Logo -->
+      <div class="footer-col footer-col-brand">
+        <a href="#" class="brand-logo footer-logo" aria-label="Moouvy agence accueil">
+          <span class="logo-pill">MOOUVY</span>
+          <span class="logo-text-after">AGENCE</span>
+        </a>
+        <p class="footer-tagline">
+          L'accélérateur digital de votre croissance. Nous transformons votre présence numérique en véritable machine à générer du chiffre d'affaires.
+        </p>
+        <div class="footer-socials">
+          <a href="https://www.youtube.com/@gatakanadesire" class="social-icon-btn js-social-youtube" target="_blank" rel="noopener noreferrer" aria-label="Chaîne YouTube de Moouvy agence">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/moouvyagence" class="social-icon-btn js-social-facebook" target="_blank" rel="noopener noreferrer" aria-label="Page Facebook Moouvy agence">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/gata-kana-desire" class="social-icon-btn js-social-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Page LinkedIn Moouvy agence">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.778-.773 1.778-1.729V1.73C24 .774 23.205 0 22.225 0z"/>
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@gatakanadesire" class="social-icon-btn js-social-tiktok" target="_blank" rel="noopener noreferrer" aria-label="Compte TikTok Moouvy agence">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Colonne 2 : Liens Rapides -->
+      <div class="footer-col">
+        <h3 class="footer-title">LIENS RAPIDES</h3>
+        <ul class="footer-nav">
+          <li><a href="#services">Nos Services</a></li>
+          <li><a href="#realisations">Nos Réalisations</a></li>
+          <li><a href="#formation">Formation Entrepreneurs</a></li>
+          <li><a href="#equipe">Notre Équipe</a></li>
+          <li><a href="#a-propos">À Propos du Fondateur</a></li>
+          <li><a href="#faq">Foire Aux Questions</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3 : Services -->
+      <div class="footer-col">
+        <h3 class="footer-title">EXPERTISES</h3>
+        <ul class="footer-nav">
+          <li><a href="#services">Sites Web & Plateformes SaaS</a></li>
+          <li><a href="#services">Campagnes Meta & Google Ads</a></li>
+          <li><a href="#services">Formation Entrepreneurs</a></li>
+          <li><a href="#contact">Consulting & Accompagnement</a></li>
+          <li><a href="questionnaire.html?type=audit">Demander un Audit</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 4 : Coordonnées -->
+      <div class="footer-col">
+        <h3 class="footer-title">CONTACT & LOCALISATION</h3>
+        <ul class="footer-contact-list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <a href="mailto:moouvyagence@gmail.com" class="js-email-display">moouvyagence@gmail.com</a>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <a href="#whatsapp-link" class="js-whatsapp-link" target="_blank" rel="noopener noreferrer">
+              <span class="js-whatsapp-display">+225 07 77 95 73 37</span>
+            </a>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span>Service International & En Ligne</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Barre inférieure du Footer -->
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="copyright-text">
+          © 2026 Moouvy agence. Tous droits réservés.
+        </p>
+        <div class="footer-legal-links">
+          <a href="mentions-legales.html">Mentions Légales</a>
+          <span class="separator">|</span>
+          <a href="mentions-legales.html#confidentialite">Politique de Confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- 13. BOUTON FLOTTANT WHATSAPP (Bas à droite)                      -->
+  <!-- ================================================================= -->
+  <aside class="floating-whatsapp-container">
+    <a href="#whatsapp-contact" class="floating-whatsapp-btn js-whatsapp-link" target="_blank" rel="noopener noreferrer" aria-label="Discuter directement sur WhatsApp avec Moouvy agence">
+      <div class="whatsapp-pulse"></div>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
+      </svg>
+      <span class="floating-tooltip">Un projet ? Écrivez-nous</span>
+    </a>
+  </aside>
+
+  <!-- ================================================================= -->
+  <!-- MODAL MENTIONS LÉGALES & CONFIDENTIALITÉ                         -->
+  <!-- ================================================================= -->
+  <div class="modal-backdrop" id="legal-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Mentions Légales & Confidentialité</h3>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Fermer la fenêtre">✕</button>
+      </div>
+      <div class="modal-body">
+        <h4>1. Éditeur du site</h4>
+        <p>Le site vitrine <strong>Moouvy agence</strong> est édité par Gata Kana Désiré, entrepreneur digital et économiste monétariste basé à N'Djaména, République du Tchad.</p>
+        <p>Contact : <a href="mailto:moouvyagence@gmail.com">moouvyagence@gmail.com</a></p>
+
+        <h4>2. Activité & Services</h4>
+        <p>Moouvy agence propose des services de conseil en marketing digital, création de sites et plateformes internet, formation professionnelle pour entrepreneurs et conception de tableaux de bord décisionnels Power BI.</p>
+
+        <h4>3. Protection des données personnelles</h4>
+        <p>Les informations transmises via le formulaire d'audit ou par messagerie (nom, numéro WhatsApp, secteur d'activité) sont strictement réservées au traitement de votre demande de diagnostic. Elles ne font l'objet d'aucune vente ou cession à des tiers.</p>
+
+        <h4>4. Propriété intellectuelle</h4>
+        <p>L'ensemble des contenus, marques, logos et visuels présents sur ce site sont la propriété exclusive de Moouvy agence et de Gata Kana Désiré.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast pour formulaire -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite">
+    <div class="toast-icon">✓</div>
+    <div class="toast-message" id="toast-message">Message envoyé avec succès !</div>
+  </div>
+
+  <!-- Script JS Vanilla -->
+  <script src="script.js"></script>
+</body>
+</html>

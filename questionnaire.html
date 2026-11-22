@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostic Digital & Qualification de Projet | Moouvy agence</title>
+  <meta name="description" content="Répondez à quelques questions en 2 minutes pour recevoir une recommandation stratégique et un plan d'action sur mesure de Moouvy agence.">
+  <meta name="robots" content="noindex, follow">
+  
+  <!-- Favicon SVG aux couleurs officielles -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2338D8D8'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='16' fill='%23111827'%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- Google Fonts : Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styles spécifiques pour le questionnaire */
+    body {
+      background-color: #F8FAFC;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quiz-page-header {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 60%, #F1F5F9 100%);
+      border-bottom: 1px solid var(--color-border);
+      padding: 16px 0;
+    }
+
+    .quiz-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quiz-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-night-blue);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      background-color: rgba(17, 24, 39, 0.05);
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+
+    .quiz-back-link:hover {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary-dark);
+      transform: translateX(-2px);
+    }
+
+    .quiz-main-container {
+      flex-grow: 1;
+      padding: 40px 20px 60px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .quiz-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card-lg);
+      box-shadow: 0 12px 36px rgba(17, 24, 39, 0.08);
+      width: 100%;
+      max-width: 680px;
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      .quiz-card {
+        padding: 28px 20px;
+      }
+    }
+
+    /* Sélecteur de type de questionnaire (Tabs) */
+    .quiz-mode-switcher {
+      display: flex;
+      background-color: #F1F5F9;
+      border-radius: var(--radius-pill);
+      padding: 4px;
+      margin-bottom: 28px;
+      gap: 4px;
+    }
+
+    .quiz-mode-btn {
+      flex: 1;
+      padding: 10px 16px;
+      font-size: 0.8125rem;
+      font-weight: var(--font-weight-bold);
+      border-radius: var(--radius-pill);
+      border: none;
+      background: transparent;
+      color: #64748B;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+    }
+
+    .quiz-mode-btn.active {
+      background-color: #FFFFFF;
+      color: var(--color-night-blue);
+      box-shadow: 0 2px 8px rgba(17, 24, 39, 0.1);
+      border: 1px solid rgba(56, 216, 216, 0.4);
+    }
+
+    /* Barre de progression */
+    .quiz-progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background-color: #E2E8F0;
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .quiz-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38D8D8 0%, #0D9488 100%);
+      width: 25%;
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .quiz-step-count {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: var(--font-weight-extrabold);
+      letter-spacing: 0.08em;
+      color: var(--color-primary-dark);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .quiz-step-title {
+      font-size: 1.45rem;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--color-night-blue);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .quiz-step-subtitle {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      margin-bottom: 28px;
+    }
+
+    /* Options de sélection */
+    .quiz-options-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .quiz-option-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border-radius: 14px;
+      border: 2px solid #E2E8F0;
+      background-color: #FFFFFF;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: var(--font-weight-medium);
+      color: var(--color-night-blue);
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .quiz-option-label:hover {
+      border-color: #38D8D8;
+      background-color: rgba(56, 216, 216, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .quiz-option-label.is-selected {
+      border-color: #38D8D8;
+      background-color: rgba(56, 216, 216, 0.12);
+      color: #0F172A;
+      font-weight: var(--font-weight-bold);
+      box-shadow: 0 4px 14px rgba(56, 216, 216, 0.2);
+    }
+
+    .quiz-option-radio {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #CBD5E1;
+      border-radius: 50%;
+      outline: none;
+      margin: 0;
+      flex-shrink: 0;
+      display: grid;
+      place-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-option-radio::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: 0.2s transform ease-in-out;
+      background-color: var(--color-primary-dark);
+    }
+
+    .quiz-option-radio:checked {
+      border-color: var(--color-primary-dark);
+    }
+
+    .quiz-option-radio:checked::before {
+      transform: scale(1);
+    }
+
+    /* Champs de saisie */
+    .quiz-form-group {
+      margin-bottom: 20px;
+    }
+
+    .quiz-form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-night-blue);
+      margin-bottom: 8px;
+    }
+
+    .quiz-input, .quiz-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid #CBD5E1;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--color-night-blue);
+      background-color: #FFFFFF;
+      transition: all var(--transition-fast);
+      outline: none;
+    }
+
+    .quiz-input:focus, .quiz-textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(56, 216, 216, 0.25);
+    }
+
+    .quiz-textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* Boutons de navigation */
+    .quiz-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #F1F5F9;
+    }
+
+    .btn-quiz-prev {
+      padding: 12px 20px;
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-muted);
+      border-radius: var(--radius-pill);
+      background-color: #F1F5F9;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-quiz-prev:hover {
+      background-color: #E2E8F0;
+      color: var(--color-night-blue);
+    }
+
+    .btn-quiz-next, .btn-quiz-submit {
+      padding: 14px 28px;
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-extrabold);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #111827;
+      background-color: #38D8D8;
+      border-radius: var(--radius-pill);
+      border: none;
+      box-shadow: 0 6px 18px rgba(56, 216, 216, 0.35);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-quiz-next:hover, .btn-quiz-submit:hover {
+      background-color: #22C5C5;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(56, 216, 216, 0.45);
+    }
+
+    .btn-quiz-submit {
+      background-color: #25D366;
+      color: #FFFFFF;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-quiz-submit:hover {
+      background-color: #1EBE5D;
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.45);
+    }
+
+    /* Écran de succès */
+    .quiz-success-step {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .success-icon-badge {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background-color: #DCFCE7;
+      color: #16A34A;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .success-actions-box {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-whatsapp-success {
+      background-color: #25D366;
+      color: #FFFFFF;
+      padding: 16px 32px;
+      border-radius: var(--radius-pill);
+      font-weight: var(--font-weight-extrabold);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      transition: all 0.25s ease;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    .btn-whatsapp-success:hover {
+      background-color: #1EBE5D;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- En-tête du questionnaire avec logo officiel -->
+  <header class="quiz-page-header">
+    <div class="container quiz-header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Retour à l'accueil Moouvy agence">
+        <span class="logo-pill">MOOUVY</span>
+        <span class="logo-text-after">AGENCE</span>
+      </a>
+
+      <a href="index.html" class="quiz-back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span>Retour au site</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Conteneur principal du questionnaire -->
+  <main class="quiz-main-container">
+    <div class="quiz-card" id="quiz-card">
+      
+      <!-- Sélecteur de mode : Je suis prêt à grandir VS Demander un audit offert -->
+      <div class="quiz-mode-switcher" role="tablist">
+        <button type="button" class="quiz-mode-btn active" id="btn-mode-growth" onclick="switchMode('growth')">
+          🚀 Je suis prêt à grandir
+        </button>
+        <button type="button" class="quiz-mode-btn" id="btn-mode-audit" onclick="switchMode('audit')">
+          🔍 Demander un audit offert
+        </button>
+      </div>
+
+      <!-- Barre de progression visuelle -->
+      <div class="quiz-progress-bar-container" aria-label="Progression du questionnaire">
+        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+      </div>
+
+      <form id="project-quiz-form" onsubmit="return false;">
+        
+        <!-- ============================================================= -->
+        <!-- FLUX 1 : "JE SUIS PRÊT À GRANDIR" (3 points + Coordonnées)    -->
+        <!-- ============================================================= -->
+        <div class="quiz-flow" id="flow-growth">
+          
+          <!-- Étape 1 : Concernant le business -->
+          <div class="quiz-step active" id="growth-step-1">
+            <span class="quiz-step-count">Étape 1 sur 4</span>
+            <h1 class="quiz-step-title">Concernant votre business : quel est votre type d'activité ?</h1>
+            <p class="quiz-step-subtitle">Sélectionnez la nature de votre modèle économique :</p>
+
+            <div class="quiz-options-group">
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-business" value="Prestation de services, Conseil & B2B" class="quiz-option-radio" checked>
+                <span>Prestation de services, Conseil & B2B (Consulting, agence, libéral)</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-business" value="Vente de produits physiques & E-commerce" class="quiz-option-radio">
+                <span>Vente de produits physiques & E-commerce (Boutique, cosmétiques, tech)</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-business" value="Formation, Coaching & Infopreneuriat" class="quiz-option-radio">
+                <span>Formation, Coaching & Infopreneuriat (Cours, programmes en ligne)</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-business" value="Commerce local & Établissement physique" class="quiz-option-radio">
+                <span>Commerce local & Établissement physique (Restaurant, magasin, showroom)</span>
+              </label>
+            </div>
+
+            <div class="quiz-actions" style="justify-content: flex-end;">
+              <button type="button" class="btn-quiz-next" onclick="goToStep('growth', 2)">
+                <span>Continuer</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Étape 2 : Défi de croissance -->
+          <div class="quiz-step" id="growth-step-2" style="display: none;">
+            <span class="quiz-step-count">Étape 2 sur 4</span>
+            <h2 class="quiz-step-title">Quel est votre défi prioritaire pour grandir ?</h2>
+            <p class="quiz-step-subtitle">Où devez-vous débloquer de la croissance en priorité :</p>
+
+            <div class="quiz-options-group">
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-challenge" value="Générer un flux régulier de nouveaux clients payants" class="quiz-option-radio" checked>
+                <span>Générer un flux régulier de nouveaux clients payants</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-challenge" value="Augmenter mon chiffre d'affaires & la valeur moyenne par client" class="quiz-option-radio">
+                <span>Augmenter mon chiffre d'affaires & la valeur moyenne par client</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-challenge" value="Structurer une équipe & automatiser l'acquisition pour gagner du temps" class="quiz-option-radio">
+                <span>Structurer une équipe & automatiser l'acquisition pour gagner du temps</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-challenge" value="Bâtir une image de marque leader et reconnue sur mon marché" class="quiz-option-radio">
+                <span>Bâtir une image de marque leader et reconnue sur mon marché</span>
+              </label>
+            </div>
+
+            <div class="quiz-actions">
+              <button type="button" class="btn-quiz-prev" onclick="goToStep('growth', 1)">Précédent</button>
+              <button type="button" class="btn-quiz-next" onclick="goToStep('growth', 3)">
+                <span>Continuer</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Étape 3 : Stade & Ambition -->
+          <div class="quiz-step" id="growth-step-3" style="display: none;">
+            <span class="quiz-step-count">Étape 3 sur 4</span>
+            <h2 class="quiz-step-title">Quel est votre stade actuel et votre ambition ?</h2>
+            <p class="quiz-step-subtitle">Pour dimensionner la vitesse et les moyens de la stratégie :</p>
+
+            <div class="quiz-options-group">
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-stage" value="Démarrage : Nouveau projet en lancement à sécuriser" class="quiz-option-radio" checked>
+                <span>Démarrage : Nouveau projet ou business à lancer avec des bases solides</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-stage" value="En développement : Activité existante à démultiplier rapidement" class="quiz-option-radio">
+                <span>En développement : Activité existante à démultiplier rapidement</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="growth-stage" value="Établi : Entreprise rentable prête à scaler massivement" class="quiz-option-radio">
+                <span>Établi : Entreprise rentable prête à scaler massivement à l'international</span>
+              </label>
+            </div>
+
+            <div class="quiz-actions">
+              <button type="button" class="btn-quiz-prev" onclick="goToStep('growth', 2)">Précédent</button>
+              <button type="button" class="btn-quiz-next" onclick="goToStep('growth', 4)">
+                <span>Dernière étape</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Étape 4 : Coordonnées Growth -->
+          <div class="quiz-step" id="growth-step-4" style="display: none;">
+            <span class="quiz-step-count">Étape 4 sur 4</span>
+            <h2 class="quiz-step-title">Où devons-nous vous transmettre votre plan de croissance ?</h2>
+            <p class="quiz-step-subtitle">Renseignez vos coordonnées pour échanger directement avec Gata Kana Désiré et notre équipe :</p>
+
+            <div class="quiz-form-group">
+              <label for="growth-name">Votre nom complet *</label>
+              <input type="text" id="growth-name" class="quiz-input" placeholder="Ex: Jean Kouassi" required>
+            </div>
+
+            <div class="quiz-form-group">
+              <label for="growth-whatsapp">Votre numéro WhatsApp direct *</label>
+              <input type="tel" id="growth-whatsapp" class="quiz-input" placeholder="Ex: +225 07 77 95 73 37" required>
+            </div>
+
+            <div class="quiz-form-group">
+              <label for="growth-email">Votre adresse email *</label>
+              <input type="email" id="growth-email" class="quiz-input" placeholder="Ex: contact@monentreprise.com" required>
+            </div>
+
+            <div class="quiz-form-group">
+              <label for="growth-notes">Précision sur votre activité (Optionnel)</label>
+              <textarea id="growth-notes" class="quiz-textarea" placeholder="Décrivez brièvement vos produits/services ou vos attentes..."></textarea>
+            </div>
+
+            <div class="quiz-actions">
+              <button type="button" class="btn-quiz-prev" onclick="goToStep('growth', 3)">Précédent</button>
+              <button type="button" class="btn-quiz-submit" onclick="submitGrowthQuiz()">
+                <span>RECEVOIR MON PLAN DE CROISSANCE</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================= -->
+        <!-- FLUX 2 : "DEMANDER UN AUDIT OFFERT" (Spécifique Audit)        -->
+        <!-- ============================================================= -->
+        <div class="quiz-flow" id="flow-audit" style="display: none;">
+          
+          <!-- Étape 1 : Canal digital à auditer -->
+          <div class="quiz-step active" id="audit-step-1">
+            <span class="quiz-step-count">Étape 1 sur 4</span>
+            <h1 class="quiz-step-title">Quel canal digital prioritaire souhaitez-vous faire auditer ?</h1>
+            <p class="quiz-step-subtitle">Nos experts analyseront en profondeur les points de blocage :</p>
+
+            <div class="quiz-options-group">
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-channel" value="Site Web & Page de capture (Conversion & Ergonomie)" class="quiz-option-radio" checked>
+                <span>Mon site web ou page de capture (Vitesse, clarté, taux de conversion)</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-channel" value="Campagnes Publicitaires (Meta, TikTok, Google Ads)" class="quiz-option-radio">
+                <span>Mes campagnes publicitaires (Ciblage, coût par prospect, rentabilité)</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-channel" value="Réseaux Sociaux & Contenu (Visibilité & Notoriété)" class="quiz-option-radio">
+                <span>Mes réseaux sociaux & contenus (Engagement, stratégie vidéo, abonnés)</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-channel" value="Stratégie Digitale Globale à 360°" class="quiz-option-radio">
+                <span>L'ensemble de ma stratégie digitale (Audit complet à 360°)</span>
+              </label>
+            </div>
+
+            <div class="quiz-actions" style="justify-content: flex-end;">
+              <button type="button" class="btn-quiz-next" onclick="goToStep('audit', 2)">
+                <span>Continuer</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Étape 2 : Blocage majeur -->
+          <div class="quiz-step" id="audit-step-2" style="display: none;">
+            <span class="quiz-step-count">Étape 2 sur 4</span>
+            <h2 class="quiz-step-title">Quel est votre blocage majeur actuellement ?</h2>
+            <p class="quiz-step-subtitle">Ce que vous observez au quotidien dans vos résultats :</p>
+
+            <div class="quiz-options-group">
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-bottleneck" value="Pas assez de trafic entrant ni de prospects réguliers" class="quiz-option-radio" checked>
+                <span>Je manque de visibilité : pas assez de visiteurs ni de contacts entrants</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-bottleneck" value="Trafic existant mais les visiteurs n'achètent pas" class="quiz-option-radio">
+                <span>J'ai du trafic ou des abonnés, mais très peu passent commande (conversion faible)</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-bottleneck" value="Coût publicitaire trop cher pour des retours insuffisants" class="quiz-option-radio">
+                <span>Mes dépenses publicitaires sont trop élevées pour des retours insuffisants</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-bottleneck" value="Image peu professionnelle ou offre mal comprise" class="quiz-option-radio">
+                <span>Mon message n'est pas assez percutant et mes concurrents prennent l'avantage</span>
+              </label>
+            </div>
+
+            <div class="quiz-actions">
+              <button type="button" class="btn-quiz-prev" onclick="goToStep('audit', 1)">Précédent</button>
+              <button type="button" class="btn-quiz-next" onclick="goToStep('audit', 3)">
+                <span>Continuer</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Étape 3 : Statut actuel présence -->
+          <div class="quiz-step" id="audit-step-3" style="display: none;">
+            <span class="quiz-step-count">Étape 3 sur 4</span>
+            <h2 class="quiz-step-title">Avez-vous déjà un site web ou une présence active ?</h2>
+            <p class="quiz-step-subtitle">Pour cibler nos outils d'analyse technique :</p>
+
+            <div class="quiz-options-group">
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-presence" value="Oui, j'ai déjà un site web actif" class="quiz-option-radio" checked>
+                <span>Oui, j'ai déjà un site web actif</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-presence" value="J'ai uniquement une page sur les réseaux sociaux" class="quiz-option-radio">
+                <span>J'ai uniquement une page sur les réseaux sociaux (Facebook, Instagram, TikTok)</span>
+              </label>
+              <label class="quiz-option-label">
+                <input type="radio" name="audit-presence" value="Aucun des deux, je repars de zéro" class="quiz-option-radio">
+                <span>Aucun des deux, je souhaite tout construire dès maintenant</span>
+              </label>
+            </div>
+
+            <div class="quiz-actions">
+              <button type="button" class="btn-quiz-prev" onclick="goToStep('audit', 2)">Précédent</button>
+              <button type="button" class="btn-quiz-next" onclick="goToStep('audit', 4)">
+                <span>Dernière étape</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Étape 4 : Coordonnées Audit -->
+          <div class="quiz-step" id="audit-step-4" style="display: none;">
+            <span class="quiz-step-count">Étape 4 sur 4</span>
+            <h2 class="quiz-step-title">Où devons-nous vous envoyer votre rapport d'audit offert ?</h2>
+            <p class="quiz-step-subtitle">100% offert et sans engagement pour les 10 premiers inscrits du mois :</p>
+
+            <div class="quiz-form-group">
+              <label for="audit-name">Votre nom complet *</label>
+              <input type="text" id="audit-name" class="quiz-input" placeholder="Ex: Jean Kouassi" required>
+            </div>
+
+            <div class="quiz-form-group">
+              <label for="audit-whatsapp">Votre numéro WhatsApp direct *</label>
+              <input type="tel" id="audit-whatsapp" class="quiz-input" placeholder="Ex: +225 07 77 95 73 37" required>
+            </div>
+
+            <div class="quiz-form-group">
+              <label for="audit-email">Votre adresse email *</label>
+              <input type="email" id="audit-email" class="quiz-input" placeholder="Ex: contact@monentreprise.com" required>
+            </div>
+
+            <div class="quiz-form-group">
+              <label for="audit-link">Lien de votre site web ou page (Optionnel)</label>
+              <input type="url" id="audit-link" class="quiz-input" placeholder="https://monsite.com ou lien Facebook">
+            </div>
+
+            <div class="quiz-actions">
+              <button type="button" class="btn-quiz-prev" onclick="goToStep('audit', 3)">Précédent</button>
+              <button type="button" class="btn-quiz-submit" onclick="submitAuditQuiz()">
+                <span>RECEVOIR MON AUDIT OFFERT (100% GRATUIT)</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================= -->
+        <!-- ÉCRAN DE SUCCÈS COMMUN AUX DEUX QUESTIONNAIRES                -->
+        <!-- ============================================================= -->
+        <div class="quiz-step quiz-success-step" id="quiz-step-success" style="display: none;">
+          <div class="success-icon-badge">✓</div>
+          <h2 class="quiz-step-title" id="success-title">Votre demande a été enregistrée avec succès !</h2>
+          <p class="quiz-step-subtitle" id="success-desc" style="max-width: 520px; margin: 0 auto 24px auto;">
+            Notre équipe prépare votre recommandation stratégique. Pour un traitement prioritaire, ouvrez directement votre message WhatsApp pré-rempli :
+          </p>
+
+          <div class="success-actions-box">
+            <a href="#" id="final-whatsapp-button" class="btn-whatsapp-success" target="_blank" rel="noopener noreferrer">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
+              </svg>
+              <span>CONFIRMER SUR WHATSAPP</span>
+            </a>
+
+            <a href="#" id="final-email-button" class="btn-subtle" style="font-size: 0.875rem;">
+              <span>Envoyer également par Email</span>
+            </a>
+
+            <div style="margin-top: 16px;">
+              <a href="index.html" class="quiz-back-link">
+                <span>Retour à l'accueil de Moouvy agence</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const QUIZ_CONFIG = {
+      whatsappNumber: "2250777957337",
+      email: "moouvyagence@gmail.com"
+    };
+
+    let currentFlow = "growth";
+
+    // Initialisation au chargement selon le paramètre URL
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const typeParam = urlParams.get('type') || urlParams.get('source');
+      
+      if (typeParam === 'audit') {
+        switchMode('audit');
+      } else {
+        switchMode('growth');
+      }
+
+      highlightSelectedOptions();
+    });
+
+    // Bascule entre les deux flux de questionnaire
+    function switchMode(mode) {
+      currentFlow = mode;
+      
+      const btnGrowth = document.getElementById('btn-mode-growth');
+      const btnAudit = document.getElementById('btn-mode-audit');
+      const flowGrowth = document.getElementById('flow-growth');
+      const flowAudit = document.getElementById('flow-audit');
+      const successStep = document.getElementById('quiz-step-success');
+
+      if (successStep) successStep.style.display = 'none';
+
+      if (mode === 'audit') {
+        btnAudit.classList.add('active');
+        btnGrowth.classList.remove('active');
+        flowAudit.style.display = 'block';
+        flowGrowth.style.display = 'none';
+        goToStep('audit', 1);
+      } else {
+        btnGrowth.classList.add('active');
+        btnAudit.classList.remove('active');
+        flowGrowth.style.display = 'block';
+        flowAudit.style.display = 'none';
+        goToStep('growth', 1);
+      }
+
+      // Mise à jour de l'URL sans recharger
+      const newUrl = new URL(window.location);
+      newUrl.searchParams.set('type', mode);
+      window.history.replaceState({}, '', newUrl);
+    }
+
+    // Navigation entre étapes dans un flux
+    function goToStep(flow, stepNumber) {
+      const activeFlowContainer = document.getElementById(`flow-${flow}`);
+      if (!activeFlowContainer) return;
+
+      activeFlowContainer.querySelectorAll('.quiz-step').forEach(step => {
+        step.style.display = 'none';
+      });
+
+      const targetStep = document.getElementById(`${flow}-step-${stepNumber}`);
+      if (targetStep) {
+        targetStep.style.display = 'block';
+        const progressPercent = (stepNumber / 4) * 100;
+        document.getElementById('quiz-progress-fill').style.width = `${progressPercent}%`;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      highlightSelectedOptions();
+    }
+
+    // Coloration dynamique des options sélectionnées
+    function highlightSelectedOptions() {
+      document.querySelectorAll('.quiz-option-label').forEach(label => {
+        const radio = label.querySelector('input[type="radio"]');
+        if (radio && radio.checked) {
+          label.classList.add('is-selected');
+        } else {
+          label.classList.remove('is-selected');
+        }
+      });
+    }
+
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', highlightSelectedOptions);
+    });
+
+    // Soumission du questionnaire "Je suis prêt à grandir"
+    function submitGrowthQuiz() {
+      const name = document.getElementById('growth-name').value.trim();
+      const whatsapp = document.getElementById('growth-whatsapp').value.trim();
+      const email = document.getElementById('growth-email').value.trim();
+      const notes = document.getElementById('growth-notes').value.trim();
+
+      if (!name || !whatsapp || !email) {
+        alert("Veuillez renseigner votre nom, votre numéro WhatsApp et votre email pour recevoir votre plan de croissance.");
+        return;
+      }
+
+      const business = document.querySelector('input[name="growth-business"]:checked')?.value || 'Non spécifié';
+      const challenge = document.querySelector('input[name="growth-challenge"]:checked')?.value || 'Non spécifié';
+      const stage = document.querySelector('input[name="growth-stage"]:checked')?.value || 'Non spécifié';
+
+      const messageText = 
+`Bonjour Moouvy agence, je viens de compléter votre questionnaire « Je suis prêt à grandir » sur votre site :
+
+🚀 Plan de Croissance Souhaité :
+- Activité / Business : ${business}
+- Défi prioritaire : ${challenge}
+- Stade & Ambition : ${stage}
+
+👤 Mes Coordonnées :
+- Nom : ${name}
+- WhatsApp : ${whatsapp}
+- Email : ${email}
+${notes ? `- Note : ${notes}` : ''}
+
+Je souhaite échanger directement avec Gata Kana Désiré et votre équipe pour concevoir ma stratégie de croissance sur mesure. Merci !`;
+
+      finalizeSubmission("Plan de Croissance enregistré !", "Votre plan stratégique est en cours d'élaboration par notre équipe.", messageText, name);
+    }
+
+    // Soumission du questionnaire "Demander un audit offert"
+    function submitAuditQuiz() {
+      const name = document.getElementById('audit-name').value.trim();
+      const whatsapp = document.getElementById('audit-whatsapp').value.trim();
+      const email = document.getElementById('audit-email').value.trim();
+      const link = document.getElementById('audit-link').value.trim();
+
+      if (!name || !whatsapp || !email) {
+        alert("Veuillez renseigner votre nom, votre numéro WhatsApp et votre email pour recevoir votre audit digital offert.");
+        return;
+      }
+
+      const channel = document.querySelector('input[name="audit-channel"]:checked')?.value || 'Non spécifié';
+      const bottleneck = document.querySelector('input[name="audit-bottleneck"]:checked')?.value || 'Non spécifié';
+      const presence = document.querySelector('input[name="audit-presence"]:checked')?.value || 'Non spécifié';
+
+      const messageText = 
+`Bonjour Moouvy agence, je viens de réserver mon « Audit Digital Offert » (100% Gratuit) sur votre site :
+
+🔍 Données pour l'Audit :
+- Canal prioritaire : ${channel}
+- Blocage principal : ${bottleneck}
+- Présence en ligne : ${presence}
+${link ? `- Lien à auditer : ${link}` : ''}
+
+👤 Mes Coordonnées :
+- Nom : ${name}
+- WhatsApp : ${whatsapp}
+- Email : ${email}
+
+Je souhaite bénéficier de l'analyse experte de mon écosystème digital pour débloquer mes ventes. Merci !`;
+
+      finalizeSubmission("Votre Audit Digital Offert est réservé !", "Notre équipe lance l'analyse de votre présence digitale pour identifier vos leviers de croissance.", messageText, name);
+    }
+
+    function finalizeSubmission(title, desc, messageText, name) {
+      const whatsappUrl = `https://wa.me/${QUIZ_CONFIG.whatsappNumber}?text=${encodeURIComponent(messageText)}`;
+      const mailtoUrl = `mailto:${QUIZ_CONFIG.email}?subject=${encodeURIComponent("Demande Moouvy agence - " + name)}&body=${encodeURIComponent(messageText)}`;
+
+      document.getElementById('final-whatsapp-button').href = whatsappUrl;
+      document.getElementById('final-email-button').href = mailtoUrl;
+      document.getElementById('success-title').textContent = title;
+      document.getElementById('success-desc').textContent = desc;
+
+      document.getElementById('flow-growth').style.display = 'none';
+      document.getElementById('flow-audit').style.display = 'none';
+      document.getElementById('quiz-step-success').style.display = 'block';
+      document.getElementById('quiz-progress-fill').style.width = '100%';
+
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+      }, 500);
+    }
+  </script>
+</body>
+</html>
