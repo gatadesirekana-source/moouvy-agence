@@ -42,7 +42,8 @@ const MOOUVY_CONFIG = {
     youtube: "https://www.youtube.com/@gatakanadesire",
     facebook: "https://www.facebook.com/moouvyagence",
     linkedin: "https://www.linkedin.com/in/gata-kana-desire",
-    tiktok: "https://www.tiktok.com/@gatakanadesire"
+    tiktok: "https://www.tiktok.com/@gatakanadesire",
+    instagram: "https://www.instagram.com/moouvyagence"
   }
 };
 
@@ -152,6 +153,10 @@ function initDynamicConfig() {
 
   const ttBtn = document.querySelector('.js-social-tiktok');
   if (ttBtn) ttBtn.href = MOOUVY_CONFIG.socialLinks.tiktok;
+
+  document.querySelectorAll('.js-social-instagram').forEach(igBtn => {
+    if (igBtn) igBtn.href = MOOUVY_CONFIG.socialLinks.instagram;
+  });
 }
 
 /**
@@ -579,6 +584,33 @@ function initStatsSlider() {
   }, { passive: true });
 
   updateStatsDots();
+
+  // Défilement automatique de gauche à droite toutes les 4s avec pause au survol
+  function scrollStatsNext() {
+    const step = getStep();
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    if (container.scrollLeft >= maxScroll - 15) {
+      container.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: step, behavior: 'smooth' });
+    }
+  }
+
+  let statsAutoPlay = setInterval(scrollStatsNext, 4000);
+
+  const statsWrapper = document.querySelector('.stats-slider-wrapper');
+  if (statsWrapper) {
+    statsWrapper.addEventListener('mouseenter', () => clearInterval(statsAutoPlay));
+    statsWrapper.addEventListener('mouseleave', () => {
+      clearInterval(statsAutoPlay);
+      statsAutoPlay = setInterval(scrollStatsNext, 4000);
+    });
+    statsWrapper.addEventListener('touchstart', () => clearInterval(statsAutoPlay), { passive: true });
+    statsWrapper.addEventListener('touchend', () => {
+      clearInterval(statsAutoPlay);
+      statsAutoPlay = setInterval(scrollStatsNext, 4000);
+    });
+  }
 }
 
 /**

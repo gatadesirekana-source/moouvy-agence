@@ -349,8 +349,8 @@ h1, h2, h3, h4 {
   font-weight: var(--font-weight-extrabold);
   font-size: 1.15rem;
   letter-spacing: 0.04em;
-  padding: 5px 16px;
-  border-radius: var(--radius-pill);
+  padding: 6px 18px;
+  border-radius: 9px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -794,11 +794,13 @@ h1, h2, h3, h4 {
 .stats-slider-container {
   width: 100%;
   overflow-x: auto;
+  overflow-y: visible;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
-  padding: 8px 4px;
+  padding: 24px 6px 14px 6px;
+  margin-top: -14px;
 }
 
 .stats-slider-container::-webkit-scrollbar {
@@ -822,13 +824,16 @@ h1, h2, h3, h4 {
   border-radius: 14px;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-fast);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  will-change: transform, box-shadow;
+  position: relative;
 }
 
 .stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
+  transform: translateY(-20px) scale(1.06);
+  box-shadow: 0 22px 44px rgba(17, 24, 39, 0.16), 0 0 28px rgba(56, 216, 216, 0.35);
   border-color: var(--color-primary);
+  z-index: 5;
 }
 
 /* Boutons de bascule gauche & droite des chiffres clés */
@@ -916,7 +921,8 @@ h1, h2, h3, h4 {
 }
 
 .stat-suffix {
-  color: var(--color-coral);
+  color: #111827;
+  font-weight: var(--font-weight-extrabold);
 }
 
 .stat-label {
@@ -1205,6 +1211,15 @@ h1, h2, h3, h4 {
   padding: 80px 0;
 }
 
+.section-portfolio .section-heading {
+  max-width: 880px;
+}
+
+.section-portfolio .section-title {
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
 .portfolio-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1422,11 +1437,13 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 24px;
   overflow-x: auto;
+  overflow-y: visible;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 16px 8px 32px 8px;
+  padding: 24px 12px 36px 12px;
+  margin-top: -14px;
 }
 
 .testimonials-slider-track::-webkit-scrollbar {
@@ -1444,14 +1461,17 @@ h1, h2, h3, h4 {
   flex-direction: column;
   justify-content: space-between;
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
   min-height: 290px;
+  will-change: transform, box-shadow;
+  position: relative;
 }
 
 .testimonial-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(17, 24, 39, 0.12), 0 0 20px rgba(56, 216, 216, 0.2);
+  transform: translateY(-16px) scale(1.05);
+  box-shadow: 0 24px 48px rgba(17, 24, 39, 0.14), 0 0 28px rgba(56, 216, 216, 0.25);
   border-color: var(--color-primary);
+  z-index: 10;
 }
 
 .testimonial-card-highlight {
@@ -1549,14 +1569,25 @@ h1, h2, h3, h4 {
   box-shadow: 0 2px 8px rgba(56, 216, 216, 0.4);
 }
 
-.placeholder-avatar-1 { background-color: #2C3E50; }
-.placeholder-avatar-2 { background-color: var(--color-primary); color: #111827; }
-.placeholder-avatar-3 { background-color: #141827; }
-.placeholder-avatar-4 { background-color: #0E7490; }
-.placeholder-avatar-5 { background-color: #134E4A; }
-.placeholder-avatar-6 { background-color: #7C3AED; }
-.placeholder-avatar-7 { background-color: #EA580C; }
-.placeholder-avatar-8 { background-color: #BE185D; }
+.placeholder-avatar-1 { background: linear-gradient(135deg, #1E293B, #334155); color: #FFFFFF; }
+.placeholder-avatar-2 { background: linear-gradient(135deg, #0284C7, #38D8D8); color: #111827; }
+.placeholder-avatar-3 { background: linear-gradient(135deg, #0F766E, #14B8A6); color: #FFFFFF; }
+.placeholder-avatar-4 { background: linear-gradient(135deg, #4338CA, #6366F1); color: #FFFFFF; }
+.placeholder-avatar-5 { background: linear-gradient(135deg, #7C2D12, #C2410C); color: #FFFFFF; }
+.placeholder-avatar-6 { background: linear-gradient(135deg, #701A75, #A21CAF); color: #FFFFFF; }
+.placeholder-avatar-7 { background: linear-gradient(135deg, #1E3A8A, #2563EB); color: #FFFFFF; }
+.placeholder-avatar-8 { background: linear-gradient(135deg, #064E3B, #059669); color: #FFFFFF; }
+.placeholder-avatar-9 { background: linear-gradient(135deg, #831843, #BE185D); color: #FFFFFF; }
+.placeholder-avatar-10 { background: linear-gradient(135deg, #312E81, #4F46E5); color: #FFFFFF; }
+.placeholder-avatar-11 { background: linear-gradient(135deg, #134E4A, #0D9488); color: #FFFFFF; }
+.placeholder-avatar-12 { background: linear-gradient(135deg, #374151, #1F2937); color: #FFFFFF; }
+
+.author-avatar svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  opacity: 0.95;
+}
 
 .testimonial-stars {
   color: #FFAE00;
@@ -1600,9 +1631,6 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-sm);
 }
 
-.placeholder-avatar-1 { background-color: #2C3E50; }
-.placeholder-avatar-2 { background-color: var(--color-primary); }
-.placeholder-avatar-3 { background-color: #141827; }
 
 .author-details {
   display: flex;
@@ -1918,6 +1946,12 @@ h1, h2, h3, h4 {
 .avatar-team-6 { background: linear-gradient(135deg, #0A7E8C 0%, #111827 100%); }
 .avatar-team-7 { background: linear-gradient(135deg, #1C2E3D 0%, #0F172A 100%); }
 
+/* Cadrage photo optimisé pour Abdelaziz Gali (tête proche du haut du cadre) */
+.avatar-team-2 .team-full-photo {
+  object-position: center 10%;
+  transform: scale(1.04);
+}
+
 /* Indicateurs de pagination du slider */
 .team-slider-dots {
   display: flex;
@@ -2205,6 +2239,7 @@ h1, h2, h3, h4 {
 .btn-social-li svg { color: #0A66C2; }
 .btn-social-fb svg { color: #1877F2; }
 .btn-social-tt svg { color: #000000; }
+.btn-social-ig svg { color: #E1306C; }
 
 /* --------------------------------------------------------------------------
    15. APPEL À L'ACTION FINAL (Harmonisé avec le thème de marque Moouvy)

@@ -54,7 +54,8 @@ const MOOUVY_CONFIG = {
     youtube: "https://www.youtube.com/@gatakanadesire",
     facebook: "https://www.facebook.com/moouvyagence",
     linkedin: "https://www.linkedin.com/in/gata-kana-desire",
-    tiktok: "https://www.tiktok.com/@gatakanadesire"
+    tiktok: "https://www.tiktok.com/@gatakanadesire",
+    instagram: "https://www.instagram.com/moouvyagence"
   }
 };
 ```
