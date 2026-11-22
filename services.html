@@ -74,84 +74,16 @@
       padding: 0 20px;
     }
 
-    /* Barre de progression multi-étapes */
-    .services-progress-box {
-      background: #FFFFFF;
-      border: 1px solid var(--color-border);
-      border-radius: 16px;
-      padding: 24px 28px;
-      box-shadow: 0 4px 16px rgba(17, 24, 39, 0.04);
-      margin-bottom: 32px;
-    }
-
-    .progress-top-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .progress-step-indicator {
-      font-size: 0.8125rem;
-      font-weight: var(--font-weight-extrabold);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--color-primary-dark);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .progress-step-pill {
-      background-color: rgba(56, 216, 216, 0.2);
-      color: #0F172A;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      font-size: 0.75rem;
-    }
-
-    .progress-percentage {
-      font-size: 0.875rem;
-      font-weight: var(--font-weight-bold);
-      color: #64748B;
-    }
-
-    .progress-track {
-      width: 100%;
-      height: 8px;
-      background-color: #E2E8F0;
-      border-radius: var(--radius-pill);
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
       overflow: hidden;
-      position: relative;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      width: 25%;
-      background: linear-gradient(90deg, #38D8D8 0%, #0D9488 100%);
-      border-radius: var(--radius-pill);
-      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .progress-breadcrumb {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 14px;
-      font-size: 0.8125rem;
-      color: #64748B;
-      flex-wrap: wrap;
-    }
-
-    .breadcrumb-item.active {
-      color: var(--color-night-blue);
-      font-weight: var(--font-weight-bold);
-    }
-
-    .breadcrumb-sep {
-      color: #CBD5E1;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     /* En-tête de section interactive */
@@ -429,63 +361,35 @@
       color: var(--color-primary-dark);
     }
 
-    /* Bloc "Autre" en bas de choix */
+    /* Blocs "Autre" directs sans accordéon ni icône */
     .other-choice-card {
       margin-top: 28px;
       background: #FFFFFF;
       border: 1px solid var(--color-border);
       border-radius: 14px;
-      padding: 22px 24px;
+      padding: 24px 26px;
       box-shadow: var(--shadow-sm);
     }
 
-    .other-choice-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      user-select: none;
+    .other-choice-step1 {
+      margin-top: 32px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+      border: 1.5px solid var(--color-border);
     }
 
-    .other-toggle-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .other-toggle-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background-color: rgba(56, 216, 216, 0.2);
-      color: var(--color-primary-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-
-    .other-toggle-title {
-      font-size: 0.95rem;
-      font-weight: var(--font-weight-bold);
+    .other-direct-title {
+      font-size: 1.15rem;
+      font-weight: var(--font-weight-extrabold);
       color: var(--color-night-blue);
+      margin-bottom: 6px;
+      line-height: 1.35;
     }
 
-    .other-toggle-desc {
-      font-size: 0.8125rem;
+    .other-direct-desc {
+      font-size: 0.875rem;
       color: #64748B;
-      margin-top: 2px;
-    }
-
-    .other-input-container {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px dashed var(--color-border);
-      display: none;
-    }
-
-    .other-input-container.is-open {
-      display: block;
+      margin-bottom: 14px;
+      line-height: 1.55;
     }
 
     .other-textarea {
@@ -499,7 +403,8 @@
       resize: vertical;
       min-height: 90px;
       transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
     }
 
     .other-textarea:focus {
@@ -901,29 +806,6 @@
   <main class="services-main">
     <div class="services-container">
       
-      <!-- Barre de progression 4 étapes -->
-      <div class="services-progress-box" aria-label="Progression du parcours">
-        <div class="progress-top-row">
-          <div class="progress-step-indicator" id="progress-step-label">
-            <span class="progress-step-pill" id="progress-step-pill">Étape 1 sur 4</span>
-            <span id="progress-step-name">Choisissez votre domaine d'intervention</span>
-          </div>
-          <span class="progress-percentage" id="progress-percent-label">25%</span>
-        </div>
-        <div class="progress-track">
-          <div class="progress-bar-fill" id="progress-bar-fill" style="width: 25%;"></div>
-        </div>
-        <div class="progress-breadcrumb">
-          <span class="breadcrumb-item active" id="crumb-1">1. Domaine</span>
-          <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-item" id="crumb-2">2. Catégorie</span>
-          <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-item" id="crumb-3">3. Prestations</span>
-          <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-item" id="crumb-4">4. Finalisation</span>
-        </div>
-      </div>
-
       <!-- =============================================================== -->
       <!-- ÉTAPE 1 : CHOIX DE LA FAMILLE (5 FAMILLES + CARTE AUTRE)         -->
       <!-- =============================================================== -->
@@ -938,7 +820,24 @@
         </div>
 
         <div class="families-grid" id="families-container">
-          <!-- Injecté dynamiquement par JavaScript pour fidélité absolue -->
+          <!-- Injecté dynamiquement par JavaScript -->
+        </div>
+
+        <!-- Bloc direct "Autre projet" à l'étape 1 -->
+        <div class="other-choice-card other-choice-step1">
+          <h2 class="other-direct-title">Votre besoin ne figure pas dans cette liste ?</h2>
+          <p class="other-direct-desc">
+            Décrivez directement votre projet ou besoin spécifique ci-dessous. Notre équipe examinera votre demande pour vous proposer un accompagnement sur mesure.
+          </p>
+          <label for="other-text-step-1" class="visually-hidden">Décrivez votre projet :</label>
+          <textarea id="other-text-step-1" class="other-textarea" rows="3" placeholder="Décrivez votre projet ou votre besoin spécifique ici..."></textarea>
+          <button type="button" class="btn btn-pill btn-large" onclick="submitOtherAtStep(1)">
+            <span>Remplir et envoyer à l'équipe</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -965,26 +864,19 @@
           <!-- Injecté dynamiquement selon la famille choisie -->
         </div>
 
-        <!-- Bloc "Autre" de l'Étape 2 -->
+        <!-- Bloc direct "Autre service" à l'Étape 2 -->
         <div class="other-choice-card">
-          <div class="other-choice-toggle" onclick="toggleOtherInput('step-2')">
-            <div class="other-toggle-left">
-              <div class="other-toggle-icon">✍️</div>
-              <div>
-                <div class="other-toggle-title">Autre besoin ou service sur mesure dans ce domaine ?</div>
-                <div class="other-toggle-desc">Cliquez ici pour décrire directement votre besoin spécifique.</div>
-              </div>
-            </div>
-            <span class="btn btn-subtle" style="padding: 6px 14px; font-size: 0.8125rem;">Préciser</span>
-          </div>
-
-          <div class="other-input-container" id="other-input-container-step-2">
-            <label for="other-text-step-2" class="form-label">Décrivez le service que vous souhaitez :</label>
-            <textarea id="other-text-step-2" class="other-textarea" placeholder="Exemple : Je souhaite une solution spécifique pour relier mon système de stock à mon WhatsApp et automatiser mes factures..."></textarea>
-            <button type="button" class="btn btn-pill" onclick="submitOtherAtStep(2)">
-              Continuer vers mon récapitulatif →
-            </button>
-          </div>
+          <h3 class="other-direct-title">Avez-vous un autre service ?</h3>
+          <p class="other-direct-desc">Indiquez ci-dessous le service ou la prestation spécifique dont vous avez besoin dans ce domaine :</p>
+          <label for="other-text-step-2" class="visually-hidden">Votre service spécifique :</label>
+          <textarea id="other-text-step-2" class="other-textarea" rows="3" placeholder="Tapez ici le service que vous recherchez..."></textarea>
+          <button type="button" class="btn btn-pill" onclick="submitOtherAtStep(2)">
+            <span>Envoyer et continuer vers le récapitulatif</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -1020,23 +912,12 @@
           <!-- Cases à cocher interactives injectées dynamiquement -->
         </div>
 
-        <!-- Option "Autre" à l'étape 3 -->
+        <!-- Bloc direct "Autre prestation" à l'étape 3 -->
         <div class="other-choice-card">
-          <div class="other-choice-toggle" onclick="toggleOtherInput('step-3')">
-            <div class="other-toggle-left">
-              <div class="other-toggle-icon">+</div>
-              <div>
-                <div class="other-toggle-title">Une prestation ne figure pas dans cette liste ?</div>
-                <div class="other-toggle-desc">Ajoutez une description libre pour compléter vos choix.</div>
-              </div>
-            </div>
-            <span class="btn btn-subtle" style="padding: 6px 14px; font-size: 0.8125rem;">Ajouter</span>
-          </div>
-
-          <div class="other-input-container" id="other-input-container-step-3">
-            <label for="other-text-step-3" class="form-label">Décrivez le service que vous souhaitez :</label>
-            <textarea id="other-text-step-3" class="other-textarea" placeholder="Indiquez ici tout besoin spécifique ou livrable attendu..."></textarea>
-          </div>
+          <h3 class="other-direct-title">Est-ce qu'une prestation ne figure pas dans cette liste, ajouter ci-dessous ?</h3>
+          <p class="other-direct-desc">Ajoutez ici toute prestation ou attente particulière non listée ci-dessus :</p>
+          <label for="other-text-step-3" class="visually-hidden">Prestation non listée :</label>
+          <textarea id="other-text-step-3" class="other-textarea" rows="3" placeholder="Indiquez ici tout besoin spécifique ou livrable attendu..."></textarea>
         </div>
 
         <div class="step-actions-bar">
@@ -1129,13 +1010,13 @@
 
             <div class="form-grid-2">
               <div class="form-group">
-                <label for="client-business" class="form-label">Nom de votre entreprise ou projet</label>
-                <input type="text" id="client-business" class="form-input" placeholder="Ex : Sahel Luxe & Retail">
+                <label for="client-business" class="form-label">Nom de votre entreprise ou projet <span class="required">*</span></label>
+                <input type="text" id="client-business" class="form-input" placeholder="Ex : Sahel Luxe & Retail" required>
               </div>
 
               <div class="form-group">
-                <label for="client-email" class="form-label">Adresse e-mail (facultatif)</label>
-                <input type="email" id="client-email" class="form-input" placeholder="Ex : contact@monentreprise.com">
+                <label for="client-email" class="form-label">Adresse e-mail <span class="required">*</span></label>
+                <input type="email" id="client-email" class="form-input" placeholder="Ex : contact@monentreprise.com" required>
               </div>
             </div>
 
@@ -1749,10 +1630,9 @@
     // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
       renderFamilies();
-      updateProgress();
     });
 
-    // Étape 1 : Rendu des 5 familles + Carte Autre
+    // Étape 1 : Rendu des 5 domaines d'intervention (sans badge "FAMILLE")
     function renderFamilies() {
       const container = document.getElementById('families-container');
       if (!container) return;
@@ -1761,9 +1641,8 @@
 
       CATALOGUE_DATA.forEach(family => {
         html += `
-          <div class="family-card" tabindex="0" role="button" aria-label="Sélectionner ${family.title}" onclick="selectFamily('${family.id}')" onkeydown="if(event.key==='Enter'||event.key===' ') selectFamily('${family.id}')">
+          <div class="family-card" tabindex="0" role="button" aria-label="Sélectionner ${family.shortTitle}" onclick="selectFamily('${family.id}')" onkeydown="if(event.key==='Enter'||event.key===' ') selectFamily('${family.id}')">
             <div>
-              <span class="family-card-badge">FAMILLE ${family.num}</span>
               <h3 class="family-card-title">${family.shortTitle}</h3>
               <p class="family-card-desc">${family.presentation}</p>
             </div>
@@ -1777,24 +1656,6 @@
           </div>
         `;
       });
-
-      // 6e carte : Autre
-      html += `
-        <div class="family-card family-card-other" tabindex="0" role="button" aria-label="Sélectionner un autre besoin sur mesure" onclick="selectDirectOther()" onkeydown="if(event.key==='Enter'||event.key===' ') selectDirectOther()">
-          <div>
-            <span class="family-card-badge">PROJET SUR MESURE</span>
-            <h3 class="family-card-title">Autre besoin ou projet personnalisé</h3>
-            <p class="family-card-desc">Vous avez un projet particulier, une demande spécifique ou vous ne trouvez pas votre besoin dans cette liste ? Décrivez directement votre demande à notre équipe d'experts.</p>
-          </div>
-          <div class="family-card-action" style="color: var(--color-night-blue);">
-            <span>Décrire mon besoin spécifique</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </div>
-        </div>
-      `;
 
       container.innerHTML = html;
     }
@@ -1986,49 +1847,47 @@
       }
     }
 
-    // Validation de l'étape 3
+    // Validation de l'étape 3 (Prestations cochées ou champ libre)
     function confirmServicesSelection() {
       const otherInput = document.getElementById('other-text-step-3');
       const otherVal = otherInput ? otherInput.value.trim() : '';
 
       if (state.selectedServices.size === 0 && !otherVal) {
         alert("Veuillez cocher au moins une prestation ou préciser votre besoin dans le champ texte ci-dessous pour continuer.");
+        if (otherInput) otherInput.focus();
         return;
       }
 
       if (otherVal) {
         state.customNote = otherVal;
+      } else {
+        state.customNote = "";
       }
 
       updateSummary();
       goToStep(4);
     }
 
-    // Toggle affichage champ "Autre"
-    function toggleOtherInput(stepId) {
-      const container = document.getElementById(`other-input-container-${stepId}`);
-      if (container) {
-        container.classList.toggle('is-open');
-        if (container.classList.contains('is-open')) {
-          const textarea = container.querySelector('textarea');
-          if (textarea) textarea.focus();
-        }
-      }
-    }
-
-    // Soumission du bouton "Autre" depuis l'étape 2
+    // Soumission directe pour un autre projet (Étape 1 ou 2)
     function submitOtherAtStep(step) {
       const input = document.getElementById(`other-text-step-${step}`);
       const val = input ? input.value.trim() : '';
 
       if (!val) {
-        alert("Veuillez décrire le service que vous souhaitez pour continuer.");
+        alert("Veuillez décrire votre projet ou le service recherché pour continuer.");
+        if (input) input.focus();
         return;
       }
 
       state.customNote = val;
-      state.selectedCategory = { name: "Besoin spécifique sur mesure" };
-      state.selectedServices.clear();
+      if (step === 1) {
+        state.selectedFamily = { shortTitle: "Projet sur mesure / Besoin spécifique" };
+        state.selectedCategory = { name: "Demande personnalisée" };
+        state.selectedServices.clear();
+      } else if (step === 2) {
+        state.selectedCategory = { name: "Autre service dans ce domaine" };
+        state.selectedServices.clear();
+      }
 
       updateSummary();
       goToStep(4);
@@ -2079,7 +1938,7 @@
       }
     }
 
-    // Gestion du changement d'étape avec mise à jour de la barre
+    // Gestion du changement d'étape
     function goToStep(stepNum) {
       state.step = stepNum;
 
@@ -2092,36 +1951,9 @@
       const confPane = document.getElementById('confirmation-pane');
       if (confPane) confPane.style.display = 'none';
 
-      updateProgress();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function updateProgress() {
-      const step = state.step;
-      const stepPill = document.getElementById('progress-step-pill');
-      const stepName = document.getElementById('progress-step-name');
-      const percentLabel = document.getElementById('progress-percent-label');
-      const barFill = document.getElementById('progress-bar-fill');
-
-      const percentages = { 1: "25%", 2: "50%", 3: "75%", 4: "100%" };
-      const stepNames = {
-        1: "Choisissez votre domaine d'intervention",
-        2: "Choisissez une catégorie",
-        3: "Cochez vos prestations souhaitées",
-        4: "Récapitulatif & Coordonnées"
-      };
-
-      if (stepPill) stepPill.textContent = `Étape ${step} sur 4`;
-      if (stepName) stepName.textContent = stepNames[step] || "";
-      if (percentLabel) percentLabel.textContent = percentages[step] || "25%";
-      if (barFill) barFill.style.width = percentages[step] || "25%";
-
-      // Mise à jour fil d'Ariane
-      for (let i = 1; i <= 4; i++) {
-        const crumb = document.getElementById(`crumb-${i}`);
-        if (crumb) crumb.classList.toggle('active', i === step);
-      }
-    }
 
     // Soumission du formulaire final
     function handleServicesFormSubmit(e) {
@@ -2133,8 +1965,8 @@
       const email = document.getElementById('client-email').value.trim();
       const message = document.getElementById('client-message').value.trim();
 
-      if (!name || !whatsapp) {
-        alert("Veuillez renseigner votre nom et votre numéro WhatsApp.");
+      if (!name || !whatsapp || !business || !email) {
+        alert("Veuillez renseigner votre nom, votre numéro WhatsApp, le nom de votre entreprise/projet et votre adresse email.");
         return;
       }
 
