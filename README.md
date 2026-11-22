@@ -21,7 +21,8 @@ Puis accédez à `http://localhost:8000`.
 ## 📁 Architecture des Fichiers
 
 - [index.html](file:///c:/Users/ernes/Downloads/Moouvy%20agence/index.html) : Page principale complète, sémantique HTML5, métadonnées SEO, OpenGraph et microdonnées Schema.org.
-- [questionnaire.html](file:///c:/Users/ernes/Downloads/Moouvy%20agence/questionnaire.html) : Questionnaire interactif multi-étapes de qualification de projet (« JE VEUX DES CLIENTS ») avec redirection WhatsApp et email.
+- [services.html](file:///c:/Users/ernes/Downloads/Moouvy%20agence/services.html) : Catalogue officiel et configurateur interactif en 4 étapes (« JE DÉMARRE ICI ») avec les 5 familles, 29 catégories et l'ensemble des prestations.
+- [questionnaire.html](file:///c:/Users/ernes/Downloads/Moouvy%20agence/questionnaire.html) : Questionnaire de diagnostic et audit offert avec redirection WhatsApp et email.
 - [mentions-legales.html](file:///c:/Users/ernes/Downloads/Moouvy%20agence/mentions-legales.html) : Page dédiée aux mentions légales obligatoires, conditions d'utilisation et politique de confidentialité (RGPD).
 - [style.css](file:///c:/Users/ernes/Downloads/Moouvy%20agence/style.css) : Feuille de style complète avec Design System officiel (Cyan `#38D8D8`, Corail `#FF5A5F`, Sombre `#111827`, Blanc `#FFFFFF`), dégradés descendants, boutons pilule, animations et responsive design.
 - [script.js](file:///c:/Users/ernes/Downloads/Moouvy%20agence/script.js) : Interactions dynamiques, slider de l'équipe (3 cartes + peeks latéraux), slider des chiffres clés/accompagnements de gauche à droite, compteurs animés, accordéon FAQ accessible et bouton flottant WhatsApp.

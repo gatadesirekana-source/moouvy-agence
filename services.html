@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quel est votre besoin ? | Catalogue des Services Moouvy agence</title>
+  <meta name="description" content="Découvrez le catalogue complet des prestations de Moouvy agence et configurez votre projet digital en quelques clics : stratégie, réseaux sociaux, web, marketing et audiovisuel.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2338D8D8'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='16' fill='%23111827'%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- Google Fonts : Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Styles spécifiques au catalogue interactif des services */
+    body {
+      background-color: #F8FAFC;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .services-header {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 60%, #F1F5F9 100%);
+      border-bottom: 1px solid var(--color-border);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .services-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .services-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-night-blue);
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      background-color: rgba(17, 24, 39, 0.05);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+
+    .services-back-link:hover {
+      background-color: rgba(56, 216, 216, 0.2);
+      color: var(--color-primary-dark);
+      transform: translateX(-3px);
+    }
+
+    .services-main {
+      flex: 1;
+      padding: 40px 0 80px 0;
+    }
+
+    .services-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Barre de progression multi-étapes */
+    .services-progress-box {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: 0 4px 16px rgba(17, 24, 39, 0.04);
+      margin-bottom: 32px;
+    }
+
+    .progress-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .progress-step-indicator {
+      font-size: 0.8125rem;
+      font-weight: var(--font-weight-extrabold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .progress-step-pill {
+      background-color: rgba(56, 216, 216, 0.2);
+      color: #0F172A;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+    }
+
+    .progress-percentage {
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-bold);
+      color: #64748B;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background-color: #E2E8F0;
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 25%;
+      background: linear-gradient(90deg, #38D8D8 0%, #0D9488 100%);
+      border-radius: var(--radius-pill);
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .progress-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 0.8125rem;
+      color: #64748B;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb-item.active {
+      color: var(--color-night-blue);
+      font-weight: var(--font-weight-bold);
+    }
+
+    .breadcrumb-sep {
+      color: #CBD5E1;
+    }
+
+    /* En-tête de section interactive */
+    .step-heading-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .step-title-group h1,
+    .step-title-group h2 {
+      font-size: 1.85rem;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--color-night-blue);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .step-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      max-width: 780px;
+    }
+
+    .btn-step-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      color: var(--color-night-blue);
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-semibold);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .btn-step-back:hover {
+      background-color: #F1F5F9;
+      border-color: #CBD5E1;
+      transform: translateX(-3px);
+    }
+
+    /* Conteneur d'étape avec animation */
+    .catalog-step-pane {
+      display: none;
+      animation: fadeInStep 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .catalog-step-pane.is-active {
+      display: block;
+    }
+
+    @keyframes fadeInStep {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .catalog-step-pane {
+        animation: none;
+      }
+    }
+
+    /* Grille des 5 Familles + Carte Autre */
+    .families-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .families-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .family-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: 18px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(17, 24, 39, 0.04);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.2s ease;
+      position: relative;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .family-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: var(--color-primary);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .family-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(17, 24, 39, 0.09), 0 0 20px rgba(56, 216, 216, 0.2);
+      border-color: var(--color-primary);
+    }
+
+    .family-card:hover::before {
+      opacity: 1;
+    }
+
+    .family-card:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    .family-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 216, 216, 0.15);
+      color: #0F172A;
+      font-size: 0.6875rem;
+      font-weight: var(--font-weight-extrabold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .family-card-title {
+      font-size: 1.25rem;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--color-night-blue);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .family-card-desc {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .family-card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary-dark);
+      transition: transform 0.2s ease;
+    }
+
+    .family-card:hover .family-card-action {
+      transform: translateX(4px);
+    }
+
+    /* Carte Spéciale 6 : "Autre" */
+    .family-card-other {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F0FDFD 100%);
+      border: 2px dashed rgba(56, 216, 216, 0.7);
+    }
+
+    .family-card-other .family-card-badge {
+      background-color: var(--color-night-blue);
+      color: var(--color-white);
+    }
+
+    /* ===============================================================
+       ÉTAPE 2 : CATÉGORIES (A, B, C...)
+       =============================================================== */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    @media (min-width: 640px) {
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .category-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: 14px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.22s ease;
+      text-align: left;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-primary);
+      box-shadow: 0 10px 24px rgba(56, 216, 216, 0.18);
+    }
+
+    .category-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .category-letter-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background-color: var(--color-night-blue);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-extrabold);
+    }
+
+    .category-count-badge {
+      font-size: 0.6875rem;
+      font-weight: var(--font-weight-bold);
+      color: #64748B;
+      background: #F1F5F9;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .category-card-name {
+      font-size: 1.05rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-night-blue);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .category-card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary-dark);
+    }
+
+    /* Bloc "Autre" en bas de choix */
+    .other-choice-card {
+      margin-top: 28px;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 22px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .other-choice-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .other-toggle-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .other-toggle-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(56, 216, 216, 0.2);
+      color: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .other-toggle-title {
+      font-size: 0.95rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-night-blue);
+    }
+
+    .other-toggle-desc {
+      font-size: 0.8125rem;
+      color: #64748B;
+      margin-top: 2px;
+    }
+
+    .other-input-container {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px dashed var(--color-border);
+      display: none;
+    }
+
+    .other-input-container.is-open {
+      display: block;
+    }
+
+    .other-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid var(--color-border);
+      border-radius: 10px;
+      font-family: var(--font-family);
+      font-size: 0.9375rem;
+      color: #111827;
+      resize: vertical;
+      min-height: 90px;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      margin-bottom: 14px;
+    }
+
+    .other-textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(56, 216, 216, 0.25);
+    }
+
+    /* ===============================================================
+       ÉTAPE 3 : PRESTATIONS (CHOIX MULTIPLE)
+       =============================================================== */
+    .services-selection-meta {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .selection-counter {
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-night-blue);
+    }
+
+    .selection-counter strong {
+      color: var(--color-primary-dark);
+      font-size: 1.05rem;
+    }
+
+    .btn-select-all {
+      background: none;
+      border: none;
+      color: var(--color-primary-dark);
+      font-size: 0.8125rem;
+      font-weight: var(--font-weight-bold);
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .services-checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 640px) {
+      .services-checklist-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .service-check-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+      position: relative;
+    }
+
+    .service-check-card:hover {
+      border-color: #CBD5E1;
+      background-color: #FAFCFF;
+      transform: translateY(-2px);
+    }
+
+    .service-check-card.is-selected {
+      border-color: var(--color-primary);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F0FDFD 100%);
+      box-shadow: 0 6px 16px rgba(56, 216, 216, 0.16);
+    }
+
+    .custom-checkbox {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 2px solid #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: all 0.2s ease;
+      background-color: #FFFFFF;
+    }
+
+    .service-check-card.is-selected .custom-checkbox {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-night-blue);
+    }
+
+    .custom-checkbox svg {
+      opacity: 0;
+      transform: scale(0.6);
+      transition: all 0.2s ease;
+    }
+
+    .service-check-card.is-selected .custom-checkbox svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .service-item-label {
+      font-size: 0.9375rem;
+      font-weight: var(--font-weight-medium);
+      color: var(--color-night-blue);
+      line-height: 1.45;
+    }
+
+    .step-actions-bar {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* ===============================================================
+       ÉTAPE 4 : RÉCAPITULATIF & COORDONNÉES
+       =============================================================== */
+    .summary-card-wrapper {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.05);
+      margin-bottom: 32px;
+    }
+
+    .summary-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .summary-title {
+      font-size: 1.15rem;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--color-night-blue);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .summary-badge-ok {
+      background-color: rgba(56, 216, 216, 0.2);
+      color: #0F172A;
+      font-size: 0.75rem;
+      font-weight: var(--font-weight-bold);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .summary-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .summary-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .summary-meta-box {
+      background: #F8FAFC;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .summary-meta-label {
+      font-size: 0.75rem;
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748B;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .summary-meta-val {
+      font-size: 0.95rem;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--color-night-blue);
+      line-height: 1.35;
+    }
+
+    .summary-services-list-title {
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748B;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .summary-services-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .summary-services-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9375rem;
+      color: #1E293B;
+      line-height: 1.45;
+    }
+
+    .summary-services-list li svg {
+      color: var(--color-primary-dark);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .summary-custom-note {
+      margin-top: 20px;
+      padding: 14px 18px;
+      background-color: #F0FDFD;
+      border-left: 4px solid var(--color-primary);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: #111827;
+    }
+
+    /* Formulaire court final */
+    .contact-form-box {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.05);
+    }
+
+    .contact-form-title {
+      font-size: 1.25rem;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--color-night-blue);
+      margin-bottom: 8px;
+    }
+
+    .contact-form-subtitle {
+      font-size: 0.9375rem;
+      color: #64748B;
+      margin-bottom: 24px;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .form-grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-night-blue);
+    }
+
+    .form-label .required {
+      color: var(--color-coral);
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid var(--color-border);
+      border-radius: 10px;
+      font-family: var(--font-family);
+      font-size: 0.9375rem;
+      color: #111827;
+      transition: all var(--transition-fast);
+      background-color: #FFFFFF;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(56, 216, 216, 0.25);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* Écran de confirmation après envoi */
+    .confirmation-pane {
+      display: none;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 48px 32px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(17, 24, 39, 0.06);
+    }
+
+    .confirmation-icon-wrapper {
+      width: 72px;
+      height: 72px;
+      background: rgba(56, 216, 216, 0.2);
+      color: var(--color-primary-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px auto;
+    }
+
+    .confirmation-title {
+      font-size: 1.75rem;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--color-night-blue);
+      margin-bottom: 12px;
+    }
+
+    .confirmation-desc {
+      font-size: 1.05rem;
+      color: #475569;
+      max-width: 600px;
+      margin: 0 auto 32px auto;
+      line-height: 1.6;
+    }
+
+    .confirmation-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- En-tête minimal avec logo officiel -->
+  <header class="services-header">
+    <div class="services-container services-header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Retour à l'accueil Moouvy agence">
+        <span class="logo-pill">MOOUVY</span>
+        <span class="logo-text-after">AGENCE</span>
+      </a>
+
+      <a href="index.html" class="services-back-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span>Retour au site</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="services-main">
+    <div class="services-container">
+      
+      <!-- Barre de progression 4 étapes -->
+      <div class="services-progress-box" aria-label="Progression du parcours">
+        <div class="progress-top-row">
+          <div class="progress-step-indicator" id="progress-step-label">
+            <span class="progress-step-pill" id="progress-step-pill">Étape 1 sur 4</span>
+            <span id="progress-step-name">Choisissez votre domaine d'intervention</span>
+          </div>
+          <span class="progress-percentage" id="progress-percent-label">25%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-bar-fill" id="progress-bar-fill" style="width: 25%;"></div>
+        </div>
+        <div class="progress-breadcrumb">
+          <span class="breadcrumb-item active" id="crumb-1">1. Domaine</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-item" id="crumb-2">2. Catégorie</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-item" id="crumb-3">3. Prestations</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-item" id="crumb-4">4. Finalisation</span>
+        </div>
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- ÉTAPE 1 : CHOIX DE LA FAMILLE (5 FAMILLES + CARTE AUTRE)         -->
+      <!-- =============================================================== -->
+      <div class="catalog-step-pane is-active" id="step-pane-1">
+        <div class="step-heading-row">
+          <div class="step-title-group">
+            <h1>Quel est votre besoin ?</h1>
+            <p class="step-subtitle">
+              Sélectionnez un grand domaine d'intervention pour explorer nos expertises et configurer l'accompagnement sur mesure de votre entreprise.
+            </p>
+          </div>
+        </div>
+
+        <div class="families-grid" id="families-container">
+          <!-- Injecté dynamiquement par JavaScript pour fidélité absolue -->
+        </div>
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- ÉTAPE 2 : CHOIX DE LA CATÉGORIE (A, B, C...)                    -->
+      <!-- =============================================================== -->
+      <div class="catalog-step-pane" id="step-pane-2">
+        <div class="step-heading-row">
+          <div class="step-title-group">
+            <h2 id="step-2-title">Choisissez une catégorie</h2>
+            <p class="step-subtitle" id="step-2-subtitle">
+              Précisez le volet d'action pour accéder à la liste des prestations disponibles.
+            </p>
+          </div>
+          <button type="button" class="btn-step-back" onclick="goToStep(1)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <span>Changer de domaine</span>
+          </button>
+        </div>
+
+        <div class="categories-grid" id="categories-container">
+          <!-- Injecté dynamiquement selon la famille choisie -->
+        </div>
+
+        <!-- Bloc "Autre" de l'Étape 2 -->
+        <div class="other-choice-card">
+          <div class="other-choice-toggle" onclick="toggleOtherInput('step-2')">
+            <div class="other-toggle-left">
+              <div class="other-toggle-icon">✍️</div>
+              <div>
+                <div class="other-toggle-title">Autre besoin ou service sur mesure dans ce domaine ?</div>
+                <div class="other-toggle-desc">Cliquez ici pour décrire directement votre besoin spécifique.</div>
+              </div>
+            </div>
+            <span class="btn btn-subtle" style="padding: 6px 14px; font-size: 0.8125rem;">Préciser</span>
+          </div>
+
+          <div class="other-input-container" id="other-input-container-step-2">
+            <label for="other-text-step-2" class="form-label">Décrivez le service que vous souhaitez :</label>
+            <textarea id="other-text-step-2" class="other-textarea" placeholder="Exemple : Je souhaite une solution spécifique pour relier mon système de stock à mon WhatsApp et automatiser mes factures..."></textarea>
+            <button type="button" class="btn btn-pill" onclick="submitOtherAtStep(2)">
+              Continuer vers mon récapitulatif →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- ÉTAPE 3 : CHOIX DES PRESTATIONS (CHOIX MULTIPLE)                 -->
+      <!-- =============================================================== -->
+      <div class="catalog-step-pane" id="step-pane-3">
+        <div class="step-heading-row">
+          <div class="step-title-group">
+            <h2 id="step-3-title">Prestations proposées</h2>
+            <p class="step-subtitle" id="step-3-subtitle">
+              Cochez une ou plusieurs prestations correspondant à vos objectifs prioritaires.
+            </p>
+          </div>
+          <button type="button" class="btn-step-back" onclick="goToStep(2)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <span>Changer de catégorie</span>
+          </button>
+        </div>
+
+        <div class="services-selection-meta">
+          <div class="selection-counter" id="selection-counter-text">
+            <strong>0</strong> prestation sélectionnée
+          </div>
+          <button type="button" class="btn-select-all" id="btn-toggle-all" onclick="toggleSelectAll()">
+            Tout sélectionner
+          </button>
+        </div>
+
+        <div class="services-checklist-grid" id="services-checklist-container">
+          <!-- Cases à cocher interactives injectées dynamiquement -->
+        </div>
+
+        <!-- Option "Autre" à l'étape 3 -->
+        <div class="other-choice-card">
+          <div class="other-choice-toggle" onclick="toggleOtherInput('step-3')">
+            <div class="other-toggle-left">
+              <div class="other-toggle-icon">+</div>
+              <div>
+                <div class="other-toggle-title">Une prestation ne figure pas dans cette liste ?</div>
+                <div class="other-toggle-desc">Ajoutez une description libre pour compléter vos choix.</div>
+              </div>
+            </div>
+            <span class="btn btn-subtle" style="padding: 6px 14px; font-size: 0.8125rem;">Ajouter</span>
+          </div>
+
+          <div class="other-input-container" id="other-input-container-step-3">
+            <label for="other-text-step-3" class="form-label">Décrivez le service que vous souhaitez :</label>
+            <textarea id="other-text-step-3" class="other-textarea" placeholder="Indiquez ici tout besoin spécifique ou livrable attendu..."></textarea>
+          </div>
+        </div>
+
+        <div class="step-actions-bar">
+          <button type="button" class="btn btn-subtle" onclick="goToStep(2)">
+            ← Retour
+          </button>
+          <button type="button" class="btn btn-pill btn-large" id="btn-confirm-step-3" onclick="confirmServicesSelection()">
+            <span>Continuer vers mon récapitulatif</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- ÉTAPE 4 : RÉCAPITULATIF & COORDONNÉES                            -->
+      <!-- =============================================================== -->
+      <div class="catalog-step-pane" id="step-pane-4">
+        <div class="step-heading-row">
+          <div class="step-title-group">
+            <h2>Récapitulatif de votre demande</h2>
+            <p class="step-subtitle">
+              Vérifiez vos sélections et renseignez vos coordonnées afin que notre équipe prépare votre feuille de route.
+            </p>
+          </div>
+          <button type="button" class="btn-step-back" onclick="goToStep(3)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <span>Modifier mes choix</span>
+          </button>
+        </div>
+
+        <!-- Boîte de récapitulatif -->
+        <div class="summary-card-wrapper" id="summary-card">
+          <div class="summary-header">
+            <div class="summary-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Votre sélection Moouvy agence</span>
+            </div>
+            <span class="summary-badge-ok" id="summary-services-count-badge">Prestations validées</span>
+          </div>
+
+          <div class="summary-meta-grid">
+            <div class="summary-meta-box">
+              <span class="summary-meta-label">Domaine d'intervention</span>
+              <span class="summary-meta-val" id="summary-family-name">-</span>
+            </div>
+            <div class="summary-meta-box">
+              <span class="summary-meta-label">Catégorie</span>
+              <span class="summary-meta-val" id="summary-category-name">-</span>
+            </div>
+          </div>
+
+          <div id="summary-services-section">
+            <span class="summary-services-list-title">Prestations sélectionnées :</span>
+            <ul class="summary-services-list" id="summary-services-list">
+              <!-- Liste injectée dynamiquement -->
+            </ul>
+          </div>
+
+          <div class="summary-custom-note" id="summary-custom-note" style="display: none;">
+            <strong>Besoin spécifique renseigné :</strong>
+            <p id="summary-custom-note-text" style="margin-top: 4px;"></p>
+          </div>
+        </div>
+
+        <!-- Formulaire de contact pour envoi -->
+        <div class="contact-form-box">
+          <h3 class="contact-form-title">Vos Coordonnées</h3>
+          <p class="contact-form-subtitle">Ces informations permettront à notre équipe de vous recontacter directement avec un devis clair et un plan d'action.</p>
+
+          <form id="services-order-form" onsubmit="handleServicesFormSubmit(event)">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="client-name" class="form-label">Votre nom complet <span class="required">*</span></label>
+                <input type="text" id="client-name" class="form-input" placeholder="Ex : Moussa Traoré" required>
+              </div>
+
+              <div class="form-group">
+                <label for="client-whatsapp" class="form-label">Numéro WhatsApp (avec indicatif) <span class="required">*</span></label>
+                <input type="tel" id="client-whatsapp" class="form-input" placeholder="Ex : +225 07 77 95 73 37" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="client-business" class="form-label">Nom de votre entreprise ou projet</label>
+                <input type="text" id="client-business" class="form-input" placeholder="Ex : Sahel Luxe & Retail">
+              </div>
+
+              <div class="form-group">
+                <label for="client-email" class="form-label">Adresse e-mail (facultatif)</label>
+                <input type="email" id="client-email" class="form-input" placeholder="Ex : contact@monentreprise.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="client-message" class="form-label">Précisions supplémentaires ou objectifs (facultatif)</label>
+              <textarea id="client-message" class="form-textarea" placeholder="Indiquez ici tout détail pertinent sur vos délais, vos attentes ou votre activité..."></textarea>
+            </div>
+
+            <div class="step-actions-bar" style="margin-top: 24px;">
+              <button type="button" class="btn btn-subtle" onclick="goToStep(3)">
+                ← Modifier mes prestations
+              </button>
+              <button type="submit" class="btn btn-pill btn-large" style="background-color: var(--color-primary); color: #111827;">
+                <span>ENVOYER MA DEMANDE À L'ÉQUIPE</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- ÉCRAN DE CONFIRMATION FINAL                                     -->
+      <!-- =============================================================== -->
+      <div class="confirmation-pane" id="confirmation-pane">
+        <div class="confirmation-icon-wrapper">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h2 class="confirmation-title">Merci, notre équipe vous répond rapidement.</h2>
+        <p class="confirmation-desc">
+          Votre demande de projet a été enregistrée avec succès. Notre équipe d'experts analyse vos choix et prépare une recommandation personnalisée. Pour un échange direct et immédiat, rejoignez-nous sur WhatsApp.
+        </p>
+        <div class="confirmation-actions">
+          <a href="#" id="final-whatsapp-button" class="btn btn-pill btn-large" style="background-color: #25D366; color: #FFFFFF;" target="_blank" rel="noopener noreferrer">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
+            </svg>
+            <span>Ouvrir la conversation sur WhatsApp</span>
+          </a>
+          <a href="index.html" class="btn btn-subtle">
+            Retour à l'accueil
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" style="padding-top: 36px; padding-bottom: 24px; border-top: 1px solid var(--color-border); background: #FFFFFF;">
+    <div class="services-container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.8125rem; color: #64748B;">
+      <span>© 2026 Moouvy agence. Tous droits réservés.</span>
+      <span>Assistance directe WhatsApp : <strong style="color: #111827;">+225 07 77 95 73 37</strong></span>
+    </div>
+  </footer>
+
+  <!-- =================================================================== -->
+  <!-- SCRIPTS & DONNÉES DU CATALOGUE OFFICIEL MOOUVY AGENCE               -->
+  <!-- =================================================================== -->
+  <script>
+    'use strict';
+
+    // Configuration des coordonnées officielles
+    const MOOUVY_CONFIG = {
+      whatsappNumber: "2250777957337",
+      email: "moouvyagence@gmail.com"
+    };
+
+    // DONNÉES VERBATIM INTÉGRALES DU CATALOGUE
+    const CATALOGUE_DATA = [
+      {
+        id: "famille-1",
+        num: 1,
+        title: "FAMILLE 1 : ACCOMPAGNEMENT ET STRATÉGIE DIGITALE",
+        shortTitle: "Accompagnement et stratégie digitale",
+        presentation: "Nous accompagnons les entreprises dans la définition, la planification et la mise en œuvre de leur stratégie digitale. Notre objectif est de les aider à identifier les meilleures opportunités de développement et à utiliser efficacement les outils numériques.",
+        categories: [
+          {
+            id: "f1-cat-a",
+            code: "A",
+            name: "A. Conseil et stratégie",
+            services: [
+              "Audit et diagnostic de présence digitale.",
+              "Élaboration de stratégies digitales.",
+              "Définition du positionnement de l'entreprise.",
+              "Définition de la cible et des clients idéaux.",
+              "Étude de marché et analyse concurrentielle.",
+              "Élaboration d'une stratégie de visibilité en ligne.",
+              "Stratégie d'acquisition de clients.",
+              "Planification des actions de communication digitale.",
+              "Conseil en développement commercial sur Internet."
+            ]
+          },
+          {
+            id: "f1-cat-b",
+            code: "B",
+            name: "B. Transformation digitale",
+            services: [
+              "Accompagnement à la transformation digitale.",
+              "Digitalisation des activités de l'entreprise.",
+              "Identification des outils numériques adaptés.",
+              "Optimisation des processus de travail.",
+              "Conseil en automatisation des tâches.",
+              "Intégration de solutions numériques.",
+              "Accompagnement à l'adoption des outils digitaux."
+            ]
+          },
+          {
+            id: "f1-cat-c",
+            code: "C",
+            name: "C. Formation et accompagnement",
+            services: [
+              "Formation des dirigeants aux outils numériques.",
+              "Formation des équipes.",
+              "Accompagnement individuel des entreprises.",
+              "Conseil en développement digital.",
+              "Suivi de la stratégie digitale.",
+              "Évaluation des résultats et recommandations."
+            ]
+          }
+        ]
+      },
+      {
+        id: "famille-2",
+        num: 2,
+        title: "FAMILLE 2 : RÉSEAUX SOCIAUX ET COMMUNICATION DIGITALE",
+        shortTitle: "Réseaux sociaux et communication digitale",
+        presentation: "Nous aidons les entreprises à construire, développer et gérer leur présence sur les réseaux sociaux. Notre mission est de renforcer leur visibilité, de développer leur communauté et de créer une relation durable avec leurs clients.",
+        categories: [
+          {
+            id: "f2-cat-a",
+            code: "A",
+            name: "A. Facebook",
+            services: [
+              "Création de pages Facebook professionnelles.",
+              "Configuration et optimisation des pages.",
+              "Création de couvertures et visuels professionnels.",
+              "Configuration des boutons de contact.",
+              "Configuration de Meta Business Suite.",
+              "Configuration des comptes publicitaires.",
+              "Gestion et animation des pages Facebook.",
+              "Optimisation de la présence sur Facebook."
+            ]
+          },
+          {
+            id: "f2-cat-b",
+            code: "B",
+            name: "B. Instagram",
+            services: [
+              "Création de comptes professionnels.",
+              "Optimisation des profils.",
+              "Création de biographies professionnelles.",
+              "Conception de visuels et publications.",
+              "Création de stories et Reels.",
+              "Gestion et animation des comptes Instagram.",
+              "Développement de communautés."
+            ]
+          },
+          {
+            id: "f2-cat-c",
+            code: "C",
+            name: "C. TikTok",
+            services: [
+              "Création de comptes professionnels.",
+              "Optimisation des profils.",
+              "Élaboration de stratégies de contenu.",
+              "Création de vidéos courtes.",
+              "Gestion et animation des comptes.",
+              "Développement de la visibilité sur TikTok."
+            ]
+          },
+          {
+            id: "f2-cat-d",
+            code: "D",
+            name: "D. LinkedIn",
+            services: [
+              "Création de pages entreprises.",
+              "Optimisation des profils professionnels.",
+              "Stratégie de communication B2B.",
+              "Création de publications professionnelles.",
+              "Développement de la visibilité auprès des décideurs.",
+              "Gestion de la communication institutionnelle."
+            ]
+          },
+          {
+            id: "f2-cat-e",
+            code: "E",
+            name: "E. WhatsApp Business",
+            services: [
+              "Création et configuration de comptes professionnels.",
+              "Optimisation des profils.",
+              "Création de catalogues de produits et services.",
+              "Configuration des messages automatiques.",
+              "Configuration des réponses rapides.",
+              "Création de liens de contact.",
+              "Intégration de WhatsApp aux sites Internet.",
+              "Mise en place de solutions WhatsApp Business Platform/API."
+            ]
+          },
+          {
+            id: "f2-cat-f",
+            code: "F",
+            name: "F. Gestion et animation des réseaux sociaux",
+            services: [
+              "Community management.",
+              "Gestion des commentaires.",
+              "Gestion des messages privés.",
+              "Modération des communautés.",
+              "Programmation des publications.",
+              "Création de calendriers éditoriaux.",
+              "Gestion de plusieurs plateformes sociales.",
+              "Analyse des performances des réseaux sociaux.",
+              "Rapports périodiques de performance."
+            ]
+          },
+          {
+            id: "f2-cat-g",
+            code: "G",
+            name: "G. Communication digitale",
+            services: [
+              "Élaboration de stratégies de communication.",
+              "Création de campagnes de communication.",
+              "Gestion de la réputation en ligne.",
+              "Gestion des avis clients.",
+              "Valorisation des témoignages clients.",
+              "Communication institutionnelle.",
+              "Stratégies de fidélisation des communautés."
+            ]
+          }
+        ]
+      },
+      {
+        id: "famille-3",
+        num: 3,
+        title: "FAMILLE 3 : CRÉATION WEB, DESIGN ET SOLUTIONS E-COMMERCE",
+        shortTitle: "Création web, design et solutions e-commerce",
+        presentation: "Nous concevons des solutions numériques professionnelles permettant aux entreprises de présenter leurs activités, commercialiser leurs produits et services et développer leur présence sur Internet. Nous créons des interfaces modernes, adaptées aux besoins de chaque entreprise et accessibles sur ordinateur, tablette et téléphone.",
+        categories: [
+          {
+            id: "f3-cat-a",
+            code: "A",
+            name: "A. Création de sites Internet",
+            services: [
+              "Création de sites vitrines.",
+              "Création de sites institutionnels.",
+              "Création de sites corporate.",
+              "Création de sites professionnels.",
+              "Création de sites pour entreprises.",
+              "Création de sites pour hôtels et restaurants.",
+              "Création de sites pour écoles et centres de formation.",
+              "Création de sites pour cabinets et professionnels.",
+              "Création de blogs professionnels.",
+              "Création de sites de réservation.",
+              "Refonte de sites Internet existants.",
+              "Optimisation de sites pour les appareils mobiles."
+            ]
+          },
+          {
+            id: "f3-cat-b",
+            code: "B",
+            name: "B. Création de pages web commerciales",
+            services: [
+              "Création de landing pages.",
+              "Création de pages de vente.",
+              "Création de pages de capture.",
+              "Création de pages de présentation de services.",
+              "Création de pages de lancement de produits.",
+              "Intégration de formulaires de contact.",
+              "Intégration de boutons WhatsApp.",
+              "Intégration de systèmes de réservation."
+            ]
+          },
+          {
+            id: "f3-cat-c",
+            code: "C",
+            name: "C. Identité visuelle et branding",
+            services: [
+              "Création de logos.",
+              "Refonte de logos.",
+              "Création de chartes graphiques.",
+              "Définition des couleurs de marque.",
+              "Définition des typographies.",
+              "Création d'identités visuelles complètes.",
+              "Création de slogans.",
+              "Création de supports de communication.",
+              "Création de cartes de visite.",
+              "Création de papier à en-tête.",
+              "Création de signatures e-mail.",
+              "Création de brochures commerciales.",
+              "Création de catalogues de produits.",
+              "Création de flyers et affiches.",
+              "Création de présentations institutionnelles.",
+              "Création de templates de communication."
+            ]
+          },
+          {
+            id: "f3-cat-d",
+            code: "D",
+            name: "D. Création de boutiques en ligne et e-commerce",
+            services: [
+              "Création de boutiques e-commerce.",
+              "Création de catalogues de produits.",
+              "Mise en ligne des produits.",
+              "Création de fiches produits professionnelles.",
+              "Configuration des moyens de paiement.",
+              "Intégration de paiements Mobile Money.",
+              "Intégration de paiements par carte bancaire.",
+              "Configuration des frais de livraison.",
+              "Mise en place de systèmes de commande.",
+              "Gestion des stocks.",
+              "Configuration des notifications de commande.",
+              "Mise en place de codes promotionnels.",
+              "Création de programmes de fidélité.",
+              "Intégration de WhatsApp pour les commandes."
+            ]
+          },
+          {
+            id: "f3-cat-e",
+            code: "E",
+            name: "E. Applications et solutions numériques",
+            services: [
+              "Développement d'applications web.",
+              "Développement d'applications mobiles.",
+              "Création de plateformes SaaS.",
+              "Création de logiciels de gestion.",
+              "Création de plateformes de formation en ligne.",
+              "Création de plateformes de réservation.",
+              "Création de plateformes de mise en relation.",
+              "Création de portails clients.",
+              "Création d'espaces membres.",
+              "Création de tableaux de bord.",
+              "Développement de systèmes de gestion commerciale.",
+              "Développement de solutions sur mesure.",
+              "Intégration d'API.",
+              "Connexion de différents outils numériques."
+            ]
+          },
+          {
+            id: "f3-cat-f",
+            code: "F",
+            name: "F. Hébergement, maintenance et assistance technique",
+            services: [
+              "Achat et gestion de noms de domaine.",
+              "Hébergement de sites Internet.",
+              "Hébergement de plateformes web.",
+              "Configuration de serveurs.",
+              "Installation de certificats SSL.",
+              "Gestion des adresses e-mail professionnelles.",
+              "Maintenance de sites web.",
+              "Mise à jour des systèmes.",
+              "Sauvegarde des données.",
+              "Sécurisation des sites Internet.",
+              "Correction de bugs.",
+              "Assistance technique.",
+              "Surveillance des performances.",
+              "Gestion des renouvellements d'hébergement et de domaines."
+            ]
+          }
+        ]
+      },
+      {
+        id: "famille-4",
+        num: 4,
+        title: "FAMILLE 4 : MARKETING DIGITAL, PUBLICITÉ ET VISIBILITÉ SUR GOOGLE",
+        shortTitle: "Marketing digital, publicité et visibilité sur Google",
+        presentation: "Nous aidons les entreprises à développer leur visibilité sur Internet, à attirer des prospects qualifiés et à transformer leur audience en clients grâce à des stratégies marketing et publicitaires adaptées à leurs objectifs.",
+        categories: [
+          {
+            id: "f4-cat-a",
+            code: "A",
+            name: "A. Publicité sur les réseaux sociaux",
+            services: [
+              "Création de campagnes Facebook Ads.",
+              "Gestion des campagnes Facebook Ads.",
+              "Création de campagnes Instagram Ads.",
+              "Gestion des campagnes Instagram Ads.",
+              "Création de campagnes TikTok Ads.",
+              "Gestion des campagnes TikTok Ads.",
+              "Création de publicités YouTube.",
+              "Gestion des campagnes publicitaires.",
+              "Configuration des comptes publicitaires.",
+              "Installation et configuration du Pixel Meta.",
+              "Suivi des conversions.",
+              "Retargeting et remarketing.",
+              "Optimisation des performances publicitaires.",
+              "Analyse du coût d'acquisition client."
+            ]
+          },
+          {
+            id: "f4-cat-b",
+            code: "B",
+            name: "B. Publicité sur Google",
+            services: [
+              "Création de comptes Google Ads.",
+              "Configuration des campagnes Google Ads.",
+              "Publicité sur le réseau de recherche.",
+              "Publicité display.",
+              "Campagnes vidéo YouTube.",
+              "Campagnes Google Shopping lorsque cela est adapté.",
+              "Recherche de mots-clés publicitaires.",
+              "Optimisation des annonces.",
+              "Suivi des conversions.",
+              "Analyse des performances publicitaires."
+            ]
+          },
+          {
+            id: "f4-cat-c",
+            code: "C",
+            name: "C. Référencement naturel et SEO",
+            services: [
+              "Audit SEO de sites Internet.",
+              "Recherche de mots-clés stratégiques.",
+              "Optimisation des titres et descriptions.",
+              "Optimisation des contenus web.",
+              "Rédaction d'articles optimisés SEO.",
+              "Optimisation des images.",
+              "Amélioration de la structure des sites.",
+              "Optimisation de la vitesse de chargement.",
+              "Stratégie de backlinks.",
+              "Suivi du positionnement sur Google.",
+              "Optimisation du référencement local."
+            ]
+          },
+          {
+            id: "f4-cat-d",
+            code: "D",
+            name: "D. Visibilité sur Google et référencement local",
+            services: [
+              "Création de fiches Google Business Profile.",
+              "Optimisation de fiches Google Business Profile.",
+              "Gestion des informations de l'entreprise.",
+              "Optimisation de la visibilité sur Google Maps.",
+              "Gestion des avis Google.",
+              "Stratégie de référencement local.",
+              "Amélioration de la visibilité géographique."
+            ]
+          },
+          {
+            id: "f4-cat-e",
+            code: "E",
+            name: "E. Acquisition de prospects et conversion",
+            services: [
+              "Élaboration de stratégies d'acquisition.",
+              "Génération de leads.",
+              "Création de tunnels de vente.",
+              "Création de pages de capture.",
+              "Création de pages de vente.",
+              "Mise en place de campagnes de retargeting.",
+              "Création de stratégies de remarketing.",
+              "Optimisation des taux de conversion.",
+              "Mise en place de campagnes promotionnelles.",
+              "Analyse du parcours client."
+            ]
+          },
+          {
+            id: "f4-cat-f",
+            code: "F",
+            name: "F. Email marketing et campagnes commerciales",
+            services: [
+              "Création de campagnes e-mailing.",
+              "Création de newsletters professionnelles.",
+              "Conception de templates d'e-mails.",
+              "Mise en place de listes de contacts.",
+              "Segmentation des clients.",
+              "Automatisation des campagnes e-mail.",
+              "Création de séquences de bienvenue.",
+              "Création de séquences de relance commerciale.",
+              "Campagnes de fidélisation.",
+              "Campagnes de promotion.",
+              "Campagnes de lancement de produits.",
+              "Analyse des taux d'ouverture et de clics."
+            ]
+          },
+          {
+            id: "f4-cat-g",
+            code: "G",
+            name: "G. Analyse et suivi des performances",
+            services: [
+              "Installation de Google Analytics 4.",
+              "Configuration de Google Search Console.",
+              "Configuration du suivi des conversions.",
+              "Création de tableaux de bord statistiques.",
+              "Analyse du trafic des sites Internet.",
+              "Analyse des performances publicitaires.",
+              "Analyse du nombre de prospects générés.",
+              "Analyse des taux de conversion.",
+              "Rapports périodiques de performance.",
+              "Recommandations d'amélioration."
+            ]
+          }
+        ]
+      },
+      {
+        id: "famille-5",
+        num: 5,
+        title: "FAMILLE 5 : PRODUCTION AUDIOVISUELLE ET CRÉATION DE CONTENU",
+        shortTitle: "Production audiovisuelle et création de contenu",
+        presentation: "Nous accompagnons les entreprises dans la création de contenus visuels et audiovisuels professionnels pour améliorer leur communication, valoriser leur image de marque, présenter leurs produits et services et capter l'attention de leur audience.",
+        categories: [
+          {
+            id: "f5-cat-a",
+            code: "A",
+            name: "A. Production vidéo",
+            services: [
+              "Production de vidéos publicitaires.",
+              "Réalisation de vidéos institutionnelles.",
+              "Réalisation de vidéos de présentation d'entreprise.",
+              "Production de vidéos promotionnelles.",
+              "Réalisation de vidéos commerciales.",
+              "Production de vidéos de présentation de produits.",
+              "Réalisation de vidéos témoignages clients.",
+              "Production de vidéos événementielles.",
+              "Réalisation de vidéos éducatives.",
+              "Production de vidéos pour les réseaux sociaux."
+            ]
+          },
+          {
+            id: "f5-cat-b",
+            code: "B",
+            name: "B. Création de contenus pour les réseaux sociaux",
+            services: [
+              "Création de vidéos courtes.",
+              "Production de Reels Instagram.",
+              "Production de vidéos TikTok.",
+              "Production de vidéos Facebook.",
+              "Création de contenus éducatifs.",
+              "Création de contenus promotionnels.",
+              "Création de contenus institutionnels.",
+              "Conception de scripts vidéo.",
+              "Rédaction de textes publicitaires.",
+              "Création de séries de contenus."
+            ]
+          },
+          {
+            id: "f5-cat-c",
+            code: "C",
+            name: "C. Montage et postproduction",
+            services: [
+              "Montage vidéo professionnel.",
+              "Étalonnage et correction des couleurs.",
+              "Montage de vidéos publicitaires.",
+              "Ajout de sous-titres.",
+              "Ajout d'effets visuels.",
+              "Animation de textes.",
+              "Motion design.",
+              "Création d'animations publicitaires.",
+              "Habillage graphique des vidéos.",
+              "Adaptation des vidéos à différents formats."
+            ]
+          },
+          {
+            id: "f5-cat-d",
+            code: "D",
+            name: "D. Photographie professionnelle",
+            services: [
+              "Photographie d'entreprise.",
+              "Photographie de produits.",
+              "Photographie commerciale.",
+              "Photographie de portraits professionnels.",
+              "Photographie événementielle.",
+              "Photographie pour les réseaux sociaux.",
+              "Photographie publicitaire.",
+              "Retouche et traitement des photos."
+            ]
+          },
+          {
+            id: "f5-cat-e",
+            code: "E",
+            name: "E. Production audio et podcasts",
+            services: [
+              "Production de podcasts d'entreprise.",
+              "Enregistrement de podcasts.",
+              "Montage audio.",
+              "Création d'habillages sonores.",
+              "Réalisation de voix off.",
+              "Production de messages publicitaires audio.",
+              "Enregistrement de témoignages audio."
+            ]
+          },
+          {
+            id: "f5-cat-f",
+            code: "F",
+            name: "F. Conception et stratégie de contenu",
+            services: [
+              "Élaboration de stratégies de contenu.",
+              "Planification de productions audiovisuelles.",
+              "Création de calendriers de contenu.",
+              "Conception de scripts et scénarios.",
+              "Création de campagnes audiovisuelles.",
+              "Direction artistique des productions.",
+              "Déclinaison des contenus sur plusieurs plateformes."
+            ]
+          }
+        ]
+      }
+    ];
+
+    // État courant de la sélection
+    const state = {
+      step: 1,
+      selectedFamily: null,
+      selectedCategory: null,
+      selectedServices: new Set(),
+      customNote: "",
+      isDirectOther: false
+    };
+
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      renderFamilies();
+      updateProgress();
+    });
+
+    // Étape 1 : Rendu des 5 familles + Carte Autre
+    function renderFamilies() {
+      const container = document.getElementById('families-container');
+      if (!container) return;
+
+      let html = '';
+
+      CATALOGUE_DATA.forEach(family => {
+        html += `
+          <div class="family-card" tabindex="0" role="button" aria-label="Sélectionner ${family.title}" onclick="selectFamily('${family.id}')" onkeydown="if(event.key==='Enter'||event.key===' ') selectFamily('${family.id}')">
+            <div>
+              <span class="family-card-badge">FAMILLE ${family.num}</span>
+              <h3 class="family-card-title">${family.shortTitle}</h3>
+              <p class="family-card-desc">${family.presentation}</p>
+            </div>
+            <div class="family-card-action">
+              <span>Découvrir les prestations</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </div>
+        `;
+      });
+
+      // 6e carte : Autre
+      html += `
+        <div class="family-card family-card-other" tabindex="0" role="button" aria-label="Sélectionner un autre besoin sur mesure" onclick="selectDirectOther()" onkeydown="if(event.key==='Enter'||event.key===' ') selectDirectOther()">
+          <div>
+            <span class="family-card-badge">PROJET SUR MESURE</span>
+            <h3 class="family-card-title">Autre besoin ou projet personnalisé</h3>
+            <p class="family-card-desc">Vous avez un projet particulier, une demande spécifique ou vous ne trouvez pas votre besoin dans cette liste ? Décrivez directement votre demande à notre équipe d'experts.</p>
+          </div>
+          <div class="family-card-action" style="color: var(--color-night-blue);">
+            <span>Décrire mon besoin spécifique</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    }
+
+    // Sélection d'une famille -> Passage à l'Étape 2
+    function selectFamily(familyId) {
+      const family = CATALOGUE_DATA.find(f => f.id === familyId);
+      if (!family) return;
+
+      state.selectedFamily = family;
+      state.selectedCategory = null;
+      state.selectedServices.clear();
+      state.isDirectOther = false;
+
+      renderCategories(family);
+      goToStep(2);
+    }
+
+    // Clic sur "Autre" à l'étape 1 -> Saut direct à l'étape finale
+    function selectDirectOther() {
+      state.selectedFamily = {
+        title: "PROJET SUR MESURE",
+        shortTitle: "Projet ou besoin spécifique sur mesure"
+      };
+      state.selectedCategory = {
+        name: "Demande personnalisée"
+      };
+      state.selectedServices.clear();
+      state.isDirectOther = true;
+
+      // Ouvre l'étape 4 directement
+      updateSummary();
+      goToStep(4);
+
+      // Focus sur le champ message
+      setTimeout(() => {
+        const msgEl = document.getElementById('client-message');
+        if (msgEl) {
+          msgEl.focus();
+          msgEl.placeholder = "Décrivez précisément le service que vous souhaitez ou votre projet...";
+        }
+      }, 250);
+    }
+
+    // Étape 2 : Rendu des catégories
+    function renderCategories(family) {
+      const container = document.getElementById('categories-container');
+      const titleEl = document.getElementById('step-2-title');
+      const subtitleEl = document.getElementById('step-2-subtitle');
+
+      if (titleEl) titleEl.textContent = `Catégories : ${family.shortTitle}`;
+      if (subtitleEl) subtitleEl.textContent = `Sélectionnez une catégorie pour afficher les prestations détaillées.`;
+
+      if (!container) return;
+
+      let html = '';
+      family.categories.forEach(cat => {
+        html += `
+          <div class="category-card" tabindex="0" role="button" aria-label="Sélectionner ${cat.name}" onclick="selectCategory('${cat.id}')" onkeydown="if(event.key==='Enter'||event.key===' ') selectCategory('${cat.id}')">
+            <div>
+              <div class="category-top-row">
+                <span class="category-letter-badge">${cat.code}</span>
+                <span class="category-count-badge">${cat.services.length} prestations</span>
+              </div>
+              <div class="category-card-name">${cat.name}</div>
+            </div>
+            <div class="category-card-action">
+              <span>Choisir les prestations</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+
+      // Réinitialise le bloc autre
+      const otherContainer = document.getElementById('other-input-container-step-2');
+      if (otherContainer) otherContainer.classList.remove('is-open');
+    }
+
+    // Sélection d'une catégorie -> Passage à l'Étape 3
+    function selectCategory(categoryId) {
+      if (!state.selectedFamily) return;
+
+      const category = state.selectedFamily.categories.find(c => c.id === categoryId);
+      if (!category) return;
+
+      state.selectedCategory = category;
+      state.selectedServices.clear();
+
+      renderServices(category);
+      goToStep(3);
+    }
+
+    // Étape 3 : Rendu des prestations (Choix multiple)
+    function renderServices(category) {
+      const container = document.getElementById('services-checklist-container');
+      const titleEl = document.getElementById('step-3-title');
+      const subtitleEl = document.getElementById('step-3-subtitle');
+
+      if (titleEl) titleEl.textContent = category.name;
+      if (subtitleEl) subtitleEl.textContent = `Cochez une ou plusieurs prestations correspondant à vos attentes.`;
+
+      if (!container) return;
+
+      let html = '';
+      category.services.forEach((service, index) => {
+        html += `
+          <div class="service-check-card" id="service-card-${index}" tabindex="0" role="checkbox" aria-checked="false" onclick="toggleService(${index}, '${escapeSingleQuotes(service)}')" onkeydown="if(event.key==='Enter'||event.key===' ') toggleService(${index}, '${escapeSingleQuotes(service)}')">
+            <div class="custom-checkbox" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="service-item-label">${service}</div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      updateSelectionCounter();
+
+      const otherContainer = document.getElementById('other-input-container-step-3');
+      if (otherContainer) otherContainer.classList.remove('is-open');
+    }
+
+    function escapeSingleQuotes(str) {
+      return str.replace(/'/g, "\\'");
+    }
+
+    // Toggle d'une prestation
+    function toggleService(index, serviceText) {
+      const card = document.getElementById(`service-card-${index}`);
+      if (!card) return;
+
+      if (state.selectedServices.has(serviceText)) {
+        state.selectedServices.delete(serviceText);
+        card.classList.remove('is-selected');
+        card.setAttribute('aria-checked', 'false');
+      } else {
+        state.selectedServices.add(serviceText);
+        card.classList.add('is-selected');
+        card.setAttribute('aria-checked', 'true');
+      }
+
+      updateSelectionCounter();
+    }
+
+    // Tout sélectionner / Tout désélectionner
+    function toggleSelectAll() {
+      if (!state.selectedCategory) return;
+
+      const services = state.selectedCategory.services;
+      const allSelected = services.every(s => state.selectedServices.has(s));
+
+      services.forEach((s, idx) => {
+        const card = document.getElementById(`service-card-${idx}`);
+        if (!card) return;
+
+        if (allSelected) {
+          state.selectedServices.delete(s);
+          card.classList.remove('is-selected');
+          card.setAttribute('aria-checked', 'false');
+        } else {
+          state.selectedServices.add(s);
+          card.classList.add('is-selected');
+          card.setAttribute('aria-checked', 'true');
+        }
+      });
+
+      updateSelectionCounter();
+    }
+
+    function updateSelectionCounter() {
+      const count = state.selectedServices.size;
+      const counterEl = document.getElementById('selection-counter-text');
+      const toggleAllBtn = document.getElementById('btn-toggle-all');
+
+      if (counterEl) {
+        counterEl.innerHTML = `<strong>${count}</strong> prestation${count > 1 ? 's' : ''} sélectionnée${count > 1 ? 's' : ''}`;
+      }
+
+      if (toggleAllBtn && state.selectedCategory) {
+        const allSelected = state.selectedCategory.services.every(s => state.selectedServices.has(s));
+        toggleAllBtn.textContent = allSelected ? "Tout désélectionner" : "Tout sélectionner";
+      }
+    }
+
+    // Validation de l'étape 3
+    function confirmServicesSelection() {
+      const otherInput = document.getElementById('other-text-step-3');
+      const otherVal = otherInput ? otherInput.value.trim() : '';
+
+      if (state.selectedServices.size === 0 && !otherVal) {
+        alert("Veuillez cocher au moins une prestation ou préciser votre besoin dans le champ texte ci-dessous pour continuer.");
+        return;
+      }
+
+      if (otherVal) {
+        state.customNote = otherVal;
+      }
+
+      updateSummary();
+      goToStep(4);
+    }
+
+    // Toggle affichage champ "Autre"
+    function toggleOtherInput(stepId) {
+      const container = document.getElementById(`other-input-container-${stepId}`);
+      if (container) {
+        container.classList.toggle('is-open');
+        if (container.classList.contains('is-open')) {
+          const textarea = container.querySelector('textarea');
+          if (textarea) textarea.focus();
+        }
+      }
+    }
+
+    // Soumission du bouton "Autre" depuis l'étape 2
+    function submitOtherAtStep(step) {
+      const input = document.getElementById(`other-text-step-${step}`);
+      const val = input ? input.value.trim() : '';
+
+      if (!val) {
+        alert("Veuillez décrire le service que vous souhaitez pour continuer.");
+        return;
+      }
+
+      state.customNote = val;
+      state.selectedCategory = { name: "Besoin spécifique sur mesure" };
+      state.selectedServices.clear();
+
+      updateSummary();
+      goToStep(4);
+    }
+
+    // Mise à jour de l'écran récapitulatif (Étape 4)
+    function updateSummary() {
+      const familyEl = document.getElementById('summary-family-name');
+      const catEl = document.getElementById('summary-category-name');
+      const listEl = document.getElementById('summary-services-list');
+      const servicesSection = document.getElementById('summary-services-section');
+      const noteBox = document.getElementById('summary-custom-note');
+      const noteText = document.getElementById('summary-custom-note-text');
+      const countBadge = document.getElementById('summary-services-count-badge');
+
+      if (familyEl) familyEl.textContent = state.selectedFamily ? state.selectedFamily.shortTitle : "Non spécifié";
+      if (catEl) catEl.textContent = state.selectedCategory ? state.selectedCategory.name : "Non spécifié";
+
+      if (listEl) {
+        if (state.selectedServices.size > 0) {
+          servicesSection.style.display = 'block';
+          let listHtml = '';
+          state.selectedServices.forEach(serv => {
+            listHtml += `
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>${serv}</span>
+              </li>
+            `;
+          });
+          listEl.innerHTML = listHtml;
+          if (countBadge) countBadge.textContent = `${state.selectedServices.size} prestation${state.selectedServices.size > 1 ? 's' : ''} validée${state.selectedServices.size > 1 ? 's' : ''}`;
+        } else {
+          servicesSection.style.display = 'none';
+          if (countBadge) countBadge.textContent = `Demande sur mesure`;
+        }
+      }
+
+      if (noteBox && noteText) {
+        if (state.customNote) {
+          noteBox.style.display = 'block';
+          noteText.textContent = state.customNote;
+        } else {
+          noteBox.style.display = 'none';
+        }
+      }
+    }
+
+    // Gestion du changement d'étape avec mise à jour de la barre
+    function goToStep(stepNum) {
+      state.step = stepNum;
+
+      // Gestion des panneaux visibles
+      for (let i = 1; i <= 4; i++) {
+        const pane = document.getElementById(`step-pane-${i}`);
+        if (pane) pane.classList.toggle('is-active', i === stepNum);
+      }
+
+      const confPane = document.getElementById('confirmation-pane');
+      if (confPane) confPane.style.display = 'none';
+
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateProgress() {
+      const step = state.step;
+      const stepPill = document.getElementById('progress-step-pill');
+      const stepName = document.getElementById('progress-step-name');
+      const percentLabel = document.getElementById('progress-percent-label');
+      const barFill = document.getElementById('progress-bar-fill');
+
+      const percentages = { 1: "25%", 2: "50%", 3: "75%", 4: "100%" };
+      const stepNames = {
+        1: "Choisissez votre domaine d'intervention",
+        2: "Choisissez une catégorie",
+        3: "Cochez vos prestations souhaitées",
+        4: "Récapitulatif & Coordonnées"
+      };
+
+      if (stepPill) stepPill.textContent = `Étape ${step} sur 4`;
+      if (stepName) stepName.textContent = stepNames[step] || "";
+      if (percentLabel) percentLabel.textContent = percentages[step] || "25%";
+      if (barFill) barFill.style.width = percentages[step] || "25%";
+
+      // Mise à jour fil d'Ariane
+      for (let i = 1; i <= 4; i++) {
+        const crumb = document.getElementById(`crumb-${i}`);
+        if (crumb) crumb.classList.toggle('active', i === step);
+      }
+    }
+
+    // Soumission du formulaire final
+    function handleServicesFormSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('client-name').value.trim();
+      const whatsapp = document.getElementById('client-whatsapp').value.trim();
+      const business = document.getElementById('client-business').value.trim();
+      const email = document.getElementById('client-email').value.trim();
+      const message = document.getElementById('client-message').value.trim();
+
+      if (!name || !whatsapp) {
+        alert("Veuillez renseigner votre nom et votre numéro WhatsApp.");
+        return;
+      }
+
+      // Construction de la liste des services
+      let servicesText = "";
+      if (state.selectedServices.size > 0) {
+        servicesText = Array.from(state.selectedServices).map(s => `• ${s}`).join("\n");
+      } else {
+        servicesText = "• Projet personnalisé sur mesure";
+      }
+
+      let customDetails = state.customNote ? `\n\n📌 Précision personnalisée :\n${state.customNote}` : "";
+      let clientMsg = message ? `\n\n💬 Message du client :\n${message}` : "";
+
+      // Message WhatsApp formaté
+      const whatsappMessage = 
+`Bonjour Moouvy agence,
+
+Je vous transmets ma demande de prestations configurée sur votre site :
+
+👤 INFORMATIONS CLIENT :
+- Nom : ${name}
+- WhatsApp : ${whatsapp}
+- Entreprise / Projet : ${business || "Non précisé"}
+- Email : ${email || "Non précisé"}
+
+🎯 SERVICE CHOISI :
+- Domaine : ${state.selectedFamily ? state.selectedFamily.shortTitle : "Sur mesure"}
+- Catégorie : ${state.selectedCategory ? state.selectedCategory.name : "Sur mesure"}
+
+📋 PRESTATIONS SOUHAITÉES :
+${servicesText}${customDetails}${clientMsg}
+
+Merci de me recontacter avec un devis et votre proposition d'accompagnement.`;
+
+      const whatsappUrl = `https://wa.me/${MOOUVY_CONFIG.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+      const mailtoUrl = `mailto:${MOOUVY_CONFIG.email}?subject=${encodeURIComponent("Demande de Prestations Moouvy - " + name)}&body=${encodeURIComponent(whatsappMessage)}`;
+
+      // Ouvre WhatsApp
+      window.open(whatsappUrl, '_blank');
+
+      // Met à jour le bouton de confirmation WhatsApp
+      const finalBtn = document.getElementById('final-whatsapp-button');
+      if (finalBtn) finalBtn.href = whatsappUrl;
+
+      // Affiche l'écran de confirmation
+      for (let i = 1; i <= 4; i++) {
+        const pane = document.getElementById(`step-pane-${i}`);
+        if (pane) pane.classList.remove('is-active');
+      }
+
+      const confPane = document.getElementById('confirmation-pane');
+      if (confPane) confPane.style.display = 'block';
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
