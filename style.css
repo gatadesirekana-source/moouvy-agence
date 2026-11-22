@@ -10,29 +10,48 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Palette de couleurs officielle Moouvy agence (Charte Cyan & Corail) */
-  --color-primary: #38D8D8;            /* Cyan / Turquoise vif (Capsule Logo & Accents) */
-  --color-primary-hover: #22C5C5;      /* Cyan soutenu au survol */
-  --color-primary-dark: #0D9488;       /* Sarcelle foncée pour texte & contrastes */
-  --color-primary-light: rgba(56, 216, 216, 0.12); /* Voile cyan subtil */
-  --color-primary-glow: rgba(56, 216, 216, 0.35);  /* Lueur néon cyan */
-  
-  --color-coral: #FF5A5F;              /* Accent corail / saumon vif de la charte */
-  --color-coral-hover: #E0484D;        /* Corail foncé au survol */
-  --color-coral-light: rgba(255, 90, 95, 0.12); /* Voile corail */
+  --color-primary: #38D8D8;
+  /* Cyan / Turquoise vif (Capsule Logo & Accents) */
+  --color-primary-hover: #22C5C5;
+  /* Cyan soutenu au survol */
+  --color-primary-dark: #0D9488;
+  /* Sarcelle foncée pour texte & contrastes */
+  --color-primary-light: rgba(56, 216, 216, 0.12);
+  /* Voile cyan subtil */
+  --color-primary-glow: rgba(56, 216, 216, 0.35);
+  /* Lueur néon cyan */
 
-  --color-night-blue: #111827;         /* Noir / Bleu nuit profond (Fond sombre, Footer) */
-  --color-night-blue-light: #1F2937;   /* Gris foncé pour cartes/hover */
-  --color-night-blue-subtle: #374151;  /* Bordures subtiles en mode nuit */
+  --color-coral: #FF5A5F;
+  /* Accent corail / saumon vif de la charte */
+  --color-coral-hover: #E0484D;
+  /* Corail foncé au survol */
+  --color-coral-light: rgba(255, 90, 95, 0.12);
+  /* Voile corail */
 
-  --color-hero-bg: #F4F6F8;            /* Gris très clair élégant pour le Hero */
-  --color-light-bg: #F8FAFC;           /* Fond alternatif très doux */
-  --color-white: #FFFFFF;              /* Blanc pur pour les sections */
-  
-  --color-text-main: #111827;          /* Texte principal sombre */
-  --color-text-muted: #64748B;         /* Texte secondaire / descriptions */
-  --color-text-light: #94A3B8;         /* Texte tertiaire */
-  --color-border: #E2E8F0;             /* Bordure légère */
-  --color-whatsapp: #25D366;           /* Vert officiel WhatsApp */
+  --color-night-blue: #111827;
+  /* Noir / Bleu nuit profond (Fond sombre, Footer) */
+  --color-night-blue-light: #1F2937;
+  /* Gris foncé pour cartes/hover */
+  --color-night-blue-subtle: #374151;
+  /* Bordures subtiles en mode nuit */
+
+  --color-hero-bg: #F4F6F8;
+  /* Gris très clair élégant pour le Hero */
+  --color-light-bg: #F8FAFC;
+  /* Fond alternatif très doux */
+  --color-white: #FFFFFF;
+  /* Blanc pur pour les sections */
+
+  --color-text-main: #111827;
+  /* Texte principal sombre */
+  --color-text-muted: #64748B;
+  /* Texte secondaire / descriptions */
+  --color-text-light: #94A3B8;
+  /* Texte tertiaire */
+  --color-border: #E2E8F0;
+  /* Bordure légère */
+  --color-whatsapp: #25D366;
+  /* Vert officiel WhatsApp */
   --color-whatsapp-hover: #1EBE5D;
 
   /* Typographie : Poppins */
@@ -70,7 +89,9 @@
 /* --------------------------------------------------------------------------
    2. RESET & STYLES GLOBAUX
    -------------------------------------------------------------------------- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -93,7 +114,8 @@ body {
   overflow-x: hidden;
 }
 
-img, svg {
+img,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -104,11 +126,15 @@ a {
   transition: color var(--transition-fast);
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
   font: inherit;
   border: none;
   outline: none;
@@ -136,7 +162,10 @@ button {
 /* --------------------------------------------------------------------------
    3. TYPOGRAPHIE HIÉRARCHISÉE
    -------------------------------------------------------------------------- */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-family);
   font-weight: var(--font-weight-extrabold);
   text-transform: uppercase;
@@ -198,7 +227,8 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-primary);
 }
 
-.btn-pill:hover, .btn-pill:focus-visible {
+.btn-pill:hover,
+.btn-pill:focus-visible {
   background-color: var(--color-primary-hover);
   transform: translateY(-2px) scale(1.02);
   box-shadow: var(--shadow-primary-hover);
@@ -376,7 +406,8 @@ h1, h2, h3, h4 {
 
 /* Menu desktop */
 .main-navigation {
-  display: none; /* Mobile par défaut */
+  display: none;
+  /* Mobile par défaut */
 }
 
 .nav-links {
@@ -405,17 +436,20 @@ h1, h2, h3, h4 {
   transition: width var(--transition-normal);
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--color-night-blue);
   font-weight: var(--font-weight-semibold);
 }
 
-.nav-link:hover::after, .nav-link.active::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
 .header-action {
-  display: none; /* Affiché sur grand écran */
+  display: none;
+  /* Affiché sur grand écran */
 }
 
 /* Bouton Burger Mobile */
@@ -448,9 +482,11 @@ h1, h2, h3, h4 {
 .burger-menu-btn[aria-expanded="true"] .burger-bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
+
 .burger-menu-btn[aria-expanded="true"] .burger-bar:nth-child(2) {
   opacity: 0;
 }
+
 .burger-menu-btn[aria-expanded="true"] .burger-bar:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
@@ -591,10 +627,12 @@ h1, h2, h3, h4 {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(112, 0, 255, 0.7);
   }
+
   70% {
     transform: scale(1);
     box-shadow: 0 0 0 8px rgba(112, 0, 255, 0);
   }
+
   100% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(112, 0, 255, 0);
@@ -1290,9 +1328,18 @@ h1, h2, h3, h4 {
   height: 6px;
   border-radius: 50%;
 }
-.mockup-header-bar .dot.red { background-color: #ff5f56; }
-.mockup-header-bar .dot.yellow { background-color: #ffbd2e; }
-.mockup-header-bar .dot.green { background-color: #27c93f; }
+
+.mockup-header-bar .dot.red {
+  background-color: #ff5f56;
+}
+
+.mockup-header-bar .dot.yellow {
+  background-color: #ffbd2e;
+}
+
+.mockup-header-bar .dot.green {
+  background-color: #27c93f;
+}
 
 .mockup-content {
   display: flex;
@@ -1328,8 +1375,13 @@ h1, h2, h3, h4 {
   border-radius: 2px;
 }
 
-.mockup-wireframe-lines span:nth-child(2) { width: 65%; }
-.mockup-wireframe-lines span:nth-child(3) { width: 45%; }
+.mockup-wireframe-lines span:nth-child(2) {
+  width: 65%;
+}
+
+.mockup-wireframe-lines span:nth-child(3) {
+  width: 45%;
+}
 
 .portfolio-body {
   padding: 28px 24px;
@@ -1534,9 +1586,18 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 640px) {
-  .testimonials-nav-prev { left: 4px; }
-  .testimonials-nav-next { right: 4px; }
-  .testimonials-nav-btn { width: 40px; height: 40px; }
+  .testimonials-nav-prev {
+    left: 4px;
+  }
+
+  .testimonials-nav-next {
+    right: 4px;
+  }
+
+  .testimonials-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* Dots de pagination */
@@ -1569,18 +1630,65 @@ h1, h2, h3, h4 {
   box-shadow: 0 2px 8px rgba(56, 216, 216, 0.4);
 }
 
-.placeholder-avatar-1 { background: linear-gradient(135deg, #1E293B, #334155); color: #FFFFFF; }
-.placeholder-avatar-2 { background: linear-gradient(135deg, #0284C7, #38D8D8); color: #111827; }
-.placeholder-avatar-3 { background: linear-gradient(135deg, #0F766E, #14B8A6); color: #FFFFFF; }
-.placeholder-avatar-4 { background: linear-gradient(135deg, #4338CA, #6366F1); color: #FFFFFF; }
-.placeholder-avatar-5 { background: linear-gradient(135deg, #7C2D12, #C2410C); color: #FFFFFF; }
-.placeholder-avatar-6 { background: linear-gradient(135deg, #701A75, #A21CAF); color: #FFFFFF; }
-.placeholder-avatar-7 { background: linear-gradient(135deg, #1E3A8A, #2563EB); color: #FFFFFF; }
-.placeholder-avatar-8 { background: linear-gradient(135deg, #064E3B, #059669); color: #FFFFFF; }
-.placeholder-avatar-9 { background: linear-gradient(135deg, #831843, #BE185D); color: #FFFFFF; }
-.placeholder-avatar-10 { background: linear-gradient(135deg, #312E81, #4F46E5); color: #FFFFFF; }
-.placeholder-avatar-11 { background: linear-gradient(135deg, #134E4A, #0D9488); color: #FFFFFF; }
-.placeholder-avatar-12 { background: linear-gradient(135deg, #374151, #1F2937); color: #FFFFFF; }
+.placeholder-avatar-1 {
+  background: linear-gradient(135deg, #1E293B, #334155);
+  color: #FFFFFF;
+}
+
+.placeholder-avatar-2 {
+  background: linear-gradient(135deg, #0284C7, #38D8D8);
+  color: #111827;
+}
+
+.placeholder-avatar-3 {
+  background: linear-gradient(135deg, #0F766E, #14B8A6);
+  color: #FFFFFF;
+}
+
+.placeholder-avatar-4 {
+  background: linear-gradient(135deg, #4338CA, #6366F1);
+  color: #FFFFFF;
+}
+
+.placeholder-avatar-5 {
+  background: linear-gradient(135deg, #7C2D12, #C2410C);
+  color: #FFFFFF;
+}
+
+.placeholder-avatar-6 {
+  background: linear-gradient(135deg, #701A75, #A21CAF);
+  color: #FFFFFF;
+}
+
+.placeholder-avatar-7 {
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
+  color: #FFFFFF;
+}
+
+.placeholder-avatar-8 {
+  background: linear-gradient(135deg, #064E3B, #059669);
+  color: #FFFFFF;
+}
+
+.placeholder-avatar-9 {
+  background: linear-gradient(135deg, #831843, #BE185D);
+  color: #FFFFFF;
+}
+
+.placeholder-avatar-10 {
+  background: linear-gradient(135deg, #312E81, #4F46E5);
+  color: #FFFFFF;
+}
+
+.placeholder-avatar-11 {
+  background: linear-gradient(135deg, #134E4A, #0D9488);
+  color: #FFFFFF;
+}
+
+.placeholder-avatar-12 {
+  background: linear-gradient(135deg, #374151, #1F2937);
+  color: #FFFFFF;
+}
 
 .author-avatar svg {
   width: 24px;
@@ -1725,9 +1833,11 @@ h1, h2, h3, h4 {
   .team-nav-prev {
     left: 4px;
   }
+
   .team-nav-next {
     right: 4px;
   }
+
   .team-nav-btn {
     width: 42px;
     height: 42px;
@@ -1938,13 +2048,33 @@ h1, h2, h3, h4 {
 }
 
 /* Fonds élégants des cadres de profil */
-.avatar-team-1 { background: linear-gradient(135deg, #111827 0%, #1A365D 50%, #0D9488 100%); }
-.avatar-team-2 { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); }
-.avatar-team-3 { background: linear-gradient(135deg, #111827 0%, #0E7490 100%); }
-.avatar-team-4 { background: linear-gradient(135deg, #1E293B 0%, #334155 100%); }
-.avatar-team-5 { background: linear-gradient(135deg, #134E4A 0%, #111827 100%); }
-.avatar-team-6 { background: linear-gradient(135deg, #0A7E8C 0%, #111827 100%); }
-.avatar-team-7 { background: linear-gradient(135deg, #1C2E3D 0%, #0F172A 100%); }
+.avatar-team-1 {
+  background: linear-gradient(135deg, #111827 0%, #1A365D 50%, #0D9488 100%);
+}
+
+.avatar-team-2 {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+
+.avatar-team-3 {
+  background: linear-gradient(135deg, #111827 0%, #0E7490 100%);
+}
+
+.avatar-team-4 {
+  background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+}
+
+.avatar-team-5 {
+  background: linear-gradient(135deg, #134E4A 0%, #111827 100%);
+}
+
+.avatar-team-6 {
+  background: linear-gradient(135deg, #0A7E8C 0%, #111827 100%);
+}
+
+.avatar-team-7 {
+  background: linear-gradient(135deg, #1C2E3D 0%, #0F172A 100%);
+}
 
 /* Cadrage photo optimisé pour Abdelaziz Gali (tête proche du haut du cadre) */
 .avatar-team-2 .team-full-photo {
@@ -2066,7 +2196,8 @@ h1, h2, h3, h4 {
   color: var(--color-night-blue);
 }
 
-.faq-answer-inner ul, .faq-answer-inner ol {
+.faq-answer-inner ul,
+.faq-answer-inner ol {
   margin-top: 12px;
   display: flex;
   flex-direction: column;
@@ -2205,23 +2336,31 @@ h1, h2, h3, h4 {
 
 .founder-social-links {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .founder-social-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 8px 16px;
   border-radius: var(--radius-pill);
-  font-size: 0.85rem;
+  font-size: 0.8125rem;
   font-weight: var(--font-weight-bold);
   border: 1px solid var(--color-border);
   background-color: var(--color-white);
   color: var(--color-night-blue);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+  .founder-social-links {
+    flex-wrap: nowrap;
+  }
 }
 
 .founder-social-btn:hover {
@@ -2235,11 +2374,25 @@ h1, h2, h3, h4 {
   flex-shrink: 0;
 }
 
-.btn-social-yt svg { color: #FF0000; }
-.btn-social-li svg { color: #0A66C2; }
-.btn-social-fb svg { color: #1877F2; }
-.btn-social-tt svg { color: #000000; }
-.btn-social-ig svg { color: #E1306C; }
+.btn-social-yt svg {
+  color: #FF0000;
+}
+
+.btn-social-li svg {
+  color: #0A66C2;
+}
+
+.btn-social-fb svg {
+  color: #1877F2;
+}
+
+.btn-social-tt svg {
+  color: #000000;
+}
+
+.btn-social-ig svg {
+  color: #E1306C;
+}
 
 /* --------------------------------------------------------------------------
    15. APPEL À L'ACTION FINAL (Harmonisé avec le thème de marque Moouvy)
@@ -2566,10 +2719,12 @@ h1, h2, h3, h4 {
     transform: scale(0.95);
     opacity: 0.8;
   }
+
   70% {
     transform: scale(1.5);
     opacity: 0;
   }
+
   100% {
     transform: scale(1.5);
     opacity: 0;
