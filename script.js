@@ -75,12 +75,18 @@ function initHeroRotator() {
 
   const questions = [
     "Voulez-vous faire grandir votre entreprise ?",
+    "Vous avez l'idée. Nous avons la méthode.",
     "Prêt à propulser votre entreprise ?",
-    "Prêt à faire passer votre entreprise au niveau supérieur ?",
+    "Et si votre entreprise passait au niveau supérieur ?",
+    "Des clients qui vous trouvent, pas seulement des abonnés.",
     "Et si votre entreprise passait au digital ?",
+    "Votre entreprise est prête. Votre image digitale l'est-elle ?",
     "Envie de développer votre activité en ligne ?",
+    "Arrêtez de tester dans le vide. Construisez avec un plan.",
     "Votre entreprise est-elle prête pour le futur ?",
-    "Et si votre prochaine croissance commençait ici ?"
+    "Votre activité mérite une vraie présence digitale.",
+    "Et si votre prochaine croissance commençait ici ?",
+    "Prêt à passer de l'idée à une entreprise qui tourne ?"
   ];
 
   let currentIndex = 0;
