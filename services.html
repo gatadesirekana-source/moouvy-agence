@@ -976,6 +976,52 @@
       opacity: 1;
       transform: scale(1);
     }
+
+    /* Boutons d'action affinés et élégants */
+    .btn-submit-slim {
+      background-color: var(--color-primary);
+      color: #0F172A;
+      padding: 11px 22px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      border-radius: var(--radius-pill);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(56, 216, 216, 0.22);
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .btn-submit-slim:hover {
+      background-color: #2CD0D0;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(56, 216, 216, 0.35);
+    }
+
+    .btn-subtle-slim {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      color: #475569;
+      padding: 10px 18px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: none;
+    }
+
+    .btn-subtle-slim:hover {
+      background-color: #F1F5F9;
+      color: #0F172A;
+    }
   </style>
 </head>
 <body>
@@ -988,11 +1034,11 @@
         <span class="logo-text-after">AGENCE</span>
       </a>
 
-      <a href="index.html" class="services-back-link">
+      <a href="javascript:void(0)" class="services-back-link" id="main-top-back-btn" onclick="handleTopBack()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
-        <span>Retour au site</span>
+        <span id="top-back-text">Retour au site</span>
       </a>
     </div>
   </header>
@@ -1009,7 +1055,6 @@
       <div class="catalog-step-pane is-active" id="pane-initial-choice">
         <div class="step-heading-row" style="text-align: center; justify-content: center;">
           <div class="step-title-group" style="text-align: center; max-width: 760px; margin: 0 auto 32px;">
-            <span class="portal-badge">BIENVENUE CHEZ MOOUVY AGENCE</span>
             <h1 class="portal-main-title">Quel est votre objectif ?</h1>
             <p class="step-subtitle" style="margin: 0 auto;">
               Sélectionnez votre situation pour accéder immédiatement au parcours le plus adapté à votre entreprise :
@@ -1097,12 +1142,6 @@
               Sélectionnez un grand domaine d'intervention pour explorer nos expertises et configurer l'accompagnement sur mesure de votre entreprise.
             </p>
           </div>
-          <button type="button" class="btn-step-back" onclick="selectIntention('home')">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-            <span>Revenir aux 3 choix</span>
-          </button>
         </div>
 
         <div class="families-grid" id="families-container">
@@ -1138,12 +1177,6 @@
               Précisez le volet d'action pour accéder à la liste des prestations disponibles.
             </p>
           </div>
-          <button type="button" class="btn-step-back" onclick="goToStep(1)">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-            <span>Changer de domaine</span>
-          </button>
         </div>
 
         <div class="categories-grid" id="categories-container">
@@ -1177,12 +1210,6 @@
               Cochez une ou plusieurs prestations correspondant à vos objectifs prioritaires.
             </p>
           </div>
-          <button type="button" class="btn-step-back" onclick="goToStep(2)">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-            <span>Changer de catégorie</span>
-          </button>
         </div>
 
         <div class="services-selection-meta">
@@ -1210,9 +1237,9 @@
           <button type="button" class="btn btn-subtle" onclick="goToStep(2)">
             ← Retour
           </button>
-          <button type="button" class="btn btn-pill btn-large" id="btn-confirm-step-3" onclick="confirmServicesSelection()">
+          <button type="button" class="btn-submit-slim" id="btn-confirm-step-3" onclick="confirmServicesSelection()">
             <span>Continuer vers mon récapitulatif</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
@@ -1231,12 +1258,6 @@
               Vérifiez vos sélections et renseignez vos coordonnées afin que notre équipe prépare votre feuille de route.
             </p>
           </div>
-          <button type="button" class="btn-step-back" onclick="goToStep(3)">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-            <span>Modifier mes choix</span>
-          </button>
         </div>
 
         <!-- Boîte de récapitulatif -->
@@ -1312,12 +1333,12 @@
             </div>
 
             <div class="step-actions-bar" style="margin-top: 24px;">
-              <button type="button" class="btn btn-subtle" onclick="goToStep(3)">
+              <button type="button" class="btn-subtle-slim" onclick="goToStep(3)">
                 ← Modifier mes prestations
               </button>
-              <button type="submit" class="btn btn-pill btn-large" style="background-color: var(--color-primary); color: #111827;">
-                <span>ENVOYER MA DEMANDE À L'ÉQUIPE</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <button type="submit" class="btn-submit-slim">
+                <span>Envoyer ma demande</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
                 </svg>
               </button>
@@ -1337,12 +1358,6 @@
               Répondez à ce questionnaire rapide pour nous permettre de structurer un plan de digitalisation clair et rentable pour votre activité.
             </p>
           </div>
-          <button type="button" class="btn-step-back" onclick="selectIntention('home')">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-            <span>Changer d'objectif</span>
-          </button>
         </div>
 
         <form id="form-digitaliser" onsubmit="handleDigitaliserSubmit(event)">
@@ -1490,12 +1505,12 @@
             </div>
 
             <div class="step-actions-bar" style="margin-top: 24px;">
-              <button type="button" class="btn btn-subtle" onclick="selectIntention('home')">
+              <button type="button" class="btn-subtle-slim" onclick="selectIntention('home')">
                 ← Revenir au choix
               </button>
-              <button type="submit" class="btn btn-pill btn-large" style="background-color: var(--color-primary); color: #111827;">
-                <span>ENVOYER MA DEMANDE DE DIGITALISATION</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <button type="submit" class="btn-submit-slim">
+                <span>Envoyer ma demande</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
                 </svg>
               </button>
@@ -1515,12 +1530,6 @@
               Décrivez votre projet afin que notre équipe vous guide pour poser des fondations solides et réussir votre entrée sur le marché.
             </p>
           </div>
-          <button type="button" class="btn-step-back" onclick="selectIntention('home')">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-            <span>Changer d'objectif</span>
-          </button>
         </div>
 
         <form id="form-lancer-projet" onsubmit="handleLancerSubmit(event)">
@@ -1662,12 +1671,12 @@
             </div>
 
             <div class="step-actions-bar" style="margin-top: 24px;">
-              <button type="button" class="btn btn-subtle" onclick="selectIntention('home')">
+              <button type="button" class="btn-subtle-slim" onclick="selectIntention('home')">
                 ← Revenir au choix
               </button>
-              <button type="submit" class="btn btn-pill btn-large" style="background-color: var(--color-primary); color: #111827;">
-                <span>ENVOYER MON PROJET À L'ÉQUIPE</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <button type="submit" class="btn-submit-slim">
+                <span>Envoyer ma demande</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
                 </svg>
               </button>
@@ -2309,6 +2318,42 @@
       }
     });
 
+    let currentView = 'home'; // 'home', 'service-1', 'service-2', 'service-3', 'service-4', 'digitaliser', 'lancer'
+
+    function updateTopBackButton(view) {
+      currentView = view;
+      const backText = document.getElementById('top-back-text');
+      if (!backText) return;
+
+      if (view === 'home') {
+        backText.textContent = "Retour au site";
+      } else if (view === 'service-1' || view === 'digitaliser' || view === 'lancer') {
+        backText.textContent = "Changer d'objectif";
+      } else if (view === 'service-2') {
+        backText.textContent = "Changer de domaine";
+      } else if (view === 'service-3') {
+        backText.textContent = "Changer de catégorie";
+      } else if (view === 'service-4') {
+        backText.textContent = "Modifier mes choix";
+      }
+    }
+
+    function handleTopBack() {
+      if (currentView === 'home') {
+        window.location.href = 'index.html';
+      } else if (currentView === 'service-1' || currentView === 'digitaliser' || currentView === 'lancer') {
+        selectIntention('home');
+      } else if (currentView === 'service-2') {
+        goToStep(1);
+      } else if (currentView === 'service-3') {
+        goToStep(2);
+      } else if (currentView === 'service-4') {
+        goToStep(3);
+      } else {
+        selectIntention('home');
+      }
+    }
+
     // Navigation entre les 3 grandes intentions
     function selectIntention(type) {
       hideAllPanes();
@@ -2318,15 +2363,18 @@
       } else if (type === 'digitaliser') {
         const pane = document.getElementById('pane-digitaliser');
         if (pane) pane.classList.add('is-active');
+        updateTopBackButton('digitaliser');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (type === 'lancer') {
         const pane = document.getElementById('pane-lancer-projet');
         if (pane) pane.classList.add('is-active');
+        updateTopBackButton('lancer');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         // 'home' ou retour aux 3 choix
         const pane = document.getElementById('pane-initial-choice');
         if (pane) pane.classList.add('is-active');
+        updateTopBackButton('home');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
@@ -2651,6 +2699,7 @@
       const pane = document.getElementById(`step-pane-${stepNum}`);
       if (pane) pane.classList.add('is-active');
 
+      updateTopBackButton(`service-${stepNum}`);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
