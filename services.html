@@ -782,6 +782,200 @@
       gap: 16px;
       flex-wrap: wrap;
     }
+
+    /* ===============================================================
+       PORTAIL D'ORIENTATION : LES 3 GRANDES ICÔNES
+       =============================================================== */
+    .portal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 216, 216, 0.15);
+      color: #0F172A;
+      font-size: 0.75rem;
+      font-weight: var(--font-weight-extrabold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 16px;
+    }
+
+    .portal-main-title {
+      font-size: 2.25rem;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--color-night-blue);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .portal-main-title {
+        font-size: 1.75rem;
+      }
+    }
+
+    .main-intentions-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 860px) {
+      .main-intentions-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .intention-card {
+      background: #FFFFFF;
+      border: 2px solid var(--color-border);
+      border-radius: 22px;
+      padding: 38px 26px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.04);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .intention-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--color-primary);
+      box-shadow: 0 20px 42px rgba(17, 24, 39, 0.09), 0 0 26px rgba(56, 216, 216, 0.28);
+    }
+
+    .intention-card:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    .intention-card-highlight {
+      border-color: rgba(56, 216, 216, 0.65);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F4FDFD 100%);
+    }
+
+    .intention-icon-box {
+      width: 84px;
+      height: 84px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(56, 216, 216, 0.2) 0%, rgba(13, 148, 136, 0.12) 100%);
+      color: var(--color-night-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 14px rgba(56, 216, 216, 0.16);
+    }
+
+    .intention-card:hover .intention-icon-box {
+      transform: scale(1.1) rotate(2deg);
+      background: linear-gradient(135deg, #38D8D8 0%, #0D9488 100%);
+      color: #0F172A;
+      box-shadow: 0 8px 22px rgba(56, 216, 216, 0.35);
+    }
+
+    .intention-title {
+      font-size: 1.25rem;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--color-night-blue);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .intention-desc {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 26px;
+      flex-grow: 1;
+    }
+
+    .intention-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary-dark);
+      transition: gap 0.2s ease;
+    }
+
+    .intention-card:hover .intention-action {
+      gap: 12px;
+    }
+
+    /* Grilles et cartes de choix pour questionnaires dédiés */
+    .quiz-block-group {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      padding: 28px 26px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 28px;
+    }
+
+    .quiz-block-label {
+      font-size: 1.05rem;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--color-night-blue);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .quiz-options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .quiz-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .quiz-option-card {
+      background: #F8FAFC;
+      border: 1.5px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-option-card:hover {
+      background: #FFFFFF;
+      border-color: #CBD5E1;
+      transform: translateY(-2px);
+    }
+
+    .quiz-option-card.is-selected {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F0FDFD 100%);
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 14px rgba(56, 216, 216, 0.16);
+    }
+
+    .quiz-option-card.is-selected .custom-checkbox {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-night-blue);
+    }
+
+    .quiz-option-card.is-selected .custom-checkbox svg {
+      opacity: 1;
+      transform: scale(1);
+    }
   </style>
 </head>
 <body>
@@ -809,7 +1003,93 @@
       <!-- =============================================================== -->
       <!-- ÉTAPE 1 : CHOIX DE LA FAMILLE (5 FAMILLES + CARTE AUTRE)         -->
       <!-- =============================================================== -->
-      <div class="catalog-step-pane is-active" id="step-pane-1">
+      <!-- =============================================================== -->
+      <!-- ÉCRAN D'ACCUEIL : LES 3 GRANDES ICÔNES                          -->
+      <!-- =============================================================== -->
+      <div class="catalog-step-pane is-active" id="pane-initial-choice">
+        <div class="step-heading-row" style="text-align: center; justify-content: center;">
+          <div class="step-title-group" style="text-align: center; max-width: 760px; margin: 0 auto 32px;">
+            <span class="portal-badge">BIENVENUE CHEZ MOOUVY AGENCE</span>
+            <h1 class="portal-main-title">Quel est votre objectif ?</h1>
+            <p class="step-subtitle" style="margin: 0 auto;">
+              Sélectionnez votre situation pour accéder immédiatement au parcours le plus adapté à votre entreprise :
+            </p>
+          </div>
+        </div>
+
+        <div class="main-intentions-grid">
+          
+          <!-- Carte 1 : Je veux digitaliser mon entreprise -->
+          <div class="intention-card" tabindex="0" role="button" aria-label="Je veux digitaliser mon entreprise" onclick="selectIntention('digitaliser')" onkeydown="if(event.key==='Enter'||event.key===' ') selectIntention('digitaliser')">
+            <div class="intention-icon-box" aria-hidden="true">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <circle cx="12" cy="10" r="3"></circle>
+                <path d="M12 2v2"></path>
+              </svg>
+            </div>
+            <h2 class="intention-title">Je veux digitaliser mon entreprise</h2>
+            <p class="intention-desc">
+              Vous avez déjà une activité établie et vous souhaitez moderniser vos outils, automatiser vos tâches et attirer un flux continu de clients sur le web et WhatsApp.
+            </p>
+            <div class="intention-action">
+              <span>Démarrer mon diagnostic</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Carte 2 : Je recherche un service (Au milieu) -->
+          <div class="intention-card intention-card-highlight" tabindex="0" role="button" aria-label="Je recherche un service" onclick="selectIntention('service')" onkeydown="if(event.key==='Enter'||event.key===' ') selectIntention('service')">
+            <div class="intention-icon-box" aria-hidden="true">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h2 class="intention-title">Je recherche un service</h2>
+            <p class="intention-desc">
+              Explorez l'ensemble de notre catalogue officiel pour choisir des prestations précises à la carte : Stratégie, Sites Web, Publicité, Automatisation et Vidéos.
+            </p>
+            <div class="intention-action">
+              <span>Explorer le catalogue</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Carte 3 : Je veux lancer un projet (Troisième icône) -->
+          <div class="intention-card" tabindex="0" role="button" aria-label="Je veux lancer un projet" onclick="selectIntention('lancer')" onkeydown="if(event.key==='Enter'||event.key===' ') selectIntention('lancer')">
+            <div class="intention-icon-box" aria-hidden="true">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+              </svg>
+            </div>
+            <h2 class="intention-title">Je veux lancer un projet</h2>
+            <p class="intention-desc">
+              Vous partez d'une idée, d'une nouvelle marque ou d'un produit à commercialiser. Nous créons votre identité, vos plateformes et vos premières ventes.
+            </p>
+            <div class="intention-action">
+              <span>Lancer mon projet</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="catalog-step-pane" id="step-pane-1">
         <div class="step-heading-row">
           <div class="step-title-group">
             <h1>Quel est votre besoin ?</h1>
@@ -817,6 +1097,12 @@
               Sélectionnez un grand domaine d'intervention pour explorer nos expertises et configurer l'accompagnement sur mesure de votre entreprise.
             </p>
           </div>
+          <button type="button" class="btn-step-back" onclick="selectIntention('home')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <span>Revenir aux 3 choix</span>
+          </button>
         </div>
 
         <div class="families-grid" id="families-container">
@@ -1038,6 +1324,356 @@
             </div>
           </form>
         </div>
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- QUESTIONNAIRE 1 : DIGITALISER MON ENTREPRISE                    -->
+      <!-- =============================================================== -->
+      <div class="catalog-step-pane" id="pane-digitaliser">
+        <div class="step-heading-row">
+          <div class="step-title-group">
+            <h1>Je veux digitaliser mon entreprise</h1>
+            <p class="step-subtitle">
+              Répondez à ce questionnaire rapide pour nous permettre de structurer un plan de digitalisation clair et rentable pour votre activité.
+            </p>
+          </div>
+          <button type="button" class="btn-step-back" onclick="selectIntention('home')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <span>Changer d'objectif</span>
+          </button>
+        </div>
+
+        <form id="form-digitaliser" onsubmit="handleDigitaliserSubmit(event)">
+          <!-- Question 1 -->
+          <div class="quiz-block-group">
+            <label class="quiz-block-label">1. Quel est votre type d'activité / secteur ?</label>
+            <div class="quiz-options-grid">
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-sector', 'Prestation de services / Conseil / B2B')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Prestation de services / Conseil / B2B</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-sector', 'Commerce de détail / Boutique / E-commerce')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Commerce de détail / Boutique / E-commerce</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-sector', 'Artisanat / PME / Industrie / BTP')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Artisanat / PME / Industrie / BTP</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-sector', 'Santé / Éducation / Formation')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Santé / Éducation / Formation</span>
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <input type="text" id="digit-sector-other" class="form-input" placeholder="Autre secteur d'activité (facultatif)...">
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="quiz-block-group">
+            <label class="quiz-block-label">2. Quels leviers souhaitez-vous digitaliser en priorité ? (Choix multiples)</label>
+            <div class="quiz-options-grid">
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'Site web professionnel ou e-commerce')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Site web professionnel ou e-commerce</span>
+              </div>
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'Présence et acquisition sur les réseaux sociaux')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Présence et acquisition sur les réseaux sociaux</span>
+              </div>
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'WhatsApp Marketing & Tunnels de vente automatisés')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>WhatsApp Marketing & Tunnels de vente automatisés</span>
+              </div>
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'Automatisation des processus, facturation & CRM')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Automatisation des processus, facturation & CRM</span>
+              </div>
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'Publicité payante ciblée (Meta Ads, Google Ads)')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Publicité payante ciblée (Meta Ads, Google Ads)</span>
+              </div>
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'Production de vidéos percutantes & storytelling')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Production de vidéos percutantes & storytelling</span>
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <input type="text" id="digit-needs-other" class="form-input" placeholder="Autre besoin de digitalisation (facultatif)...">
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="quiz-block-group">
+            <label class="quiz-block-label">3. Quel est votre blocage majeur aujourd'hui ?</label>
+            <div class="quiz-options-grid">
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-blocker', 'Manque de visibilité et pas assez de clients réguliers')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Manque de visibilité & pas assez de clients réguliers</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-blocker', 'Trop de temps perdu sur des tâches manuelles')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Trop de temps perdu sur des tâches manuelles</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-blocker', 'Absence de méthode et de stratégie claire')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Absence de méthode et de stratégie claire</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-blocker', 'Outils actuels obsolètes ou inadaptés')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Outils actuels obsolètes ou inadaptés</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Coordonnées -->
+          <div class="contact-form-box">
+            <h3 class="contact-form-title">Vos Coordonnées</h3>
+            <p class="contact-form-subtitle">Ces informations permettront à notre équipe de vous transmettre un diagnostic et un plan d'action adapté.</p>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="digit-name" class="form-label">Votre nom complet <span class="required">*</span></label>
+                <input type="text" id="digit-name" class="form-input" placeholder="Ex : Sarah Touré" required>
+              </div>
+              <div class="form-group">
+                <label for="digit-whatsapp" class="form-label">Numéro WhatsApp (avec indicatif) <span class="required">*</span></label>
+                <input type="tel" id="digit-whatsapp" class="form-input" placeholder="Ex : +225 07 77 95 73 37" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="digit-business" class="form-label">Nom de votre entreprise <span class="required">*</span></label>
+                <input type="text" id="digit-business" class="form-input" placeholder="Ex : Ivoire Déco & Confort" required>
+              </div>
+              <div class="form-group">
+                <label for="digit-email" class="form-label">Adresse e-mail <span class="required">*</span></label>
+                <input type="email" id="digit-email" class="form-input" placeholder="Ex : direction@ivoiredeco.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="digit-notes" class="form-label">Précisions supplémentaires sur vos objectifs (facultatif)</label>
+              <textarea id="digit-notes" class="form-textarea" placeholder="Décrivez vos attentes, votre site ou vos réseaux actuels si vous en avez..."></textarea>
+            </div>
+
+            <div class="step-actions-bar" style="margin-top: 24px;">
+              <button type="button" class="btn btn-subtle" onclick="selectIntention('home')">
+                ← Revenir au choix
+              </button>
+              <button type="submit" class="btn btn-pill btn-large" style="background-color: var(--color-primary); color: #111827;">
+                <span>ENVOYER MA DEMANDE DE DIGITALISATION</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- QUESTIONNAIRE 2 : LANCER UN PROJET                              -->
+      <!-- =============================================================== -->
+      <div class="catalog-step-pane" id="pane-lancer-projet">
+        <div class="step-heading-row">
+          <div class="step-title-group">
+            <h1>Je veux lancer un projet</h1>
+            <p class="step-subtitle">
+              Décrivez votre projet afin que notre équipe vous guide pour poser des fondations solides et réussir votre entrée sur le marché.
+            </p>
+          </div>
+          <button type="button" class="btn-step-back" onclick="selectIntention('home')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <span>Changer d'objectif</span>
+          </button>
+        </div>
+
+        <form id="form-lancer-projet" onsubmit="handleLancerSubmit(event)">
+          <!-- Question 1 -->
+          <div class="quiz-block-group">
+            <label class="quiz-block-label">1. À quel stade se situe votre projet aujourd'hui ?</label>
+            <div class="quiz-options-grid">
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'lancer-stage', 'Idée en cours de réflexion que je veux valider')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Idée en cours de réflexion que je veux valider</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'lancer-stage', 'Projet défini, besoin des outils & de l\'image')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Projet défini, besoin des outils & de l'image</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'lancer-stage', 'Marque prête, besoin d\'un plan de lancement')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Marque prête, besoin d'un plan de lancement</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'lancer-stage', 'Refonte / Relance d\'un projet existant')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Refonte / Relance d'un projet existant</span>
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <input type="text" id="lancer-stage-other" class="form-input" placeholder="Autre stade (facultatif)...">
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="quiz-block-group">
+            <label class="quiz-block-label">2. De quoi avez-vous besoin pour réussir ce lancement ? (Choix multiples)</label>
+            <div class="quiz-options-grid">
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'lancer-needs', 'Identité visuelle complète (Nom, Logo, Charte)')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Identité visuelle complète (Nom, Logo, Charte)</span>
+              </div>
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'lancer-needs', 'Site web vitrine ou boutique e-commerce')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Site web vitrine ou boutique e-commerce</span>
+              </div>
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'lancer-needs', 'Stratégie marketing & Premiers clients')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Stratégie marketing & Premiers clients</span>
+              </div>
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'lancer-needs', 'Production de vidéos & Contenus réseaux sociaux')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Production de vidéos & Contenus réseaux sociaux</span>
+              </div>
+              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'lancer-needs', 'Accompagnement stratégique complet de A à Z')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Accompagnement stratégique complet de A à Z</span>
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <input type="text" id="lancer-needs-other" class="form-input" placeholder="Autre besoin spécifique (facultatif)...">
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="quiz-block-group">
+            <label class="quiz-block-label">3. Dans quel délai souhaitez-vous lancer votre projet ?</label>
+            <div class="quiz-options-grid">
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'lancer-timeline', 'Immédiatement (dans le mois en cours)')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Immédiatement (dans le mois en cours)</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'lancer-timeline', 'D\'ici 1 à 3 mois')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>D'ici 1 à 3 mois</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'lancer-timeline', 'D\'ici 3 à 6 mois')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>D'ici 3 à 6 mois</span>
+              </div>
+              <div class="quiz-option-card" onclick="selectRadioCard(this, 'lancer-timeline', 'Pas d\'échéance stricte, priorité à la qualité')">
+                <div class="custom-checkbox" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Pas d'échéance stricte, priorité à la qualité</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Coordonnées -->
+          <div class="contact-form-box">
+            <h3 class="contact-form-title">Vos Coordonnées</h3>
+            <p class="contact-form-subtitle">Ces informations permettront à notre équipe de vous recontacter directement avec un cadrage et une proposition sur mesure.</p>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="lancer-name" class="form-label">Votre nom complet <span class="required">*</span></label>
+                <input type="text" id="lancer-name" class="form-input" placeholder="Ex : Ibrahim Koné" required>
+              </div>
+              <div class="form-group">
+                <label for="lancer-whatsapp" class="form-label">Numéro WhatsApp (avec indicatif) <span class="required">*</span></label>
+                <input type="tel" id="lancer-whatsapp" class="form-input" placeholder="Ex : +225 07 77 95 73 37" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="lancer-business" class="form-label">Nom du projet ou future entreprise <span class="required">*</span></label>
+                <input type="text" id="lancer-business" class="form-input" placeholder="Ex : AfriPay Solutions" required>
+              </div>
+              <div class="form-group">
+                <label for="lancer-email" class="form-label">Adresse e-mail <span class="required">*</span></label>
+                <input type="email" id="lancer-email" class="form-input" placeholder="Ex : contact@afripay.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="lancer-notes" class="form-label">Décrivez votre projet et votre cible en quelques mots (facultatif)</label>
+              <textarea id="lancer-notes" class="form-textarea" placeholder="Indiquez ici ce que vous prévoyez de vendre, votre client idéal, votre vision..."></textarea>
+            </div>
+
+            <div class="step-actions-bar" style="margin-top: 24px;">
+              <button type="button" class="btn btn-subtle" onclick="selectIntention('home')">
+                ← Revenir au choix
+              </button>
+              <button type="submit" class="btn btn-pill btn-large" style="background-color: var(--color-primary); color: #111827;">
+                <span>ENVOYER MON PROJET À L'ÉQUIPE</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
 
       <!-- =============================================================== -->
@@ -1627,10 +2263,79 @@
       isDirectOther: false
     };
 
+    // Quiz selections
+    const quizSelections = {
+      'digit-sector': '',
+      'digit-needs': new Set(),
+      'digit-blocker': '',
+      'lancer-stage': '',
+      'lancer-needs': new Set(),
+      'lancer-timeline': ''
+    };
+
+    function selectRadioCard(element, groupKey, value) {
+      const parent = element.closest('.quiz-options-grid');
+      if (parent) {
+        parent.querySelectorAll('.quiz-option-card').forEach(c => c.classList.remove('is-selected'));
+      }
+      element.classList.add('is-selected');
+      quizSelections[groupKey] = value;
+    }
+
+    function toggleMultiCard(element, groupKey, value) {
+      if (quizSelections[groupKey].has(value)) {
+        quizSelections[groupKey].delete(value);
+        element.classList.remove('is-selected');
+      } else {
+        quizSelections[groupKey].add(value);
+        element.classList.add('is-selected');
+      }
+    }
+
     // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
       renderFamilies();
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const mode = urlParams.get('mode') || urlParams.get('type');
+      if (mode === 'service') {
+        selectIntention('service');
+      } else if (mode === 'digitaliser') {
+        selectIntention('digitaliser');
+      } else if (mode === 'lancer') {
+        selectIntention('lancer');
+      } else {
+        selectIntention('home');
+      }
     });
+
+    // Navigation entre les 3 grandes intentions
+    function selectIntention(type) {
+      hideAllPanes();
+
+      if (type === 'service') {
+        goToStep(1);
+      } else if (type === 'digitaliser') {
+        const pane = document.getElementById('pane-digitaliser');
+        if (pane) pane.classList.add('is-active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (type === 'lancer') {
+        const pane = document.getElementById('pane-lancer-projet');
+        if (pane) pane.classList.add('is-active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // 'home' ou retour aux 3 choix
+        const pane = document.getElementById('pane-initial-choice');
+        if (pane) pane.classList.add('is-active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function hideAllPanes() {
+      document.querySelectorAll('.catalog-step-pane').forEach(p => p.classList.remove('is-active'));
+      const conf = document.getElementById('confirmation-pane');
+      if (conf) conf.style.display = 'none';
+    }
 
     // Étape 1 : Rendu des 5 domaines d'intervention (sans badge "FAMILLE")
     function renderFamilies() {
@@ -1938,24 +2643,125 @@
       }
     }
 
-    // Gestion du changement d'étape
+    // Gestion du changement d'étape dans le catalogue
     function goToStep(stepNum) {
       state.step = stepNum;
+      hideAllPanes();
 
-      // Gestion des panneaux visibles
-      for (let i = 1; i <= 4; i++) {
-        const pane = document.getElementById(`step-pane-${i}`);
-        if (pane) pane.classList.toggle('is-active', i === stepNum);
-      }
-
-      const confPane = document.getElementById('confirmation-pane');
-      if (confPane) confPane.style.display = 'none';
+      const pane = document.getElementById(`step-pane-${stepNum}`);
+      if (pane) pane.classList.add('is-active');
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
 
-    // Soumission du formulaire final
+    function sendToWhatsAppAndConfirm(message) {
+      const whatsappUrl = `https://wa.me/${MOOUVY_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+
+      const finalBtn = document.getElementById('final-whatsapp-button');
+      if (finalBtn) finalBtn.href = whatsappUrl;
+
+      hideAllPanes();
+      const confPane = document.getElementById('confirmation-pane');
+      if (confPane) confPane.style.display = 'block';
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Soumission du questionnaire : Digitaliser mon entreprise
+    function handleDigitaliserSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('digit-name').value.trim();
+      const whatsapp = document.getElementById('digit-whatsapp').value.trim();
+      const business = document.getElementById('digit-business').value.trim();
+      const email = document.getElementById('digit-email').value.trim();
+      const notes = document.getElementById('digit-notes').value.trim();
+      const sectorOther = document.getElementById('digit-sector-other').value.trim();
+      const needsOther = document.getElementById('digit-needs-other').value.trim();
+
+      if (!name || !whatsapp || !business || !email) {
+        alert("Veuillez renseigner votre nom, votre numéro WhatsApp, le nom de votre entreprise et votre adresse email.");
+        return;
+      }
+
+      const sector = sectorOther || quizSelections['digit-sector'] || "Non spécifié";
+      let needsList = Array.from(quizSelections['digit-needs']);
+      if (needsOther) needsList.push(needsOther);
+      const needsText = needsList.length > 0 ? needsList.map(n => `• ${n}`).join("\n") : "• Digitalisation globale de l'activité";
+      const blocker = quizSelections['digit-blocker'] || "Non spécifié";
+
+      const message = 
+`Bonjour Moouvy agence,
+
+Je souhaite digitaliser mon entreprise. Voici mes réponses au questionnaire :
+
+👤 INFORMATIONS CLIENT :
+- Nom : ${name}
+- WhatsApp : ${whatsapp}
+- Entreprise : ${business}
+- Email : ${email}
+
+🏢 PROFIL & ACTIVITÉ :
+- Secteur d'activité : ${sector}
+- Défi / Blocage majeur : ${blocker}
+
+🎯 LEVIERS PRIORITAIRES DE DIGITALISATION :
+${needsText}${notes ? `\n\n💬 Précisions sur mes attentes :\n${notes}` : ''}
+
+Merci de me recontacter pour échanger sur la digitalisation de mon entreprise.`;
+
+      sendToWhatsAppAndConfirm(message);
+    }
+
+    // Soumission du questionnaire : Lancer un projet
+    function handleLancerSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('lancer-name').value.trim();
+      const whatsapp = document.getElementById('lancer-whatsapp').value.trim();
+      const business = document.getElementById('lancer-business').value.trim();
+      const email = document.getElementById('lancer-email').value.trim();
+      const notes = document.getElementById('lancer-notes').value.trim();
+      const stageOther = document.getElementById('lancer-stage-other').value.trim();
+      const needsOther = document.getElementById('lancer-needs-other').value.trim();
+
+      if (!name || !whatsapp || !business || !email) {
+        alert("Veuillez renseigner votre nom, votre numéro WhatsApp, le nom de votre projet et votre adresse email.");
+        return;
+      }
+
+      const stage = stageOther || quizSelections['lancer-stage'] || "Non spécifié";
+      let needsList = Array.from(quizSelections['lancer-needs']);
+      if (needsOther) needsList.push(needsOther);
+      const needsText = needsList.length > 0 ? needsList.map(n => `• ${n}`).join("\n") : "• Lancement complet du projet";
+      const timeline = quizSelections['lancer-timeline'] || "Non spécifié";
+
+      const message = 
+`Bonjour Moouvy agence,
+
+Je veux lancer un nouveau projet. Voici mes réponses au questionnaire :
+
+👤 INFORMATIONS PORTEUR DE PROJET :
+- Nom : ${name}
+- WhatsApp : ${whatsapp}
+- Projet / Future Entreprise : ${business}
+- Email : ${email}
+
+🚀 CADRAGE DU PROJET :
+- Stade actuel : ${stage}
+- Échéance souhaitée : ${timeline}
+
+🎯 BESOINS POUR LE LANCEMENT :
+${needsText}${notes ? `\n\n💬 Description du projet :\n${notes}` : ''}
+
+Merci de me recontacter pour m'accompagner dans le lancement de mon projet.`;
+
+      sendToWhatsAppAndConfirm(message);
+    }
+
+    // Soumission du formulaire final (Catalogue de prestations)
     function handleServicesFormSubmit(e) {
       e.preventDefault();
 
@@ -2002,26 +2808,7 @@ ${servicesText}${customDetails}${clientMsg}
 
 Merci de me recontacter avec un devis et votre proposition d'accompagnement.`;
 
-      const whatsappUrl = `https://wa.me/${MOOUVY_CONFIG.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-      const mailtoUrl = `mailto:${MOOUVY_CONFIG.email}?subject=${encodeURIComponent("Demande de Prestations Moouvy - " + name)}&body=${encodeURIComponent(whatsappMessage)}`;
-
-      // Ouvre WhatsApp
-      window.open(whatsappUrl, '_blank');
-
-      // Met à jour le bouton de confirmation WhatsApp
-      const finalBtn = document.getElementById('final-whatsapp-button');
-      if (finalBtn) finalBtn.href = whatsappUrl;
-
-      // Affiche l'écran de confirmation
-      for (let i = 1; i <= 4; i++) {
-        const pane = document.getElementById(`step-pane-${i}`);
-        if (pane) pane.classList.remove('is-active');
-      }
-
-      const confPane = document.getElementById('confirmation-pane');
-      if (confPane) confPane.style.display = 'block';
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      sendToWhatsAppAndConfirm(whatsappMessage);
     }
   </script>
 </body>
