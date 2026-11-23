@@ -977,128 +977,224 @@
       transform: scale(1);
     }
 
-    /* Styles pour le parcours 3 pages & Récapitulatif (Je veux digitaliser mon entreprise) */
-    .digit-subpage {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.25s ease;
-    }
-
-    .digit-subpage.is-active {
-      display: block;
-      opacity: 1;
-    }
-
-    .quiz-other-field {
-      display: none;
-      margin-top: 14px;
-      animation: fadeInSoft 0.25s ease;
-    }
-
-    @keyframes fadeInSoft {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .recap-summary-card {
+    /* Styles Typeform pour le questionnaire Digitalisation (10 écrans) */
+    .tf-container {
+      max-width: 660px;
+      margin: 0 auto;
       background: #FFFFFF;
       border: 1px solid var(--color-border);
-      border-radius: 18px;
-      padding: 26px 24px;
-      box-shadow: var(--shadow-sm);
+      border-radius: 22px;
+      padding: 36px 32px;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.05);
     }
 
-    .recap-summary-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--color-border);
-      padding-bottom: 14px;
-      margin-bottom: 18px;
-      gap: 12px;
-    }
-
-    .recap-summary-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--color-night-blue);
-      margin: 0;
-    }
-
-    .recap-edit-btn {
-      background: none;
-      border: 1px solid #CBD5E1;
-      color: var(--color-night-blue);
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      transition: all 0.2s ease;
-    }
-
-    .recap-edit-btn:hover {
-      background: #F1F5F9;
-      border-color: #94A3B8;
-    }
-
-    .recap-items-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    @media (min-width: 640px) {
-      .recap-items-grid {
-        grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 640px) {
+      .tf-container {
+        padding: 24px 18px;
+        border-radius: 16px;
       }
     }
 
-    .recap-item-box {
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-radius: 12px;
-      padding: 12px 16px;
-    }
-
-    .recap-item-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--color-slate-gray);
+    .tf-notice-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(56, 216, 216, 0.1);
+      border: 1px solid rgba(56, 216, 216, 0.3);
+      color: #0F172A;
+      font-size: 0.875rem;
       font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .recap-item-val {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--color-night-blue);
-      word-break: break-word;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 26px;
       line-height: 1.4;
     }
 
-    .recap-freetext-box {
-      margin-top: 16px;
-      background: #F8FAFC;
-      border: 1px dashed #CBD5E1;
-      border-radius: 12px;
-      padding: 14px 16px;
+    .tf-notice-pulse {
+      width: 9px;
+      height: 9px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(56, 216, 216, 0.35);
+      flex-shrink: 0;
+      animation: tfPulseDot 2s infinite;
     }
 
-    .recap-freetext-val {
-      font-size: 0.9375rem;
+    @keyframes tfPulseDot {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(56, 216, 216, 0.5); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(56, 216, 216, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(56, 216, 216, 0); }
+    }
+
+    .tf-screen {
+      display: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    .tf-screen.is-active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tf-screen-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .tf-screen-num {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      flex-shrink: 0;
+      line-height: 1.35;
+    }
+
+    .tf-question-title {
+      font-size: 1.35rem;
+      font-weight: 700;
       color: var(--color-night-blue);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .tf-question-subtitle {
+      font-size: 0.9rem;
+      color: var(--color-slate-gray);
       margin-top: 6px;
-      line-height: 1.5;
-      white-space: pre-wrap;
+      margin-bottom: 22px;
+      line-height: 1.45;
+    }
+
+    .tf-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .tf-choice-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--color-border);
+      background: #FFFFFF;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .tf-choice-card:hover {
+      border-color: var(--color-primary);
+      background: #F8FAFC;
+      transform: translateX(3px);
+    }
+
+    .tf-choice-card.is-selected {
+      border-color: var(--color-primary);
+      background: linear-gradient(90deg, #F0FDFD 0%, #FFFFFF 100%);
+      box-shadow: 0 4px 14px rgba(56, 216, 216, 0.16);
+    }
+
+    .tf-key-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      border: 1px solid #CBD5E1;
+      background: #F8FAFC;
+      color: #475569;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .tf-choice-card.is-selected .tf-key-badge {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-night-blue);
+    }
+
+    .tf-choice-text {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-night-blue);
+      flex: 1;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .tf-check-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: transparent;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .tf-choice-card.is-selected .tf-check-circle {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-night-blue);
+    }
+
+    .tf-other-field {
+      display: none;
+      margin-top: 12px;
+      animation: fadeInSoft 0.25s ease;
+    }
+
+    .tf-input-other {
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+
+    .tf-actions-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid #F1F5F9;
+      gap: 12px;
+    }
+
+    .tf-field-label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-night-blue);
+      margin-bottom: 8px;
+    }
+
+    .tf-input-lg {
+      padding: 13px 16px;
+      font-size: 0.95rem;
+      border-radius: 10px;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .digit-subpage,
-      .quiz-other-field {
+      .tf-screen,
+      .tf-other-field,
+      .tf-notice-pulse {
         transition: none !important;
         animation: none !important;
+        transform: none !important;
       }
     }
 
@@ -1477,384 +1573,553 @@
       <!-- =============================================================== -->
       <!-- QUESTIONNAIRE 1 : DIGITALISER MON ENTREPRISE (3 PAGES)          -->
       <!-- =============================================================== -->
+      <!-- QUESTIONNAIRE TYPEFORM : DIGITALISER MON ENTREPRISE (10 ÉCRANS) -->
+      <!-- =============================================================== -->
       <div class="catalog-step-pane" id="pane-digitaliser">
-        <div class="step-heading-row">
-          <div class="step-title-group">
-            <h1>Je veux digitaliser mon entreprise</h1>
-            <p class="step-subtitle">
-              Répondez à ce questionnaire rapide pour nous permettre de structurer un plan de digitalisation clair et rentable pour votre activité.
-            </p>
+        
+        <div class="tf-container">
+          <!-- Bannière d'en-tête Typeform -->
+          <div class="tf-notice-banner">
+            <div class="tf-notice-pulse"></div>
+            <span>Nous avons des questions à vous poser. Ça prendra moins d'une minute.</span>
           </div>
-        </div>
 
-        <form id="form-digitaliser" onsubmit="handleDigitaliserSubmit(event)">
-          <!-- ========================================================= -->
-          <!-- PAGE 1 : QUESTIONNAIRE (6 QUESTIONS)                      -->
-          <!-- ========================================================= -->
-          <div class="digit-subpage is-active" id="digit-subpage-1">
+          <form id="form-digitaliser" onsubmit="handleDigitaliserSubmit(event)">
             
-            <!-- Question 1 -->
-            <div class="quiz-block-group">
-              <label class="quiz-block-label">1. Quel est votre type d'activité / secteur ?</label>
-              <div class="quiz-options-grid">
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Prestation de services, Conseil & B2B')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Prestation de services, Conseil & B2B</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Vente de produits physiques & E-commerce')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Vente de produits physiques & E-commerce</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Formation, Coaching & Infopreneuriat')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Formation, Coaching & Infopreneuriat</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Commerce local, Artisanat, PME & BTP')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Commerce local, Artisanat, PME & BTP</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Santé & Éducation')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Santé & Éducation</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Autre')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Autre</span>
-                </div>
+            <!-- ======================================================= -->
+            <!-- ÉCRAN 1 : Domaine d'activité (Un seul choix)            -->
+            <!-- ======================================================= -->
+            <div class="tf-screen is-active" id="tf-screen-1">
+              <div class="tf-screen-header">
+                <span class="tf-screen-num">1 →</span>
+                <h2 class="tf-question-title">Quel est votre domaine d'activité ?</h2>
               </div>
-              <div class="quiz-other-field" id="digit-q1-other-wrap">
-                <input type="text" id="digit-q1-other-val" class="form-input" placeholder="Précisez votre réponse...">
-              </div>
-            </div>
-
-            <!-- Question 2 -->
-            <div class="quiz-block-group">
-              <label class="quiz-block-label">2. Quel est votre stade actuel et votre ambition ?</label>
-              <div class="quiz-options-grid">
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q2', 'Démarrage : Nouveau projet ou business à lancer avec des bases solides')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Démarrage : Nouveau projet à lancer avec des bases solides</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q2', 'En développement : Activité existante à démultiplier rapidement')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>En développement : Activité existante à démultiplier rapidement</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q2', 'Établi : Entreprise rentable prête à scaler massivement')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Établi : Entreprise rentable prête à scaler massivement</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q2', 'Autre')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Autre</span>
-                </div>
-              </div>
-              <div class="quiz-other-field" id="digit-q2-other-wrap">
-                <input type="text" id="digit-q2-other-val" class="form-input" placeholder="Précisez votre réponse...">
-              </div>
-            </div>
-
-            <!-- Question 3 -->
-            <div class="quiz-block-group">
-              <label class="quiz-block-label">3. Quels leviers prioritaires souhaitez-vous digitaliser ? (Choix multiples)</label>
-              <div class="quiz-options-grid">
-                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Site web professionnel ou e-commerce')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Site web professionnel ou e-commerce</span>
-                </div>
-                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Présence et acquisition sur les réseaux sociaux')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Présence et acquisition sur les réseaux sociaux</span>
-                </div>
-                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'WhatsApp Marketing & Tunnels de vente automatisés')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>WhatsApp Marketing & Tunnels de vente automatisés</span>
-                </div>
-                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Automatisation des processus, facturation & CRM')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Automatisation des processus, facturation & CRM</span>
-                </div>
-                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Publicité payante ciblée (Meta Ads, Google Ads)')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Publicité payante ciblée (Meta Ads, Google Ads)</span>
-                </div>
-                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Production de vidéos percutantes & storytelling')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Production de vidéos percutantes & storytelling</span>
-                </div>
-                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Autre')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Autre</span>
-                </div>
-              </div>
-              <div class="quiz-other-field" id="digit-q3-other-wrap">
-                <input type="text" id="digit-q3-other-val" class="form-input" placeholder="Précisez votre réponse...">
-              </div>
-            </div>
-
-            <!-- Question 4 -->
-            <div class="quiz-block-group">
-              <label class="quiz-block-label">4. Quelle est votre présence digitale actuelle ?</label>
-              <div class="quiz-options-grid">
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q4', 'Oui, j\'ai déjà un site web actif')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Oui, j'ai déjà un site web actif</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q4', 'J\'ai uniquement une page sur les réseaux sociaux')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>J'ai uniquement une page sur les réseaux sociaux</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q4', 'Aucun des deux, je repars de zéro')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Aucun des deux, je souhaite tout construire dès maintenant</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q4', 'Autre')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Autre</span>
-                </div>
-              </div>
-              <div class="quiz-other-field" id="digit-q4-other-wrap">
-                <input type="text" id="digit-q4-other-val" class="form-input" placeholder="Précisez votre réponse...">
-              </div>
-            </div>
-
-            <!-- Question 5 -->
-            <div class="quiz-block-group">
-              <label class="quiz-block-label">5. Quel est votre principal frein ou blocage actuel ?</label>
-              <div class="quiz-options-grid">
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Manque de visibilité : pas assez de trafic ni de clients réguliers')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Manque de visibilité & pas assez de clients réguliers</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Trafic ou abonnés existants, mais très peu passent commande')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Trafic ou abonnés présents, mais faible conversion</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Trop de temps perdu sur des tâches manuelles')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Trop de temps perdu sur des tâches manuelles</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Absence de méthode et de stratégie claire')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Absence de méthode et de stratégie claire</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Dépenses publicitaires trop élevées pour des retours insuffisants')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Dépenses publicitaires trop élevées pour des retours faibles</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Outils actuels obsolètes ou inadaptés')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Outils actuels obsolètes ou inadaptés</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Autre')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Autre</span>
-                </div>
-              </div>
-              <div class="quiz-other-field" id="digit-q5-other-wrap">
-                <input type="text" id="digit-q5-other-val" class="form-input" placeholder="Précisez votre réponse...">
-              </div>
-            </div>
-
-            <!-- Question 6 -->
-            <div class="quiz-block-group">
-              <label class="quiz-block-label">6. Quel est votre défi prioritaire pour grandir ?</label>
-              <div class="quiz-options-grid">
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q6', 'Générer un flux régulier de nouveaux clients payants')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Générer un flux régulier de nouveaux clients payants</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q6', 'Augmenter mon chiffre d\'affaires & la valeur moyenne par client')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Augmenter mon chiffre d'affaires & la rentabilité</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q6', 'Structurer une équipe & automatiser l\'acquisition pour gagner du temps')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Structurer & automatiser l'acquisition pour libérer du temps</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q6', 'Bâtir une image de marque leader et reconnue sur mon marché')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Bâtir une image de marque leader et reconnue</span>
-                </div>
-                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q6', 'Autre')">
-                  <div class="custom-checkbox" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Autre</span>
-                </div>
-              </div>
-              <div class="quiz-other-field" id="digit-q6-other-wrap">
-                <input type="text" id="digit-q6-other-val" class="form-input" placeholder="Précisez votre réponse...">
-              </div>
-            </div>
-
-            <!-- Action bar Page 1 -->
-            <div class="step-actions-bar" style="margin-top: 32px;">
-              <button type="button" class="btn-subtle-slim" onclick="selectIntention('home')">
-                ← Revenir au choix
-              </button>
-              <button type="button" class="btn-submit-slim" onclick="goToDigitSubpage(2)">
-                <span>Suivant</span>
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- ========================================================= -->
-          <!-- PAGE 2 : ÉCRITURE LIBRE                                   -->
-          <!-- ========================================================= -->
-          <div class="digit-subpage" id="digit-subpage-2" style="display: none;">
-            <div class="quiz-block-group" style="padding: 32px 26px;">
-              <h2 class="quiz-block-label" style="font-size: 1.35rem; margin-bottom: 8px;">Avez-vous autre chose à nous dire ?</h2>
-              <p style="font-size: 0.95rem; color: var(--color-slate-gray); margin-bottom: 24px; line-height: 1.5;">
-                Décrivez avec vos propres mots ce que vous souhaitez, ce qui n'est pas dans la liste.
-              </p>
-
-              <div class="form-group">
-                <textarea id="digit-free-text" class="form-textarea" rows="7" placeholder="Décrivez librement vos attentes spécifiques, votre contexte particulier, vos idées ou tout élément utile que vous aimeriez partager avec notre équipe... (facultatif)"></textarea>
-              </div>
-            </div>
-
-            <!-- Action bar Page 2 -->
-            <div class="step-actions-bar" style="margin-top: 28px;">
-              <button type="button" class="btn-subtle-slim" onclick="goToDigitSubpage(1)">
-                ← Retour
-              </button>
-              <button type="button" class="btn-submit-slim" onclick="goToDigitSubpage(3)">
-                <span>Suivant</span>
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- ========================================================= -->
-          <!-- PAGE 3 : FINALE                                           -->
-          <!-- ========================================================= -->
-          <div class="digit-subpage" id="digit-subpage-3" style="display: none;">
-            
-            <!-- Récapitulatif des réponses -->
-            <div class="recap-summary-card" id="digit-summary-card">
-              <div class="recap-summary-header">
-                <h3 class="recap-summary-title">Récapitulatif de vos réponses</h3>
-                <button type="button" class="recap-edit-btn" onclick="goToDigitSubpage(1)">Modifier mes réponses</button>
-              </div>
+              <p class="tf-question-subtitle">Sélectionnez une seule option qui correspond à votre secteur.</p>
               
-              <div class="recap-items-grid" id="digit-recap-grid">
-                <!-- Rempli dynamiquement -->
+              <div class="tf-options-list">
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'Restaurant')">
+                  <span class="tf-key-badge">A</span>
+                  <span class="tf-choice-text">Restaurant</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'Hôtel')">
+                  <span class="tf-key-badge">B</span>
+                  <span class="tf-choice-text">Hôtel</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'Loisirs')">
+                  <span class="tf-key-badge">C</span>
+                  <span class="tf-choice-text">Loisirs</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'Commerce')">
+                  <span class="tf-key-badge">D</span>
+                  <span class="tf-choice-text">Commerce</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'Boutique')">
+                  <span class="tf-key-badge">E</span>
+                  <span class="tf-choice-text">Boutique</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'Services (cabinet, agence, consultant)')">
+                  <span class="tf-key-badge">F</span>
+                  <span class="tf-choice-text">Services (cabinet, agence, consultant)</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'École ou centre de formation')">
+                  <span class="tf-key-badge">G</span>
+                  <span class="tf-choice-text">École ou centre de formation</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'Production, industrie, agriculture')">
+                  <span class="tf-key-badge">H</span>
+                  <span class="tf-choice-text">Production, industrie, agriculture</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'Association ou ONG')">
+                  <span class="tf-key-badge">I</span>
+                  <span class="tf-choice-text">Association ou ONG</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'Indépendant / freelance')">
+                  <span class="tf-key-badge">J</span>
+                  <span class="tf-choice-text">Indépendant / freelance</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q1', 'Autre')">
+                  <span class="tf-key-badge">K</span>
+                  <span class="tf-choice-text">Autre</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
               </div>
 
-              <div id="digit-recap-freetext-wrap" class="recap-freetext-box" style="display: none;">
-                <div class="recap-item-label">Autre chose à nous dire :</div>
-                <div class="recap-freetext-val" id="digit-recap-freetext-val"></div>
+              <div class="tf-other-field" id="tf-q1-other-wrap" style="display: none;">
+                <input type="text" id="tf-q1-other-val" class="form-input tf-input-other" placeholder="Précisez votre domaine d'activité...">
+              </div>
+
+              <div class="tf-actions-bar">
+                <button type="button" class="btn-subtle-slim" onclick="selectIntention('home')">
+                  ← Revenir au choix
+                </button>
+                <button type="button" class="btn-submit-slim" onclick="nextTfScreen(1)">
+                  <span>Continuer</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
               </div>
             </div>
 
-            <!-- Formulaire Coordonnées & Paramètres -->
-            <div class="contact-form-box" style="margin-top: 28px;">
-              <h3 class="contact-form-title">Vos Coordonnées & Paramètres</h3>
-              <p class="contact-form-subtitle">Ces informations permettront à notre équipe de vous transmettre un diagnostic et un plan d'action adapté.</p>
-
-              <!-- Budget & Délai (facultatifs) -->
-              <div class="form-grid-2">
-                <div class="form-group">
-                  <label for="digit-budget" class="form-label">Budget envisagé (facultatif)</label>
-                  <input type="text" id="digit-budget" class="form-input" placeholder="Ex : 500 000 - 1 500 000 FCFA, etc.">
-                </div>
-                <div class="form-group">
-                  <label for="digit-timeline" class="form-label">Délai souhaité (facultatif)</label>
-                  <input type="text" id="digit-timeline" class="form-input" placeholder="Ex : Immédiat, d'ici 1 mois, flexible...">
-                </div>
+            <!-- ======================================================= -->
+            <!-- ÉCRAN 2 : Quelle est votre entreprise ? (Champs écrits) -->
+            <!-- ======================================================= -->
+            <div class="tf-screen" id="tf-screen-2" style="display: none;">
+              <div class="tf-screen-header">
+                <span class="tf-screen-num">2 →</span>
+                <h2 class="tf-question-title">Quelle est votre entreprise ?</h2>
               </div>
+              <p class="tf-question-subtitle">Dites-nous en plus sur votre activité pour nous permettre de cibler notre accompagnement.</p>
 
-              <!-- Nom & WhatsApp (obligatoires) -->
-              <div class="form-grid-2">
+              <div class="tf-inputs-group">
                 <div class="form-group">
-                  <label for="digit-name" class="form-label">Votre nom complet <span class="required">*</span></label>
-                  <input type="text" id="digit-name" class="form-input" placeholder="Ex : Sarah Touré" required>
+                  <label class="tf-field-label" for="tf-business-name">Nom de votre entreprise <span class="required">*</span></label>
+                  <input type="text" id="tf-business-name" class="form-input tf-input-lg" placeholder="Ex : Ivoire Délices, Agence Horizon...">
                 </div>
-                <div class="form-group">
-                  <label for="digit-whatsapp" class="form-label">Numéro WhatsApp (avec indicatif) <span class="required">*</span></label>
-                  <input type="tel" id="digit-whatsapp" class="form-input" placeholder="Ex : +225 07 77 95 73 37" required>
+
+                <div class="form-group" style="margin-top: 20px;">
+                  <label class="tf-field-label" for="tf-business-desc">En quelques mots, ce que fait votre entreprise</label>
+                  <textarea id="tf-business-desc" class="form-textarea" rows="4" placeholder="Ex : Nous vendons des produits cosmétiques naturels et proposons des prestations en institut..."></textarea>
                 </div>
               </div>
 
-              <!-- Email & Message (facultatifs) -->
-              <div class="form-group">
-                <label for="digit-email" class="form-label">Adresse e-mail (facultatif)</label>
-                <input type="email" id="digit-email" class="form-input" placeholder="Ex : sarah@monentreprise.com">
+              <div class="tf-actions-bar">
+                <button type="button" class="btn-subtle-slim" onclick="prevTfScreen(2)">
+                  ← Retour
+                </button>
+                <button type="button" class="btn-submit-slim" onclick="nextTfScreen(2)">
+                  <span>Continuer</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- ÉCRAN 3 : Pourquoi voulez-vous digitaliser ? (Multi)    -->
+            <!-- ======================================================= -->
+            <div class="tf-screen" id="tf-screen-3" style="display: none;">
+              <div class="tf-screen-header">
+                <span class="tf-screen-num">3 →</span>
+                <h2 class="tf-question-title">Pourquoi voulez-vous digitaliser votre entreprise ?</h2>
+              </div>
+              <p class="tf-question-subtitle">Plusieurs choix possibles — cochez toutes les options qui s'appliquent.</p>
+
+              <div class="tf-options-list">
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q3', 'Être visible sur Internet')">
+                  <span class="tf-key-badge">A</span>
+                  <span class="tf-choice-text">Être visible sur Internet</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q3', 'Vendre sur Internet')">
+                  <span class="tf-key-badge">B</span>
+                  <span class="tf-choice-text">Vendre sur Internet</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q3', 'Avoir plus de clients')">
+                  <span class="tf-key-badge">C</span>
+                  <span class="tf-choice-text">Avoir plus de clients</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q3', 'Gagner du temps (automatiser)')">
+                  <span class="tf-key-badge">D</span>
+                  <span class="tf-choice-text">Gagner du temps (automatiser)</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q3', 'Avoir une image plus professionnelle')">
+                  <span class="tf-key-badge">E</span>
+                  <span class="tf-choice-text">Avoir une image plus professionnelle</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q3', 'Mieux gérer mes clients, commandes et stocks')">
+                  <span class="tf-key-badge">F</span>
+                  <span class="tf-choice-text">Mieux gérer mes clients, commandes et stocks</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q3', 'Autre')">
+                  <span class="tf-key-badge">G</span>
+                  <span class="tf-choice-text">Autre</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
               </div>
 
-              <div class="form-group">
-                <label for="digit-notes" class="form-label">Message complémentaire (facultatif)</label>
-                <textarea id="digit-notes" class="form-textarea" rows="3" placeholder="Un mot pour notre équipe ou une information supplémentaire..."></textarea>
+              <div class="tf-other-field" id="tf-q3-other-wrap" style="display: none;">
+                <input type="text" id="tf-q3-other-val" class="form-input tf-input-other" placeholder="Précisez votre objectif...">
               </div>
 
-              <!-- Action bar Page 3 -->
-              <div class="step-actions-bar" style="margin-top: 24px;">
-                <button type="button" class="btn-subtle-slim" onclick="goToDigitSubpage(2)">
+              <div class="tf-actions-bar">
+                <button type="button" class="btn-subtle-slim" onclick="prevTfScreen(3)">
+                  ← Retour
+                </button>
+                <button type="button" class="btn-submit-slim" onclick="nextTfScreen(3)">
+                  <span>Continuer</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- ÉCRAN 4 : Présence en ligne aujourd'hui (Un seul choix) -->
+            <!-- ======================================================= -->
+            <div class="tf-screen" id="tf-screen-4" style="display: none;">
+              <div class="tf-screen-header">
+                <span class="tf-screen-num">4 →</span>
+                <h2 class="tf-question-title">Quelle est votre présence en ligne aujourd'hui ?</h2>
+              </div>
+              <p class="tf-question-subtitle">Sélectionnez une seule option qui décrit votre situation actuelle.</p>
+
+              <div class="tf-options-list">
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q4', 'Aucune')">
+                  <span class="tf-key-badge">A</span>
+                  <span class="tf-choice-text">Aucune</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q4', 'Seulement WhatsApp ou une page Facebook')">
+                  <span class="tf-key-badge">B</span>
+                  <span class="tf-choice-text">Seulement WhatsApp ou une page Facebook</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q4', 'Réseaux sociaux actifs, mais pas de site')">
+                  <span class="tf-key-badge">C</span>
+                  <span class="tf-choice-text">Réseaux sociaux actifs, mais pas de site</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q4', 'J\'ai un site')">
+                  <span class="tf-key-badge">D</span>
+                  <span class="tf-choice-text">J'ai un site</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q4', 'J\'ai plusieurs outils, mais mal exploités')">
+                  <span class="tf-key-badge">E</span>
+                  <span class="tf-choice-text">J'ai plusieurs outils, mais mal exploités</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q4', 'Autre')">
+                  <span class="tf-key-badge">F</span>
+                  <span class="tf-choice-text">Autre</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+              </div>
+
+              <div class="tf-other-field" id="tf-q4-other-wrap" style="display: none;">
+                <input type="text" id="tf-q4-other-val" class="form-input tf-input-other" placeholder="Précisez votre situation en ligne...">
+              </div>
+
+              <div class="tf-actions-bar">
+                <button type="button" class="btn-subtle-slim" onclick="prevTfScreen(4)">
+                  ← Retour
+                </button>
+                <button type="button" class="btn-submit-slim" onclick="nextTfScreen(4)">
+                  <span>Continuer</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- ÉCRAN 5 : Qu'est-ce qui vous bloque le plus ? (Multi)   -->
+            <!-- ======================================================= -->
+            <div class="tf-screen" id="tf-screen-5" style="display: none;">
+              <div class="tf-screen-header">
+                <span class="tf-screen-num">5 →</span>
+                <h2 class="tf-question-title">Qu'est-ce qui vous bloque le plus ?</h2>
+              </div>
+              <p class="tf-question-subtitle">Plusieurs choix possibles — identifiez vos principaux freins.</p>
+
+              <div class="tf-options-list">
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q5', 'Je ne sais pas par où commencer')">
+                  <span class="tf-key-badge">A</span>
+                  <span class="tf-choice-text">Je ne sais pas par où commencer</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q5', 'Pas assez de clients')">
+                  <span class="tf-key-badge">B</span>
+                  <span class="tf-choice-text">Pas assez de clients</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q5', 'Pas le temps')">
+                  <span class="tf-key-badge">C</span>
+                  <span class="tf-choice-text">Pas le temps</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q5', 'Manque de compétences')">
+                  <span class="tf-key-badge">D</span>
+                  <span class="tf-choice-text">Manque de compétences</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q5', 'Budget limité')">
+                  <span class="tf-key-badge">E</span>
+                  <span class="tf-choice-text">Budget limité</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q5', 'Mauvaise expérience passée avec un prestataire')">
+                  <span class="tf-key-badge">F</span>
+                  <span class="tf-choice-text">Mauvaise expérience passée avec un prestataire</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q5', 'Autre')">
+                  <span class="tf-key-badge">G</span>
+                  <span class="tf-choice-text">Autre</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+              </div>
+
+              <div class="tf-other-field" id="tf-q5-other-wrap" style="display: none;">
+                <input type="text" id="tf-q5-other-val" class="form-input tf-input-other" placeholder="Précisez votre blocage...">
+              </div>
+
+              <div class="tf-actions-bar">
+                <button type="button" class="btn-subtle-slim" onclick="prevTfScreen(5)">
+                  ← Retour
+                </button>
+                <button type="button" class="btn-submit-slim" onclick="nextTfScreen(5)">
+                  <span>Continuer</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- ÉCRAN 6 : Qu'attendez-vous de nous ? (Multi)            -->
+            <!-- ======================================================= -->
+            <div class="tf-screen" id="tf-screen-6" style="display: none;">
+              <div class="tf-screen-header">
+                <span class="tf-screen-num">6 →</span>
+                <h2 class="tf-question-title">Qu'attendez-vous concrètement de nous ?</h2>
+              </div>
+              <p class="tf-question-subtitle">Plusieurs choix possibles — cochez les leviers que nous pouvons activer pour vous.</p>
+
+              <div class="tf-options-list">
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q6', 'Conseil et stratégie digitale')">
+                  <span class="tf-key-badge">A</span>
+                  <span class="tf-choice-text">Conseil et stratégie digitale</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q6', 'Réseaux sociaux et communication')">
+                  <span class="tf-key-badge">B</span>
+                  <span class="tf-choice-text">Réseaux sociaux et communication</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q6', 'Site web, logo, boutique en ligne')">
+                  <span class="tf-key-badge">C</span>
+                  <span class="tf-choice-text">Site web, logo, boutique en ligne</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q6', 'Publicité et visibilité sur Google')">
+                  <span class="tf-key-badge">D</span>
+                  <span class="tf-choice-text">Publicité et visibilité sur Google</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q6', 'Photos, vidéos et contenu')">
+                  <span class="tf-key-badge">E</span>
+                  <span class="tf-choice-text">Photos, vidéos et contenu</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q6', 'Application ou plateforme sur mesure')">
+                  <span class="tf-key-badge">F</span>
+                  <span class="tf-choice-text">Application ou plateforme sur mesure</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q6', 'Je ne sais pas, j\'ai besoin de conseils')">
+                  <span class="tf-key-badge">G</span>
+                  <span class="tf-choice-text">Je ne sais pas, j'ai besoin de conseils</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="toggleTfMulti(this, 'tf-q6', 'Autre')">
+                  <span class="tf-key-badge">H</span>
+                  <span class="tf-choice-text">Autre</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+              </div>
+
+              <div class="tf-other-field" id="tf-q6-other-wrap" style="display: none;">
+                <input type="text" id="tf-q6-other-val" class="form-input tf-input-other" placeholder="Précisez ce que vous attendez de nous...">
+              </div>
+
+              <div class="tf-actions-bar">
+                <button type="button" class="btn-subtle-slim" onclick="prevTfScreen(6)">
+                  ← Retour
+                </button>
+                <button type="button" class="btn-submit-slim" onclick="nextTfScreen(6)">
+                  <span>Continuer</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- ÉCRAN 7 : Avez-vous un budget ? (Un seul choix, fac.)   -->
+            <!-- ======================================================= -->
+            <div class="tf-screen" id="tf-screen-7" style="display: none;">
+              <div class="tf-screen-header">
+                <span class="tf-screen-num">7 →</span>
+                <h2 class="tf-question-title">Avez-vous un budget ?</h2>
+              </div>
+              <p class="tf-question-subtitle">Un seul choix (facultatif) — pour dimensionner la proposition la plus adaptée.</p>
+
+              <div class="tf-options-list">
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q7', '1 000 000 à 2 000 000 FCFA')">
+                  <span class="tf-key-badge">A</span>
+                  <span class="tf-choice-text">1 000 000 à 2 000 000 FCFA</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q7', '2 000 000 à 4 000 000 FCFA')">
+                  <span class="tf-key-badge">B</span>
+                  <span class="tf-choice-text">2 000 000 à 4 000 000 FCFA</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q7', '4 000 000 à 6 000 000 FCFA')">
+                  <span class="tf-key-badge">C</span>
+                  <span class="tf-choice-text">4 000 000 à 6 000 000 FCFA</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q7', '6 000 000 à 9 000 000 FCFA')">
+                  <span class="tf-key-badge">D</span>
+                  <span class="tf-choice-text">6 000 000 à 9 000 000 FCFA</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q7', '9 000 000 à 12 000 000 FCFA')">
+                  <span class="tf-key-badge">E</span>
+                  <span class="tf-choice-text">9 000 000 à 12 000 000 FCFA</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q7', '12 000 000 à 15 000 000 FCFA')">
+                  <span class="tf-key-badge">F</span>
+                  <span class="tf-choice-text">12 000 000 à 15 000 000 FCFA</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q7', 'Je ne sais pas encore, j\'ai besoin de conseils')">
+                  <span class="tf-key-badge">G</span>
+                  <span class="tf-choice-text">Je ne sais pas encore, j'ai besoin de conseils</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q7', 'Autre')">
+                  <span class="tf-key-badge">H</span>
+                  <span class="tf-choice-text">Autre : j'ai un budget précis</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+              </div>
+
+              <div class="tf-other-field" id="tf-q7-other-wrap" style="display: none;">
+                <input type="text" id="tf-q7-other-val" class="form-input tf-input-other" placeholder="Montant en FCFA...">
+              </div>
+
+              <div class="tf-actions-bar">
+                <button type="button" class="btn-subtle-slim" onclick="prevTfScreen(7)">
+                  ← Retour
+                </button>
+                <button type="button" class="btn-submit-slim" onclick="nextTfScreen(7)">
+                  <span>Continuer</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- ÉCRAN 8 : Quand souhaitez-vous démarrer ? (Un seul)     -->
+            <!-- ======================================================= -->
+            <div class="tf-screen" id="tf-screen-8" style="display: none;">
+              <div class="tf-screen-header">
+                <span class="tf-screen-num">8 →</span>
+                <h2 class="tf-question-title">Quand souhaitez-vous démarrer ?</h2>
+              </div>
+              <p class="tf-question-subtitle">Sélectionnez le délai envisagé pour débuter la collaboration.</p>
+
+              <div class="tf-options-list">
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q8', 'Dès que possible')">
+                  <span class="tf-key-badge">A</span>
+                  <span class="tf-choice-text">Dès que possible</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q8', 'Ce mois-ci')">
+                  <span class="tf-key-badge">B</span>
+                  <span class="tf-choice-text">Ce mois-ci</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q8', 'Dans 2 à 3 mois')">
+                  <span class="tf-key-badge">C</span>
+                  <span class="tf-choice-text">Dans 2 à 3 mois</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+                <div class="tf-choice-card" onclick="selectTfRadio(this, 'tf-q8', 'Pas encore fixé')">
+                  <span class="tf-key-badge">D</span>
+                  <span class="tf-choice-text">Pas encore fixé</span>
+                  <div class="tf-check-circle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                </div>
+              </div>
+
+              <div class="tf-actions-bar">
+                <button type="button" class="btn-subtle-slim" onclick="prevTfScreen(8)">
+                  ← Retour
+                </button>
+                <button type="button" class="btn-submit-slim" onclick="nextTfScreen(8)">
+                  <span>Continuer</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- ÉCRAN 9 : Avez-vous autre chose à nous dire ? (Texte)   -->
+            <!-- ======================================================= -->
+            <div class="tf-screen" id="tf-screen-9" style="display: none;">
+              <div class="tf-screen-header">
+                <span class="tf-screen-num">9 →</span>
+                <h2 class="tf-question-title">Avez-vous autre chose à nous dire ?</h2>
+              </div>
+              <p class="tf-question-subtitle">Décrivez avec vos propres mots ce que vous souhaitez, ce qui n'est pas dans la liste.</p>
+
+              <div class="form-group" style="margin-top: 14px;">
+                <textarea id="tf-free-text" class="form-textarea" rows="7" placeholder="Exprimez librement vos besoins, vos idées, vos contraintes spécifiques ou vos priorités... (facultatif)"></textarea>
+              </div>
+
+              <div class="tf-actions-bar">
+                <button type="button" class="btn-subtle-slim" onclick="prevTfScreen(9)">
+                  ← Retour
+                </button>
+                <button type="button" class="btn-submit-slim" onclick="nextTfScreen(9)">
+                  <span>Continuer</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ======================================================= -->
+            <!-- ÉCRAN 10 : Vos coordonnées (Final)                      -->
+            <!-- ======================================================= -->
+            <div class="tf-screen" id="tf-screen-10" style="display: none;">
+              <div class="tf-screen-header">
+                <span class="tf-screen-num">10 →</span>
+                <h2 class="tf-question-title">Vos coordonnées</h2>
+              </div>
+              <p class="tf-question-subtitle">Renseignez vos coordonnées directes pour recevoir votre plan de digitalisation.</p>
+
+              <div class="tf-inputs-group">
+                <div class="form-group">
+                  <label class="tf-field-label" for="tf-client-name">Nom complet <span class="required">*</span></label>
+                  <input type="text" id="tf-client-name" class="form-input tf-input-lg" placeholder="Ex : Sarah Touré" required>
+                </div>
+
+                <div class="form-group" style="margin-top: 18px;">
+                  <label class="tf-field-label" for="tf-client-whatsapp">Numéro WhatsApp direct <span class="required">*</span></label>
+                  <input type="tel" id="tf-client-whatsapp" class="form-input tf-input-lg" placeholder="Ex : +225 07 77 95 73 37" required>
+                </div>
+
+                <div class="form-group" style="margin-top: 18px;">
+                  <label class="tf-field-label" for="tf-client-email">Adresse e-mail (facultatif)</label>
+                  <input type="email" id="tf-client-email" class="form-input tf-input-lg" placeholder="Ex : sarah@monentreprise.com">
+                </div>
+              </div>
+
+              <div class="tf-actions-bar" style="margin-top: 30px;">
+                <button type="button" class="btn-subtle-slim" onclick="prevTfScreen(10)">
                   ← Retour
                 </button>
                 <button type="submit" class="btn-submit-slim">
@@ -1865,8 +2130,10 @@
                 </button>
               </div>
             </div>
-          </div>
-        </form>
+
+          </form>
+        </div>
+
       </div>
 
       <!-- QUESTIONNAIRE 2 : LANCER UN PROJET                              -->
@@ -2621,38 +2888,41 @@
       isDirectOther: false
     };
 
-    // Quiz selections
+    // Typeform Quiz selections pour la digitalisation
+    const tfSelections = {
+      'tf-q1': '',
+      'tf-q3': new Set(),
+      'tf-q4': '',
+      'tf-q5': new Set(),
+      'tf-q6': new Set(),
+      'tf-q7': '',
+      'tf-q8': ''
+    };
+
+    // Quiz selections pour Lancer un projet
     const quizSelections = {
-      'digit-q1': '',
-      'digit-q2': '',
-      'digit-q3': new Set(),
-      'digit-q4': '',
-      'digit-q5': '',
-      'digit-q6': '',
       'lancer-stage': '',
       'lancer-needs': new Set(),
       'lancer-timeline': ''
     };
 
-    let currentDigitSubpage = 1;
+    let currentTfScreen = 1;
+    const totalTfScreens = 10;
 
-    function goToDigitSubpage(pageNum) {
-      currentDigitSubpage = pageNum;
-      document.querySelectorAll('#pane-digitaliser .digit-subpage').forEach(page => {
-        page.classList.remove('is-active');
-        page.style.display = 'none';
+    function goToTfScreen(num) {
+      if (num < 1) num = 1;
+      if (num > totalTfScreens) num = totalTfScreens;
+      currentTfScreen = num;
+
+      document.querySelectorAll('#pane-digitaliser .tf-screen').forEach(screen => {
+        screen.classList.remove('is-active');
+        screen.style.display = 'none';
       });
 
-      const targetPage = document.getElementById(`digit-subpage-${pageNum}`);
-      if (targetPage) {
-        targetPage.style.display = 'block';
-        setTimeout(() => {
-          targetPage.classList.add('is-active');
-        }, 10);
-      }
-
-      if (pageNum === 3) {
-        renderDigitRecap();
+      const target = document.getElementById(`tf-screen-${num}`);
+      if (target) {
+        target.style.display = 'block';
+        setTimeout(() => target.classList.add('is-active'), 10);
       }
 
       updateTopBackButton('digitaliser');
@@ -2665,19 +2935,35 @@
       }
     }
 
-    function selectRadioCard(element, groupKey, value) {
-      const parent = element.closest('.quiz-options-grid');
+    function nextTfScreen(fromScreen) {
+      if (fromScreen === 2) {
+        const bizName = document.getElementById('tf-business-name')?.value.trim();
+        if (!bizName) {
+          alert("Veuillez renseigner le nom de votre entreprise pour continuer.");
+          document.getElementById('tf-business-name')?.focus();
+          return;
+        }
+      }
+      goToTfScreen(fromScreen + 1);
+    }
+
+    function prevTfScreen(fromScreen) {
+      goToTfScreen(fromScreen - 1);
+    }
+
+    function selectTfRadio(element, groupKey, value) {
+      const parent = element.closest('.tf-options-list');
       if (parent) {
-        parent.querySelectorAll('.quiz-option-card').forEach(c => c.classList.remove('is-selected'));
+        parent.querySelectorAll('.tf-choice-card').forEach(c => c.classList.remove('is-selected'));
       }
       element.classList.add('is-selected');
-      quizSelections[groupKey] = value;
+      tfSelections[groupKey] = value;
 
-      const group = element.closest('.quiz-block-group');
-      if (group) {
-        const otherField = group.querySelector('.quiz-other-field');
+      const screen = element.closest('.tf-screen');
+      if (screen) {
+        const otherField = screen.querySelector('.tf-other-field');
         if (otherField) {
-          if (value === 'Autre') {
+          if (value.startsWith('Autre')) {
             otherField.style.display = 'block';
             const inp = otherField.querySelector('input');
             if (inp) inp.focus();
@@ -2688,24 +2974,23 @@
       }
     }
 
-    function toggleMultiCard(element, groupKey, value) {
-      if (!quizSelections[groupKey]) {
-        quizSelections[groupKey] = new Set();
+    function toggleTfMulti(element, groupKey, value) {
+      if (!tfSelections[groupKey]) {
+        tfSelections[groupKey] = new Set();
       }
-
-      if (quizSelections[groupKey].has(value)) {
-        quizSelections[groupKey].delete(value);
+      if (tfSelections[groupKey].has(value)) {
+        tfSelections[groupKey].delete(value);
         element.classList.remove('is-selected');
       } else {
-        quizSelections[groupKey].add(value);
+        tfSelections[groupKey].add(value);
         element.classList.add('is-selected');
       }
 
-      if (value === 'Autre') {
+      if (value.startsWith('Autre')) {
         const isSelected = element.classList.contains('is-selected');
-        const group = element.closest('.quiz-block-group');
-        if (group) {
-          const otherField = group.querySelector('.quiz-other-field');
+        const screen = element.closest('.tf-screen');
+        if (screen) {
+          const otherField = screen.querySelector('.tf-other-field');
           if (otherField) {
             otherField.style.display = isSelected ? 'block' : 'none';
             if (isSelected) {
@@ -2717,62 +3002,28 @@
       }
     }
 
-    function renderDigitRecap() {
-      const grid = document.getElementById('digit-recap-grid');
-      if (!grid) return;
+    function selectRadioCard(element, groupKey, value) {
+      const parent = element.closest('.quiz-options-grid');
+      if (parent) {
+        parent.querySelectorAll('.quiz-option-card').forEach(c => c.classList.remove('is-selected'));
+      }
+      element.classList.add('is-selected');
+      quizSelections[groupKey] = value;
+    }
 
-      const getAnswer = (groupKey, otherId) => {
-        const val = quizSelections[groupKey];
-        if (val === 'Autre') {
-          const otherInp = document.getElementById(otherId);
-          const customTxt = otherInp ? otherInp.value.trim() : '';
-          return customTxt ? `Autre : ${customTxt}` : 'Autre (non précisé)';
-        }
-        return val || 'Non renseigné';
-      };
-
-      const getMultiAnswer = (groupKey, otherId) => {
-        const list = Array.from(quizSelections[groupKey] || []);
-        if (list.length === 0) return 'Non renseigné';
-        const items = list.map(item => {
-          if (item === 'Autre') {
-            const otherInp = document.getElementById(otherId);
-            const customTxt = otherInp ? otherInp.value.trim() : '';
-            return customTxt ? `Autre : ${customTxt}` : 'Autre';
-          }
-          return item;
-        });
-        return items.join(' • ');
-      };
-
-      const questionsData = [
-        { label: "1. Type d'activité / secteur", val: getAnswer('digit-q1', 'digit-q1-other-val') },
-        { label: "2. Stade actuel & ambition", val: getAnswer('digit-q2', 'digit-q2-other-val') },
-        { label: "3. Leviers prioritaires", val: getMultiAnswer('digit-q3', 'digit-q3-other-val') },
-        { label: "4. Présence digitale actuelle", val: getAnswer('digit-q4', 'digit-q4-other-val') },
-        { label: "5. Blocage majeur", val: getAnswer('digit-q5', 'digit-q5-other-val') },
-        { label: "6. Défi prioritaire pour grandir", val: getAnswer('digit-q6', 'digit-q6-other-val') }
-      ];
-
-      grid.innerHTML = questionsData.map(q => `
-        <div class="recap-item-box">
-          <div class="recap-item-label">${q.label}</div>
-          <div class="recap-item-val">${q.val}</div>
-        </div>
-      `).join('');
-
-      const freeText = (document.getElementById('digit-free-text')?.value || '').trim();
-      const freeWrap = document.getElementById('digit-recap-freetext-wrap');
-      const freeVal = document.getElementById('digit-recap-freetext-val');
-      if (freeWrap && freeVal) {
-        if (freeText) {
-          freeWrap.style.display = 'block';
-          freeVal.textContent = freeText;
-        } else {
-          freeWrap.style.display = 'none';
-        }
+    function toggleMultiCard(element, groupKey, value) {
+      if (!quizSelections[groupKey]) {
+        quizSelections[groupKey] = new Set();
+      }
+      if (quizSelections[groupKey].has(value)) {
+        quizSelections[groupKey].delete(value);
+        element.classList.remove('is-selected');
+      } else {
+        quizSelections[groupKey].add(value);
+        element.classList.add('is-selected');
       }
     }
+
     // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
       renderFamilies();
@@ -2788,6 +3039,22 @@
       } else {
         selectIntention('home');
       }
+
+      // Raccourci Clavier Enter pour le style Typeform
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && currentView === 'digitaliser') {
+          const isTextarea = e.target && e.target.tagName && e.target.tagName.toLowerCase() === 'textarea';
+          if (!isTextarea) {
+            e.preventDefault();
+            if (currentTfScreen < totalTfScreens) {
+              nextTfScreen(currentTfScreen);
+            } else if (currentTfScreen === totalTfScreens) {
+              const form = document.getElementById('form-digitaliser');
+              if (form) form.requestSubmit();
+            }
+          }
+        }
+      });
     });
 
     let currentView = 'home'; // 'home', 'service-1', 'service-2', 'service-3', 'service-4', 'digitaliser', 'lancer'
@@ -2800,12 +3067,10 @@
       if (view === 'home') {
         backText.textContent = "Retour au site";
       } else if (view === 'digitaliser') {
-        if (currentDigitSubpage === 1) {
+        if (currentTfScreen === 1) {
           backText.textContent = "Changer d'objectif";
-        } else if (currentDigitSubpage === 2) {
-          backText.textContent = "Retour aux questions";
-        } else if (currentDigitSubpage === 3) {
-          backText.textContent = "Retour à l'écriture libre";
+        } else {
+          backText.textContent = `Question ${currentTfScreen - 1} / 10`;
         }
       } else if (view === 'service-1' || view === 'lancer') {
         backText.textContent = "Changer d'objectif";
@@ -2822,10 +3087,8 @@
       if (currentView === 'home') {
         window.location.href = 'index.html';
       } else if (currentView === 'digitaliser') {
-        if (currentDigitSubpage === 3) {
-          goToDigitSubpage(2);
-        } else if (currentDigitSubpage === 2) {
-          goToDigitSubpage(1);
+        if (currentTfScreen > 1) {
+          prevTfScreen(currentTfScreen);
         } else {
           selectIntention('home');
         }
@@ -2851,7 +3114,7 @@
       } else if (type === 'digitaliser') {
         const pane = document.getElementById('pane-digitaliser');
         if (pane) pane.classList.add('is-active');
-        goToDigitSubpage(1);
+        goToTfScreen(1);
         updateTopBackButton('digitaliser');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (type === 'lancer') {
@@ -3207,17 +3470,16 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Soumission du questionnaire : Digitaliser mon entreprise
+    // Soumission du questionnaire : Digitaliser mon entreprise (Typeform)
     function handleDigitaliserSubmit(e) {
       e.preventDefault();
 
-      const name = document.getElementById('digit-name').value.trim();
-      const whatsapp = document.getElementById('digit-whatsapp').value.trim();
-      const budget = (document.getElementById('digit-budget')?.value || '').trim();
-      const timeline = (document.getElementById('digit-timeline')?.value || '').trim();
-      const email = (document.getElementById('digit-email')?.value || '').trim();
-      const notes = (document.getElementById('digit-notes')?.value || '').trim();
-      const freeText = (document.getElementById('digit-free-text')?.value || '').trim();
+      const name = document.getElementById('tf-client-name')?.value.trim();
+      const whatsapp = document.getElementById('tf-client-whatsapp')?.value.trim();
+      const email = document.getElementById('tf-client-email')?.value.trim();
+      const bizName = document.getElementById('tf-business-name')?.value.trim();
+      const bizDesc = document.getElementById('tf-business-desc')?.value.trim();
+      const freeText = document.getElementById('tf-free-text')?.value.trim();
 
       if (!name || !whatsapp) {
         alert("Veuillez renseigner votre nom complet et votre numéro WhatsApp.");
@@ -3225,79 +3487,103 @@
       }
 
       const getAnswer = (groupKey, otherId) => {
-        const val = quizSelections[groupKey];
-        if (val === 'Autre') {
+        const val = tfSelections[groupKey];
+        if (val && val.startsWith('Autre')) {
           const otherInp = document.getElementById(otherId);
           const customTxt = otherInp ? otherInp.value.trim() : '';
-          return customTxt ? `Autre : ${customTxt}` : 'Autre (non précisé)';
+          return customTxt ? `Autre (${customTxt})` : 'Autre (non précisé)';
         }
         return val || 'Non renseigné';
       };
 
       const getMultiAnswer = (groupKey, otherId) => {
-        const list = Array.from(quizSelections[groupKey] || []);
+        const list = Array.from(tfSelections[groupKey] || []);
         if (list.length === 0) return 'Non renseigné';
         const items = list.map(item => {
-          if (item === 'Autre') {
+          if (item && item.startsWith('Autre')) {
             const otherInp = document.getElementById(otherId);
             const customTxt = otherInp ? otherInp.value.trim() : '';
-            return customTxt ? `Autre : ${customTxt}` : 'Autre';
+            return customTxt ? `Autre (${customTxt})` : 'Autre';
           }
           return item;
         });
         return items.join(', ');
       };
 
-      const q1 = getAnswer('digit-q1', 'digit-q1-other-val');
-      const q2 = getAnswer('digit-q2', 'digit-q2-other-val');
-      const q3 = getMultiAnswer('digit-q3', 'digit-q3-other-val');
-      const q4 = getAnswer('digit-q4', 'digit-q4-other-val');
-      const q5 = getAnswer('digit-q5', 'digit-q5-other-val');
-      const q6 = getAnswer('digit-q6', 'digit-q6-other-val');
+      const q1 = getAnswer('tf-q1', 'tf-q1-other-val');
+      const q3 = getMultiAnswer('tf-q3', 'tf-q3-other-val');
+      const q4 = getAnswer('tf-q4', 'tf-q4-other-val');
+      const q5 = getMultiAnswer('tf-q5', 'tf-q5-other-val');
+      const q6 = getMultiAnswer('tf-q6', 'tf-q6-other-val');
+      const q7 = getAnswer('tf-q7', 'tf-q7-other-val');
+      const q8 = getAnswer('tf-q8', '');
 
-      let msg = `*NOUVELLE DEMANDE : DIGITALISATION D'ENTREPRISE*\n`;
-      msg += `------------------------------------\n`;
-      msg += `👤 *Nom complet :* ${name}\n`;
-      msg += `📱 *Numéro WhatsApp :* ${whatsapp}\n`;
-      if (email) msg += `📧 *E-mail :* ${email}\n`;
-      if (budget) msg += `💰 *Budget envisagé :* ${budget}\n`;
-      if (timeline) msg += `⏱️ *Délai souhaité :* ${timeline}\n\n`;
+      let msg = `*NOUVELLE DEMANDE : DIGITALISATION D'ENTREPRISE*
+`;
+      msg += `------------------------------------
+`;
+      msg += `👤 *Nom complet :* ${name}
+`;
+      msg += `📱 *Numéro WhatsApp :* ${whatsapp}
+`;
+      if (email) msg += `📧 *E-mail :* ${email}
 
-      msg += `📋 *QUESTIONNAIRE DIGITALISATION :*\n`;
-      msg += `1️⃣ *Activité / Secteur :* ${q1}\n`;
-      msg += `2️⃣ *Stade & Ambition :* ${q2}\n`;
-      msg += `3️⃣ *Leviers prioritaires :* ${q3}\n`;
-      msg += `4️⃣ *Présence actuelle :* ${q4}\n`;
-      msg += `5️⃣ *Blocage majeur :* ${q5}\n`;
-      msg += `6️⃣ *Défi prioritaire :* ${q6}\n\n`;
+`;
+
+      msg += `🏢 *ENTREPRISE & ACTIVITÉ :*
+`;
+      msg += `• *Domaine :* ${q1}
+`;
+      if (bizName) msg += `• *Nom entreprise :* ${bizName}
+`;
+      if (bizDesc) msg += `• *Activité en bref :* ${bizDesc}
+
+`;
+
+      msg += `🎯 *OBJECTIFS & BESOINS :*
+`;
+      msg += `• *Pourquoi digitaliser :* ${q3}
+`;
+      msg += `• *Présence en ligne actuelle :* ${q4}
+`;
+      msg += `• *Ce qui bloque le plus :* ${q5}
+`;
+      msg += `• *Attentes concrètes :* ${q6}
+
+`;
+
+      msg += `💰 *BUDGET & DÉMARRAGE :*
+`;
+      msg += `• *Budget envisagé :* ${q7}
+`;
+      msg += `• *Démarrage souhaité :* ${q8}
+
+`;
 
       if (freeText) {
-        msg += `✍️ *Autre chose à nous dire :*\n${freeText}\n\n`;
-      }
+        msg += `✍️ *Autre chose à nous dire :*
+${freeText}
 
-      if (notes) {
-        msg += `💬 *Message complémentaire :*\n${notes}\n`;
+`;
       }
 
       const encodedMsg = encodeURIComponent(msg);
       const whatsappUrl = `https://wa.me/2250777957337?text=${encodedMsg}`;
 
-      // Configurer le lien WhatsApp dans l'écran de confirmation
       const finalBtn = document.getElementById('final-whatsapp-button');
       if (finalBtn) {
         finalBtn.href = whatsappUrl;
       }
 
-      // Tenter d'ouvrir WhatsApp
       window.open(whatsappUrl, '_blank');
 
-      // Afficher l'écran de confirmation avec le message demandé
       hideAllPanes();
       const confPane = document.getElementById('confirmation-pane');
       if (confPane) confPane.style.display = 'block';
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
     // Soumission du questionnaire : Lancer un projet
     function handleLancerSubmit(e) {
       e.preventDefault();
