@@ -209,11 +209,11 @@ h4 {
   justify-content: center;
   gap: 10px;
   font-family: var(--font-family);
-  font-weight: var(--font-weight-bold);
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 14px 28px;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-transform: none;
+  letter-spacing: normal;
+  padding: 13px 26px;
   border-radius: var(--radius-pill);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-fast);
   white-space: nowrap;
@@ -251,7 +251,9 @@ h4 {
 
 .btn-header {
   padding: 10px 22px;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: none;
 }
 
 .btn-subtle {
