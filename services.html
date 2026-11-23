@@ -977,6 +977,131 @@
       transform: scale(1);
     }
 
+    /* Styles pour le parcours 3 pages & Récapitulatif (Je veux digitaliser mon entreprise) */
+    .digit-subpage {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .digit-subpage.is-active {
+      display: block;
+      opacity: 1;
+    }
+
+    .quiz-other-field {
+      display: none;
+      margin-top: 14px;
+      animation: fadeInSoft 0.25s ease;
+    }
+
+    @keyframes fadeInSoft {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .recap-summary-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      padding: 26px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .recap-summary-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      gap: 12px;
+    }
+
+    .recap-summary-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-night-blue);
+      margin: 0;
+    }
+
+    .recap-edit-btn {
+      background: none;
+      border: 1px solid #CBD5E1;
+      color: var(--color-night-blue);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      transition: all 0.2s ease;
+    }
+
+    .recap-edit-btn:hover {
+      background: #F1F5F9;
+      border-color: #94A3B8;
+    }
+
+    .recap-items-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .recap-items-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .recap-item-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+
+    .recap-item-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-slate-gray);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .recap-item-val {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-night-blue);
+      word-break: break-word;
+      line-height: 1.4;
+    }
+
+    .recap-freetext-box {
+      margin-top: 16px;
+      background: #F8FAFC;
+      border: 1px dashed #CBD5E1;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .recap-freetext-val {
+      font-size: 0.9375rem;
+      color: var(--color-night-blue);
+      margin-top: 6px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .digit-subpage,
+      .quiz-other-field {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+
     /* Boutons d'action affinés et élégants */
     .btn-submit-slim {
       background-color: var(--color-primary);
@@ -1350,6 +1475,8 @@
       <!-- =============================================================== -->
       <!-- QUESTIONNAIRE 1 : DIGITALISER MON ENTREPRISE                    -->
       <!-- =============================================================== -->
+      <!-- QUESTIONNAIRE 1 : DIGITALISER MON ENTREPRISE (3 PAGES)          -->
+      <!-- =============================================================== -->
       <div class="catalog-step-pane" id="pane-digitaliser">
         <div class="step-heading-row">
           <div class="step-title-group">
@@ -1361,165 +1488,387 @@
         </div>
 
         <form id="form-digitaliser" onsubmit="handleDigitaliserSubmit(event)">
-          <!-- Question 1 -->
-          <div class="quiz-block-group">
-            <label class="quiz-block-label">1. Quel est votre type d'activité / secteur ?</label>
-            <div class="quiz-options-grid">
-              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-sector', 'Prestation de services / Conseil / B2B')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <!-- ========================================================= -->
+          <!-- PAGE 1 : QUESTIONNAIRE (6 QUESTIONS)                      -->
+          <!-- ========================================================= -->
+          <div class="digit-subpage is-active" id="digit-subpage-1">
+            
+            <!-- Question 1 -->
+            <div class="quiz-block-group">
+              <label class="quiz-block-label">1. Quel est votre type d'activité / secteur ?</label>
+              <div class="quiz-options-grid">
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Prestation de services, Conseil & B2B')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Prestation de services, Conseil & B2B</span>
                 </div>
-                <span>Prestation de services / Conseil / B2B</span>
-              </div>
-              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-sector', 'Commerce de détail / Boutique / E-commerce')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Vente de produits physiques & E-commerce')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Vente de produits physiques & E-commerce</span>
                 </div>
-                <span>Commerce de détail / Boutique / E-commerce</span>
-              </div>
-              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-sector', 'Artisanat / PME / Industrie / BTP')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Formation, Coaching & Infopreneuriat')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Formation, Coaching & Infopreneuriat</span>
                 </div>
-                <span>Artisanat / PME / Industrie / BTP</span>
-              </div>
-              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-sector', 'Santé / Éducation / Formation')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Commerce local, Artisanat, PME & BTP')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Commerce local, Artisanat, PME & BTP</span>
                 </div>
-                <span>Santé / Éducation / Formation</span>
-              </div>
-            </div>
-            <div style="margin-top: 14px;">
-              <input type="text" id="digit-sector-other" class="form-input" placeholder="Autre secteur d'activité (facultatif)...">
-            </div>
-          </div>
-
-          <!-- Question 2 -->
-          <div class="quiz-block-group">
-            <label class="quiz-block-label">2. Quels leviers souhaitez-vous digitaliser en priorité ? (Choix multiples)</label>
-            <div class="quiz-options-grid">
-              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'Site web professionnel ou e-commerce')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Santé & Éducation')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Santé & Éducation</span>
                 </div>
-                <span>Site web professionnel ou e-commerce</span>
-              </div>
-              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'Présence et acquisition sur les réseaux sociaux')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q1', 'Autre')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Autre</span>
                 </div>
-                <span>Présence et acquisition sur les réseaux sociaux</span>
               </div>
-              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'WhatsApp Marketing & Tunnels de vente automatisés')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                <span>WhatsApp Marketing & Tunnels de vente automatisés</span>
-              </div>
-              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'Automatisation des processus, facturation & CRM')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                <span>Automatisation des processus, facturation & CRM</span>
-              </div>
-              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'Publicité payante ciblée (Meta Ads, Google Ads)')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                <span>Publicité payante ciblée (Meta Ads, Google Ads)</span>
-              </div>
-              <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-needs', 'Production de vidéos percutantes & storytelling')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                <span>Production de vidéos percutantes & storytelling</span>
-              </div>
-            </div>
-            <div style="margin-top: 14px;">
-              <input type="text" id="digit-needs-other" class="form-input" placeholder="Autre besoin de digitalisation (facultatif)...">
-            </div>
-          </div>
-
-          <!-- Question 3 -->
-          <div class="quiz-block-group">
-            <label class="quiz-block-label">3. Quel est votre blocage majeur aujourd'hui ?</label>
-            <div class="quiz-options-grid">
-              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-blocker', 'Manque de visibilité et pas assez de clients réguliers')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                <span>Manque de visibilité & pas assez de clients réguliers</span>
-              </div>
-              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-blocker', 'Trop de temps perdu sur des tâches manuelles')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                <span>Trop de temps perdu sur des tâches manuelles</span>
-              </div>
-              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-blocker', 'Absence de méthode et de stratégie claire')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                <span>Absence de méthode et de stratégie claire</span>
-              </div>
-              <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-blocker', 'Outils actuels obsolètes ou inadaptés')">
-                <div class="custom-checkbox" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                <span>Outils actuels obsolètes ou inadaptés</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section Coordonnées -->
-          <div class="contact-form-box">
-            <h3 class="contact-form-title">Vos Coordonnées</h3>
-            <p class="contact-form-subtitle">Ces informations permettront à notre équipe de vous transmettre un diagnostic et un plan d'action adapté.</p>
-
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label for="digit-name" class="form-label">Votre nom complet <span class="required">*</span></label>
-                <input type="text" id="digit-name" class="form-input" placeholder="Ex : Sarah Touré" required>
-              </div>
-              <div class="form-group">
-                <label for="digit-whatsapp" class="form-label">Numéro WhatsApp (avec indicatif) <span class="required">*</span></label>
-                <input type="tel" id="digit-whatsapp" class="form-input" placeholder="Ex : +225 07 77 95 73 37" required>
+              <div class="quiz-other-field" id="digit-q1-other-wrap">
+                <input type="text" id="digit-q1-other-val" class="form-input" placeholder="Précisez votre réponse...">
               </div>
             </div>
 
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label for="digit-business" class="form-label">Nom de votre entreprise <span class="required">*</span></label>
-                <input type="text" id="digit-business" class="form-input" placeholder="Ex : Ivoire Déco & Confort" required>
+            <!-- Question 2 -->
+            <div class="quiz-block-group">
+              <label class="quiz-block-label">2. Quel est votre stade actuel et votre ambition ?</label>
+              <div class="quiz-options-grid">
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q2', 'Démarrage : Nouveau projet ou business à lancer avec des bases solides')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Démarrage : Nouveau projet à lancer avec des bases solides</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q2', 'En développement : Activité existante à démultiplier rapidement')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>En développement : Activité existante à démultiplier rapidement</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q2', 'Établi : Entreprise rentable prête à scaler massivement')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Établi : Entreprise rentable prête à scaler massivement</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q2', 'Autre')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Autre</span>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="digit-email" class="form-label">Adresse e-mail <span class="required">*</span></label>
-                <input type="email" id="digit-email" class="form-input" placeholder="Ex : direction@ivoiredeco.com" required>
+              <div class="quiz-other-field" id="digit-q2-other-wrap">
+                <input type="text" id="digit-q2-other-val" class="form-input" placeholder="Précisez votre réponse...">
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="digit-notes" class="form-label">Précisions supplémentaires sur vos objectifs (facultatif)</label>
-              <textarea id="digit-notes" class="form-textarea" placeholder="Décrivez vos attentes, votre site ou vos réseaux actuels si vous en avez..."></textarea>
+            <!-- Question 3 -->
+            <div class="quiz-block-group">
+              <label class="quiz-block-label">3. Quels leviers prioritaires souhaitez-vous digitaliser ? (Choix multiples)</label>
+              <div class="quiz-options-grid">
+                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Site web professionnel ou e-commerce')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Site web professionnel ou e-commerce</span>
+                </div>
+                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Présence et acquisition sur les réseaux sociaux')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Présence et acquisition sur les réseaux sociaux</span>
+                </div>
+                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'WhatsApp Marketing & Tunnels de vente automatisés')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>WhatsApp Marketing & Tunnels de vente automatisés</span>
+                </div>
+                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Automatisation des processus, facturation & CRM')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Automatisation des processus, facturation & CRM</span>
+                </div>
+                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Publicité payante ciblée (Meta Ads, Google Ads)')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Publicité payante ciblée (Meta Ads, Google Ads)</span>
+                </div>
+                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Production de vidéos percutantes & storytelling')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Production de vidéos percutantes & storytelling</span>
+                </div>
+                <div class="quiz-option-card" onclick="toggleMultiCard(this, 'digit-q3', 'Autre')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Autre</span>
+                </div>
+              </div>
+              <div class="quiz-other-field" id="digit-q3-other-wrap">
+                <input type="text" id="digit-q3-other-val" class="form-input" placeholder="Précisez votre réponse...">
+              </div>
             </div>
 
-            <div class="step-actions-bar" style="margin-top: 24px;">
+            <!-- Question 4 -->
+            <div class="quiz-block-group">
+              <label class="quiz-block-label">4. Quelle est votre présence digitale actuelle ?</label>
+              <div class="quiz-options-grid">
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q4', 'Oui, j\'ai déjà un site web actif')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Oui, j'ai déjà un site web actif</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q4', 'J\'ai uniquement une page sur les réseaux sociaux')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>J'ai uniquement une page sur les réseaux sociaux</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q4', 'Aucun des deux, je repars de zéro')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Aucun des deux, je souhaite tout construire dès maintenant</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q4', 'Autre')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Autre</span>
+                </div>
+              </div>
+              <div class="quiz-other-field" id="digit-q4-other-wrap">
+                <input type="text" id="digit-q4-other-val" class="form-input" placeholder="Précisez votre réponse...">
+              </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="quiz-block-group">
+              <label class="quiz-block-label">5. Quel est votre principal frein ou blocage actuel ?</label>
+              <div class="quiz-options-grid">
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Manque de visibilité : pas assez de trafic ni de clients réguliers')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Manque de visibilité & pas assez de clients réguliers</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Trafic ou abonnés existants, mais très peu passent commande')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Trafic ou abonnés présents, mais faible conversion</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Trop de temps perdu sur des tâches manuelles')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Trop de temps perdu sur des tâches manuelles</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Absence de méthode et de stratégie claire')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Absence de méthode et de stratégie claire</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Dépenses publicitaires trop élevées pour des retours insuffisants')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Dépenses publicitaires trop élevées pour des retours faibles</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Outils actuels obsolètes ou inadaptés')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Outils actuels obsolètes ou inadaptés</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q5', 'Autre')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Autre</span>
+                </div>
+              </div>
+              <div class="quiz-other-field" id="digit-q5-other-wrap">
+                <input type="text" id="digit-q5-other-val" class="form-input" placeholder="Précisez votre réponse...">
+              </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="quiz-block-group">
+              <label class="quiz-block-label">6. Quel est votre défi prioritaire pour grandir ?</label>
+              <div class="quiz-options-grid">
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q6', 'Générer un flux régulier de nouveaux clients payants')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Générer un flux régulier de nouveaux clients payants</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q6', 'Augmenter mon chiffre d\'affaires & la valeur moyenne par client')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Augmenter mon chiffre d'affaires & la rentabilité</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q6', 'Structurer une équipe & automatiser l\'acquisition pour gagner du temps')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Structurer & automatiser l'acquisition pour libérer du temps</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q6', 'Bâtir une image de marque leader et reconnue sur mon marché')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Bâtir une image de marque leader et reconnue</span>
+                </div>
+                <div class="quiz-option-card" onclick="selectRadioCard(this, 'digit-q6', 'Autre')">
+                  <div class="custom-checkbox" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Autre</span>
+                </div>
+              </div>
+              <div class="quiz-other-field" id="digit-q6-other-wrap">
+                <input type="text" id="digit-q6-other-val" class="form-input" placeholder="Précisez votre réponse...">
+              </div>
+            </div>
+
+            <!-- Action bar Page 1 -->
+            <div class="step-actions-bar" style="margin-top: 32px;">
               <button type="button" class="btn-subtle-slim" onclick="selectIntention('home')">
                 ← Revenir au choix
               </button>
-              <button type="submit" class="btn-submit-slim">
-                <span>Envoyer ma demande</span>
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
-                </svg>
+              <button type="button" class="btn-submit-slim" onclick="goToDigitSubpage(2)">
+                <span>Suivant</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
               </button>
+            </div>
+          </div>
+
+          <!-- ========================================================= -->
+          <!-- PAGE 2 : ÉCRITURE LIBRE                                   -->
+          <!-- ========================================================= -->
+          <div class="digit-subpage" id="digit-subpage-2" style="display: none;">
+            <div class="quiz-block-group" style="padding: 32px 26px;">
+              <h2 class="quiz-block-label" style="font-size: 1.35rem; margin-bottom: 8px;">Avez-vous autre chose à nous dire ?</h2>
+              <p style="font-size: 0.95rem; color: var(--color-slate-gray); margin-bottom: 24px; line-height: 1.5;">
+                Décrivez avec vos propres mots ce que vous souhaitez, ce qui n'est pas dans la liste.
+              </p>
+
+              <div class="form-group">
+                <textarea id="digit-free-text" class="form-textarea" rows="7" placeholder="Décrivez librement vos attentes spécifiques, votre contexte particulier, vos idées ou tout élément utile que vous aimeriez partager avec notre équipe... (facultatif)"></textarea>
+              </div>
+            </div>
+
+            <!-- Action bar Page 2 -->
+            <div class="step-actions-bar" style="margin-top: 28px;">
+              <button type="button" class="btn-subtle-slim" onclick="goToDigitSubpage(1)">
+                ← Retour
+              </button>
+              <button type="button" class="btn-submit-slim" onclick="goToDigitSubpage(3)">
+                <span>Suivant</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- ========================================================= -->
+          <!-- PAGE 3 : FINALE                                           -->
+          <!-- ========================================================= -->
+          <div class="digit-subpage" id="digit-subpage-3" style="display: none;">
+            
+            <!-- Récapitulatif des réponses -->
+            <div class="recap-summary-card" id="digit-summary-card">
+              <div class="recap-summary-header">
+                <h3 class="recap-summary-title">Récapitulatif de vos réponses</h3>
+                <button type="button" class="recap-edit-btn" onclick="goToDigitSubpage(1)">Modifier mes réponses</button>
+              </div>
+              
+              <div class="recap-items-grid" id="digit-recap-grid">
+                <!-- Rempli dynamiquement -->
+              </div>
+
+              <div id="digit-recap-freetext-wrap" class="recap-freetext-box" style="display: none;">
+                <div class="recap-item-label">Autre chose à nous dire :</div>
+                <div class="recap-freetext-val" id="digit-recap-freetext-val"></div>
+              </div>
+            </div>
+
+            <!-- Formulaire Coordonnées & Paramètres -->
+            <div class="contact-form-box" style="margin-top: 28px;">
+              <h3 class="contact-form-title">Vos Coordonnées & Paramètres</h3>
+              <p class="contact-form-subtitle">Ces informations permettront à notre équipe de vous transmettre un diagnostic et un plan d'action adapté.</p>
+
+              <!-- Budget & Délai (facultatifs) -->
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="digit-budget" class="form-label">Budget envisagé (facultatif)</label>
+                  <input type="text" id="digit-budget" class="form-input" placeholder="Ex : 500 000 - 1 500 000 FCFA, etc.">
+                </div>
+                <div class="form-group">
+                  <label for="digit-timeline" class="form-label">Délai souhaité (facultatif)</label>
+                  <input type="text" id="digit-timeline" class="form-input" placeholder="Ex : Immédiat, d'ici 1 mois, flexible...">
+                </div>
+              </div>
+
+              <!-- Nom & WhatsApp (obligatoires) -->
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="digit-name" class="form-label">Votre nom complet <span class="required">*</span></label>
+                  <input type="text" id="digit-name" class="form-input" placeholder="Ex : Sarah Touré" required>
+                </div>
+                <div class="form-group">
+                  <label for="digit-whatsapp" class="form-label">Numéro WhatsApp (avec indicatif) <span class="required">*</span></label>
+                  <input type="tel" id="digit-whatsapp" class="form-input" placeholder="Ex : +225 07 77 95 73 37" required>
+                </div>
+              </div>
+
+              <!-- Email & Message (facultatifs) -->
+              <div class="form-group">
+                <label for="digit-email" class="form-label">Adresse e-mail (facultatif)</label>
+                <input type="email" id="digit-email" class="form-input" placeholder="Ex : sarah@monentreprise.com">
+              </div>
+
+              <div class="form-group">
+                <label for="digit-notes" class="form-label">Message complémentaire (facultatif)</label>
+                <textarea id="digit-notes" class="form-textarea" rows="3" placeholder="Un mot pour notre équipe ou une information supplémentaire..."></textarea>
+              </div>
+
+              <!-- Action bar Page 3 -->
+              <div class="step-actions-bar" style="margin-top: 24px;">
+                <button type="button" class="btn-subtle-slim" onclick="goToDigitSubpage(2)">
+                  ← Retour
+                </button>
+                <button type="submit" class="btn-submit-slim">
+                  <span>Envoyer ma demande</span>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.044.072.044.419-.1.824z"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </form>
       </div>
 
-      <!-- =============================================================== -->
       <!-- QUESTIONNAIRE 2 : LANCER UN PROJET                              -->
       <!-- =============================================================== -->
       <div class="catalog-step-pane" id="pane-lancer-projet">
@@ -2274,13 +2623,47 @@
 
     // Quiz selections
     const quizSelections = {
-      'digit-sector': '',
-      'digit-needs': new Set(),
-      'digit-blocker': '',
+      'digit-q1': '',
+      'digit-q2': '',
+      'digit-q3': new Set(),
+      'digit-q4': '',
+      'digit-q5': '',
+      'digit-q6': '',
       'lancer-stage': '',
       'lancer-needs': new Set(),
       'lancer-timeline': ''
     };
+
+    let currentDigitSubpage = 1;
+
+    function goToDigitSubpage(pageNum) {
+      currentDigitSubpage = pageNum;
+      document.querySelectorAll('#pane-digitaliser .digit-subpage').forEach(page => {
+        page.classList.remove('is-active');
+        page.style.display = 'none';
+      });
+
+      const targetPage = document.getElementById(`digit-subpage-${pageNum}`);
+      if (targetPage) {
+        targetPage.style.display = 'block';
+        setTimeout(() => {
+          targetPage.classList.add('is-active');
+        }, 10);
+      }
+
+      if (pageNum === 3) {
+        renderDigitRecap();
+      }
+
+      updateTopBackButton('digitaliser');
+
+      const pane = document.getElementById('pane-digitaliser');
+      if (pane) {
+        const paneRect = pane.getBoundingClientRect();
+        const scrollTop = window.pageYOffset + paneRect.top - 70;
+        window.scrollTo({ top: Math.max(0, scrollTop), behavior: 'smooth' });
+      }
+    }
 
     function selectRadioCard(element, groupKey, value) {
       const parent = element.closest('.quiz-options-grid');
@@ -2289,9 +2672,27 @@
       }
       element.classList.add('is-selected');
       quizSelections[groupKey] = value;
+
+      const group = element.closest('.quiz-block-group');
+      if (group) {
+        const otherField = group.querySelector('.quiz-other-field');
+        if (otherField) {
+          if (value === 'Autre') {
+            otherField.style.display = 'block';
+            const inp = otherField.querySelector('input');
+            if (inp) inp.focus();
+          } else {
+            otherField.style.display = 'none';
+          }
+        }
+      }
     }
 
     function toggleMultiCard(element, groupKey, value) {
+      if (!quizSelections[groupKey]) {
+        quizSelections[groupKey] = new Set();
+      }
+
       if (quizSelections[groupKey].has(value)) {
         quizSelections[groupKey].delete(value);
         element.classList.remove('is-selected');
@@ -2299,8 +2700,79 @@
         quizSelections[groupKey].add(value);
         element.classList.add('is-selected');
       }
+
+      if (value === 'Autre') {
+        const isSelected = element.classList.contains('is-selected');
+        const group = element.closest('.quiz-block-group');
+        if (group) {
+          const otherField = group.querySelector('.quiz-other-field');
+          if (otherField) {
+            otherField.style.display = isSelected ? 'block' : 'none';
+            if (isSelected) {
+              const inp = otherField.querySelector('input');
+              if (inp) inp.focus();
+            }
+          }
+        }
+      }
     }
 
+    function renderDigitRecap() {
+      const grid = document.getElementById('digit-recap-grid');
+      if (!grid) return;
+
+      const getAnswer = (groupKey, otherId) => {
+        const val = quizSelections[groupKey];
+        if (val === 'Autre') {
+          const otherInp = document.getElementById(otherId);
+          const customTxt = otherInp ? otherInp.value.trim() : '';
+          return customTxt ? `Autre : ${customTxt}` : 'Autre (non précisé)';
+        }
+        return val || 'Non renseigné';
+      };
+
+      const getMultiAnswer = (groupKey, otherId) => {
+        const list = Array.from(quizSelections[groupKey] || []);
+        if (list.length === 0) return 'Non renseigné';
+        const items = list.map(item => {
+          if (item === 'Autre') {
+            const otherInp = document.getElementById(otherId);
+            const customTxt = otherInp ? otherInp.value.trim() : '';
+            return customTxt ? `Autre : ${customTxt}` : 'Autre';
+          }
+          return item;
+        });
+        return items.join(' • ');
+      };
+
+      const questionsData = [
+        { label: "1. Type d'activité / secteur", val: getAnswer('digit-q1', 'digit-q1-other-val') },
+        { label: "2. Stade actuel & ambition", val: getAnswer('digit-q2', 'digit-q2-other-val') },
+        { label: "3. Leviers prioritaires", val: getMultiAnswer('digit-q3', 'digit-q3-other-val') },
+        { label: "4. Présence digitale actuelle", val: getAnswer('digit-q4', 'digit-q4-other-val') },
+        { label: "5. Blocage majeur", val: getAnswer('digit-q5', 'digit-q5-other-val') },
+        { label: "6. Défi prioritaire pour grandir", val: getAnswer('digit-q6', 'digit-q6-other-val') }
+      ];
+
+      grid.innerHTML = questionsData.map(q => `
+        <div class="recap-item-box">
+          <div class="recap-item-label">${q.label}</div>
+          <div class="recap-item-val">${q.val}</div>
+        </div>
+      `).join('');
+
+      const freeText = (document.getElementById('digit-free-text')?.value || '').trim();
+      const freeWrap = document.getElementById('digit-recap-freetext-wrap');
+      const freeVal = document.getElementById('digit-recap-freetext-val');
+      if (freeWrap && freeVal) {
+        if (freeText) {
+          freeWrap.style.display = 'block';
+          freeVal.textContent = freeText;
+        } else {
+          freeWrap.style.display = 'none';
+        }
+      }
+    }
     // Initialisation
     document.addEventListener('DOMContentLoaded', () => {
       renderFamilies();
@@ -2327,7 +2799,15 @@
 
       if (view === 'home') {
         backText.textContent = "Retour au site";
-      } else if (view === 'service-1' || view === 'digitaliser' || view === 'lancer') {
+      } else if (view === 'digitaliser') {
+        if (currentDigitSubpage === 1) {
+          backText.textContent = "Changer d'objectif";
+        } else if (currentDigitSubpage === 2) {
+          backText.textContent = "Retour aux questions";
+        } else if (currentDigitSubpage === 3) {
+          backText.textContent = "Retour à l'écriture libre";
+        }
+      } else if (view === 'service-1' || view === 'lancer') {
         backText.textContent = "Changer d'objectif";
       } else if (view === 'service-2') {
         backText.textContent = "Changer de domaine";
@@ -2341,7 +2821,15 @@
     function handleTopBack() {
       if (currentView === 'home') {
         window.location.href = 'index.html';
-      } else if (currentView === 'service-1' || currentView === 'digitaliser' || currentView === 'lancer') {
+      } else if (currentView === 'digitaliser') {
+        if (currentDigitSubpage === 3) {
+          goToDigitSubpage(2);
+        } else if (currentDigitSubpage === 2) {
+          goToDigitSubpage(1);
+        } else {
+          selectIntention('home');
+        }
+      } else if (currentView === 'service-1' || currentView === 'lancer') {
         selectIntention('home');
       } else if (currentView === 'service-2') {
         goToStep(1);
@@ -2363,6 +2851,7 @@
       } else if (type === 'digitaliser') {
         const pane = document.getElementById('pane-digitaliser');
         if (pane) pane.classList.add('is-active');
+        goToDigitSubpage(1);
         updateTopBackButton('digitaliser');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (type === 'lancer') {
@@ -2724,46 +3213,91 @@
 
       const name = document.getElementById('digit-name').value.trim();
       const whatsapp = document.getElementById('digit-whatsapp').value.trim();
-      const business = document.getElementById('digit-business').value.trim();
-      const email = document.getElementById('digit-email').value.trim();
-      const notes = document.getElementById('digit-notes').value.trim();
-      const sectorOther = document.getElementById('digit-sector-other').value.trim();
-      const needsOther = document.getElementById('digit-needs-other').value.trim();
+      const budget = (document.getElementById('digit-budget')?.value || '').trim();
+      const timeline = (document.getElementById('digit-timeline')?.value || '').trim();
+      const email = (document.getElementById('digit-email')?.value || '').trim();
+      const notes = (document.getElementById('digit-notes')?.value || '').trim();
+      const freeText = (document.getElementById('digit-free-text')?.value || '').trim();
 
-      if (!name || !whatsapp || !business || !email) {
-        alert("Veuillez renseigner votre nom, votre numéro WhatsApp, le nom de votre entreprise et votre adresse email.");
+      if (!name || !whatsapp) {
+        alert("Veuillez renseigner votre nom complet et votre numéro WhatsApp.");
         return;
       }
 
-      const sector = sectorOther || quizSelections['digit-sector'] || "Non spécifié";
-      let needsList = Array.from(quizSelections['digit-needs']);
-      if (needsOther) needsList.push(needsOther);
-      const needsText = needsList.length > 0 ? needsList.map(n => `• ${n}`).join("\n") : "• Digitalisation globale de l'activité";
-      const blocker = quizSelections['digit-blocker'] || "Non spécifié";
+      const getAnswer = (groupKey, otherId) => {
+        const val = quizSelections[groupKey];
+        if (val === 'Autre') {
+          const otherInp = document.getElementById(otherId);
+          const customTxt = otherInp ? otherInp.value.trim() : '';
+          return customTxt ? `Autre : ${customTxt}` : 'Autre (non précisé)';
+        }
+        return val || 'Non renseigné';
+      };
 
-      const message = 
-`Bonjour Moouvy agence,
+      const getMultiAnswer = (groupKey, otherId) => {
+        const list = Array.from(quizSelections[groupKey] || []);
+        if (list.length === 0) return 'Non renseigné';
+        const items = list.map(item => {
+          if (item === 'Autre') {
+            const otherInp = document.getElementById(otherId);
+            const customTxt = otherInp ? otherInp.value.trim() : '';
+            return customTxt ? `Autre : ${customTxt}` : 'Autre';
+          }
+          return item;
+        });
+        return items.join(', ');
+      };
 
-Je souhaite digitaliser mon entreprise. Voici mes réponses au questionnaire :
+      const q1 = getAnswer('digit-q1', 'digit-q1-other-val');
+      const q2 = getAnswer('digit-q2', 'digit-q2-other-val');
+      const q3 = getMultiAnswer('digit-q3', 'digit-q3-other-val');
+      const q4 = getAnswer('digit-q4', 'digit-q4-other-val');
+      const q5 = getAnswer('digit-q5', 'digit-q5-other-val');
+      const q6 = getAnswer('digit-q6', 'digit-q6-other-val');
 
-👤 INFORMATIONS CLIENT :
-- Nom : ${name}
-- WhatsApp : ${whatsapp}
-- Entreprise : ${business}
-- Email : ${email}
+      let msg = `*NOUVELLE DEMANDE : DIGITALISATION D'ENTREPRISE*\n`;
+      msg += `------------------------------------\n`;
+      msg += `👤 *Nom complet :* ${name}\n`;
+      msg += `📱 *Numéro WhatsApp :* ${whatsapp}\n`;
+      if (email) msg += `📧 *E-mail :* ${email}\n`;
+      if (budget) msg += `💰 *Budget envisagé :* ${budget}\n`;
+      if (timeline) msg += `⏱️ *Délai souhaité :* ${timeline}\n\n`;
 
-🏢 PROFIL & ACTIVITÉ :
-- Secteur d'activité : ${sector}
-- Défi / Blocage majeur : ${blocker}
+      msg += `📋 *QUESTIONNAIRE DIGITALISATION :*\n`;
+      msg += `1️⃣ *Activité / Secteur :* ${q1}\n`;
+      msg += `2️⃣ *Stade & Ambition :* ${q2}\n`;
+      msg += `3️⃣ *Leviers prioritaires :* ${q3}\n`;
+      msg += `4️⃣ *Présence actuelle :* ${q4}\n`;
+      msg += `5️⃣ *Blocage majeur :* ${q5}\n`;
+      msg += `6️⃣ *Défi prioritaire :* ${q6}\n\n`;
 
-🎯 LEVIERS PRIORITAIRES DE DIGITALISATION :
-${needsText}${notes ? `\n\n💬 Précisions sur mes attentes :\n${notes}` : ''}
+      if (freeText) {
+        msg += `✍️ *Autre chose à nous dire :*\n${freeText}\n\n`;
+      }
 
-Merci de me recontacter pour échanger sur la digitalisation de mon entreprise.`;
+      if (notes) {
+        msg += `💬 *Message complémentaire :*\n${notes}\n`;
+      }
 
-      sendToWhatsAppAndConfirm(message);
+      const encodedMsg = encodeURIComponent(msg);
+      const whatsappUrl = `https://wa.me/2250777957337?text=${encodedMsg}`;
+
+      // Configurer le lien WhatsApp dans l'écran de confirmation
+      const finalBtn = document.getElementById('final-whatsapp-button');
+      if (finalBtn) {
+        finalBtn.href = whatsappUrl;
+      }
+
+      // Tenter d'ouvrir WhatsApp
+      window.open(whatsappUrl, '_blank');
+
+      // Afficher l'écran de confirmation avec le message demandé
+      hideAllPanes();
+      const confPane = document.getElementById('confirmation-pane');
+      if (confPane) confPane.style.display = 'block';
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
     // Soumission du questionnaire : Lancer un projet
     function handleLancerSubmit(e) {
       e.preventDefault();
